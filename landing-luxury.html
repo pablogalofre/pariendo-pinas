@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pariendo Piñas — Tropical Luxury</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --cream:#efe5d0;
+  --green:#062f24;
+  --gold:#c89b3c;
+  --soft:#f6f1e7;
+  --dark:#071f18;
+  --paper:#f7f2e8;
+  --muted:#6e6a63;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--soft);
+  color:#111;
+  overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  position:relative;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.06) 42%, rgba(239,229,208,.42) 58%, rgba(239,229,208,.95) 100%),
+    url('./images/login-luxury.png');
+  background-size:cover;
+  background-position:center center;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:56px 8%;
+}
+
+.hero-login{
+  width:100%;
+  max-width:430px;
+  background:rgba(247,242,232,.93);
+  border:1px solid rgba(6,47,36,.08);
+  border-radius:34px;
+  padding:40px 38px;
+  box-shadow:0 30px 90px rgba(0,0,0,.18);
+  backdrop-filter:blur(8px);
+}
+
+.diamond{
+  width:22px;
+  height:22px;
+  background:var(--gold);
+  transform:rotate(45deg);
+  margin:0 auto 34px;
+}
+
+.panel-title{
+  text-align:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:44px;
+  color:var(--green);
+  margin-bottom:10px;
+  font-weight:500;
+}
+
+.panel-sub{
+  text-align:center;
+  letter-spacing:7px;
+  color:var(--gold);
+  font-size:12px;
+  margin-bottom:34px;
+}
+
+.panel-text{
+  text-align:center;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:32px;
+}
+
+.input-group{margin-bottom:18px}
+
+.input-group label{
+  display:block;
+  margin-bottom:8px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.input-group input{
+  width:100%;
+  height:52px;
+  border-radius:18px;
+  border:1px solid #ddd3c2;
+  background:white;
+  padding:0 20px;
+  font-size:16px;
+  outline:none;
+}
+
+.login-btn{
+  width:100%;
+  height:54px;
+  border:none;
+  border-radius:999px;
+  margin-top:12px;
+  background:linear-gradient(90deg,#063f2e,#03261c);
+  color:white;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.login-btn:hover{transform:translateY(-2px)}
+
+.credentials{
+  margin-top:28px;
+  text-align:center;
+  color:#8f8677;
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* MANIFESTO */
+.manifesto{
+  padding:115px 10%;
+  background:#f8f4eb;
+  text-align:center;
+}
+
+.section-kicker{
+  color:var(--gold);
+  letter-spacing:7px;
+  font-size:12px;
+  margin-bottom:24px;
+  text-align:center;
+}
+
+.manifesto h2,
+.drops h2,
+.join h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:68px;
+  line-height:1;
+  color:var(--green);
+  font-weight:400;
+  margin-bottom:28px;
+}
+
+.manifesto p{
+  max-width:720px;
+  margin:auto;
+  font-size:21px;
+  line-height:1.8;
+  color:#6a655d;
+}
+
+.manifesto-grid{
+  margin-top:70px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.manifesto-card{
+  background:white;
+  border-radius:30px;
+  padding:42px 28px;
+  box-shadow:0 20px 40px rgba(0,0,0,.05);
+}
+
+.manifesto-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;
+  color:var(--green);
+  margin-bottom:12px;
+  font-weight:400;
+}
+
+.manifesto-card p{
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* DROPS */
+.drops{
+  padding:115px 8%;
+  background:#f6f1e7;
+}
+
+.drops h2,
+.join h2{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.drops-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.drop-card{
+  min-height:380px;
+  border-radius:34px;
+  padding:34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+  position:relative;
+  color:white;
+  box-shadow:0 24px 60px rgba(0,0,0,.08);
+  background-color:#123d2f;
+  background-size:cover;
+  background-position:center;
+}
+
+.drop-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.10),rgba(0,0,0,.64));
+  z-index:1;
+}
+
+.drop-card > *{
+  position:relative;
+  z-index:2;
+}
+
+.drop-card span{
+  color:#f3d38b;
+  letter-spacing:4px;
+  font-size:12px;
+}
+
+.drop-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;
+  font-weight:400;
+  line-height:1;
+}
+
+.drop-card p{
+  line-height:1.6;
+  color:#f7ead1;
+}
+
+.drop-1{
+  background-image:
+    linear-gradient(135deg,rgba(255,196,70,.12),rgba(0,0,0,.12)),
+    url('./images/drop-produce.png');
+}
+
+.drop-2{
+  background-image:
+    linear-gradient(135deg,rgba(255,196,70,.12),rgba(0,0,0,.12)),
+    url('./images/drop-jam.png');
+}
+
+.drop-3{
+  background-image:
+    linear-gradient(135deg,rgba(255,196,70,.12),rgba(0,0,0,.12)),
+    url('./images/drop-beachwear.png');
+}
+
+.drop-4{
+  background-image:
+    linear-gradient(135deg,rgba(255,196,70,.12),rgba(0,0,0,.12)),
+    url('./images/drop-objects.png');
+}
+
+/* JOIN */
+.join{
+  padding:110px 10%;
+  background:#efe5d0;
+  text-align:center;
+}
+
+.join p{
+  color:#6e6a63;
+  font-size:18px;
+  margin-top:-42px;
+  margin-bottom:38px;
+}
+
+.join-form{
+  max-width:560px;
+  margin:auto;
+  display:flex;
+  gap:12px;
+}
+
+.join-form input{
+  flex:1;
+  height:58px;
+  border-radius:999px;
+  border:1px solid #d7cbb8;
+  padding:0 24px;
+  font-size:16px;
+  background:#fffaf0;
+}
+
+.join-form button{
+  height:58px;
+  padding:0 34px;
+  border:0;
+  border-radius:999px;
+  background:var(--green);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+  padding:80px 10%;
+  background:var(--green);
+  color:white;
+  text-align:center;
+}
+
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:58px;
+  margin-bottom:15px;
+}
+
+.footer p{
+  color:#d6c8a7;
+  letter-spacing:5px;
+  font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .hero{
+    min-height:100vh;
+    justify-content:center;
+    padding:44px 24px;
+    background:
+      linear-gradient(rgba(239,229,208,.36), rgba(239,229,208,.82)),
+      url('./images/login-luxury.png');
+    background-size:cover;
+    background-position:center;
+  }
+
+  .manifesto-grid,
+  .drops-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:700px){
+  .hero{
+    padding:36px 20px;
+  }
+
+  .hero-login{
+    padding:34px 26px;
+    border-radius:28px;
+  }
+
+  .panel-title{
+    font-size:40px;
+  }
+
+  .panel-sub{
+    letter-spacing:5px;
+  }
+
+  .manifesto,
+  .drops,
+  .join{
+    padding:78px 24px;
+  }
+
+  .manifesto h2,
+  .drops h2,
+  .join h2{
+    font-size:46px;
+  }
+
+  .manifesto p{
+    font-size:18px;
+  }
+
+  .manifesto-grid,
+  .drops-grid{
+    grid-template-columns:1fr;
+  }
+
+  .join-form{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+  <div class="hero-login">
+    <div class="diamond"></div>
+
+    <div class="panel-title">Acceso privado</div>
+
+    <div class="panel-sub">BRAND COMMAND CENTER</div>
+
+    <div class="panel-text">
+      Operación interna para compras, ventas, drops y expansión global de marca.
+    </div>
+
+    <div class="input-group">
+      <label>Usuario</label>
+      <input type="text" placeholder="pablo o andres">
+    </div>
+
+    <div class="input-group">
+      <label>Contraseña</label>
+      <input type="password" placeholder="••••••••">
+    </div>
+
+    <button class="login-btn" onclick="window.location.href='index.html'">
+      Entrar al dashboard
+    </button>
+
+    <div class="credentials">
+      acceso inicial:<br>
+      pablo / pariendo2026<br>
+      andres / pariendo2026
+    </div>
+  </div>
+
+</section>
+
+<section class="manifesto">
+
+  <div class="section-kicker">TROPICAL HOUSE</div>
+
+  <h2>Produce. Objects. Culture.</h2>
+
+  <p>
+    A tropical house in construction.
+  </p>
+
+  <div class="manifesto-grid">
+
+    <div class="manifesto-card">
+      <h3>Produce</h3>
+      <p>Piña fresca premium y lotes comerciales.</p>
+    </div>
+
+    <div class="manifesto-card">
+      <h3>Gourmet</h3>
+      <p>Mermeladas, salsas y derivados tropicales.</p>
+    </div>
+
+    <div class="manifesto-card">
+      <h3>Lifestyle</h3>
+      <p>Beachwear, accesorios y productos de marca.</p>
+    </div>
+
+    <div class="manifesto-card">
+      <h3>Experiences</h3>
+      <p>Activaciones, pop stores y comunidad.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="drops">
+
+  <div class="section-kicker">FIRST TROPICAL DROPS</div>
+
+  <h2>Objects for a warmer life.</h2>
+
+  <div class="drops-grid">
+
+    <div class="drop-card drop-1">
+      <span>01</span>
+      <div>
+        <h3>Piña Premium</h3>
+        <p>Fresh produce as a luxury ritual.</p>
+      </div>
+    </div>
+
+    <div class="drop-card drop-2">
+      <span>02</span>
+      <div>
+        <h3>Tropical Jam</h3>
+        <p>Small batches. Golden mornings.</p>
+      </div>
+    </div>
+
+    <div class="drop-card drop-3">
+      <span>03</span>
+      <div>
+        <h3>Beachwear</h3>
+        <p>Clothes made for sun, salt and attitude.</p>
+      </div>
+    </div>
+
+    <div class="drop-card drop-4">
+      <span>04</span>
+      <div>
+        <h3>Summer Objects</h3>
+        <p>Things that feel like vacation.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="join">
+
+  <div class="section-kicker">PRIVATE ACCESS</div>
+
+  <h2>Join the tropical list.</h2>
+
+  <p>Early drops, pop stores and private releases.</p>
+
+  <div class="join-form">
+    <input type="email" placeholder="your@email.com">
+    <button>Join</button>
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <div class="footer-logo">Pariendo Piñas</div>
+
+  <p>TROPICAL LUXURY FROM COLOMBIA</p>
+
+</footer>
+
+</body>
+</html>
