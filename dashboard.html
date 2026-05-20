@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Pariendo Piñas — Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#efe5d0;
+  font-family:'Inter',sans-serif;
+  color:#173328;
+}
+
+.topbar{
+  width:100%;
+  padding:28px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#01281f;
+}
+
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;
+  color:#efe5d0;
+  letter-spacing:4px;
+}
+
+.menu{
+  display:flex;
+  gap:30px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#d7ab47;
+  font-size:14px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.hero{
+  width:100%;
+  padding:70px;
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px;
+  line-height:0.95;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:700px;
+  line-height:1.7;
+  color:#41534d;
+}
+
+.cards{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+  padding:0 70px 70px;
+}
+
+.card{
+  height:520px;
+  border-radius:40px;
+  overflow:hidden;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:flex-end;
+  padding:35px;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.15));
+}
+
+.card-content{
+  position:relative;
+  z-index:2;
+}
+
+.card-number{
+  color:#d7ab47;
+  margin-bottom:15px;
+  letter-spacing:4px;
+  font-size:13px;
+}
+
+.card h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;
+  line-height:0.95;
+  color:white;
+  margin-bottom:12px;
+}
+
+.card p{
+  color:white;
+  font-size:16px;
+  line-height:1.6;
+}
+
+.footer{
+  padding:50px;
+  text-align:center;
+  color:#6a726f;
+  font-size:13px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+@media(max-width:1200px){
+
+.cards{
+  grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+  padding:40px 25px;
+}
+
+.hero h1{
+  font-size:52px;
+}
+
+.cards{
+  grid-template-columns:1fr;
+  padding:25px;
+}
+
+.topbar{
+  flex-direction:column;
+  gap:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+
+<div class="logo">
+PARIENDO PIÑAS
+</div>
+
+<div class="menu">
+<a href="#">Produce</a>
+<a href="#">Beachwear</a>
+<a href="#">Objects</a>
+<a href="#">Investors</a>
+</div>
+
+</div>
+
+<section class="hero">
+
+<h1>
+Luxury<br>
+Tropical<br>
+Operations
+</h1>
+
+<p>
+Private internal dashboard for brand development, drops, sourcing,
+supplier management, tropical products, expansion strategy and luxury
+commerce.
+</p>
+
+</section>
+
+<section class="cards">
+
+<div class="card" style="background-image:url('./images/drop-produce.png')">
+
+<div class="card-content">
+<div class="card-number">01</div>
+<h2>Piña<br>Premium</h2>
+<p>Fresh produce as a luxury ritual.</p>
+</div>
+
+</div>
+
+<div class="card" style="background-image:url('./images/drop-jam.png')">
+
+<div class="card-content">
+<div class="card-number">02</div>
+<h2>Tropical<br>Jam</h2>
+<p>Small batches. Golden mornings.</p>
+</div>
+
+</div>
+
+<div class="card" style="background-image:url('./images/drop-beachwear.png')">
+
+<div class="card-content">
+<div class="card-number">03</div>
+<h2>Beachwear</h2>
+<p>Clothes made for sun, salt and attitude.</p>
+</div>
+
+</div>
+
+<div class="card" style="background-image:url('./images/drop-objects.png')">
+
+<div class="card-content">
+<div class="card-number">04</div>
+<h2>Summer<br>Objects</h2>
+<p>Things that feel like vacation.</p>
+</div>
+
+</div>
+
+</section>
+
+<div class="footer">
+PARIENDO PIÑAS · TROPICAL LUXURY FROM COLOMBIA
+</div>
+
+</body>
+</html>
