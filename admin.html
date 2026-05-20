@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pariendo Pi├▒as OS</title>
+<title>Pariendo Piñas OS</title>
 
 <style>
   .calc-box{
@@ -34,6 +34,53 @@
   font-size:24px;
   color:var(--green);
   font-weight:500;
+}
+
+
+.roadmap{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
+}
+.phase{
+  background:rgba(255,250,240,.88);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:var(--shadow);
+}
+.phase small{
+  display:block;
+  color:var(--gold);
+  letter-spacing:3px;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  margin-bottom:16px;
+}
+.phase strong{
+  display:block;
+  font-size:25px;
+  color:var(--green);
+  margin-bottom:12px;
+}
+.phase span{
+  display:block;
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+.vision-panel{
+  background:rgba(8,41,31,.96);
+  color:var(--cream);
+  border-radius:var(--radius);
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+.vision-panel p{
+  font-family:Arial,sans-serif;
+  line-height:1.7;
+  color:rgba(246,236,216,.82);
 }
 
 @media(max-width:1100px){
@@ -165,6 +212,9 @@ input,textarea,select{
 
 .btn.full{width:100%;margin-top:8px}
 .btn.gold{background:var(--gold)}
+.btn.outline{background:transparent;color:var(--green);border:1px solid var(--line)}
+.action-row{display:flex;gap:12px;flex-wrap:wrap}
+
 
 .login-note{
   margin-top:22px;
@@ -349,7 +399,21 @@ h2{
 }
 
 .panel{
-    .luxury-manifesto{
+  background:rgba(255,250,240,.88);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+  margin-bottom:24px;
+}
+
+.panel h3{
+  font-size:26px;
+  font-weight:400;
+  margin-bottom:20px;
+}
+
+.luxury-manifesto{
   background:transparent;
   border:none;
   box-shadow:none;
@@ -380,29 +444,56 @@ h2{
   max-width:520px;
 }
 
-@media(max-width:1100px){
 
-  .luxury-manifesto h3{
-    font-size:42px;
-  }
-
-  .manifesto-text{
-    font-size:18px;
-  }
-
+.roadmap{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
 }
+.phase{
   background:rgba(255,250,240,.88);
   border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:28px;
+  padding:24px;
   box-shadow:var(--shadow);
-  margin-bottom:24px;
+}
+.phase small{
+  display:block;
+  color:var(--gold);
+  letter-spacing:3px;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  margin-bottom:16px;
+}
+.phase strong{
+  display:block;
+  font-size:25px;
+  color:var(--green);
+  margin-bottom:12px;
+}
+.phase span{
+  display:block;
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+.vision-panel{
+  background:rgba(8,41,31,.96);
+  color:var(--cream);
+  border-radius:var(--radius);
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+.vision-panel p{
+  font-family:Arial,sans-serif;
+  line-height:1.7;
+  color:rgba(246,236,216,.82);
 }
 
-.panel h3{
-  font-size:26px;
-  font-weight:400;
-  margin-bottom:20px;
+@media(max-width:1100px){
+  .luxury-manifesto h3{font-size:42px}
+  .manifesto-text{font-size:18px}
 }
 
 .grid{
@@ -438,6 +529,53 @@ th{
   letter-spacing:1px;
 }
 
+
+.roadmap{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
+}
+.phase{
+  background:rgba(255,250,240,.88);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:var(--shadow);
+}
+.phase small{
+  display:block;
+  color:var(--gold);
+  letter-spacing:3px;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  margin-bottom:16px;
+}
+.phase strong{
+  display:block;
+  font-size:25px;
+  color:var(--green);
+  margin-bottom:12px;
+}
+.phase span{
+  display:block;
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+.vision-panel{
+  background:rgba(8,41,31,.96);
+  color:var(--cream);
+  border-radius:var(--radius);
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+.vision-panel p{
+  font-family:Arial,sans-serif;
+  line-height:1.7;
+  color:rgba(246,236,216,.82);
+}
+
 @media(max-width:1100px){
   .login-screen{grid-template-columns:1fr}
   .login-hero{
@@ -455,7 +593,7 @@ th{
   }
   .app{grid-template-columns:1fr}
   .sidebar{min-height:auto;gap:28px}
-  .cards,.grid,.row{grid-template-columns:1fr}
+  .cards,.grid,.row,.roadmap,.calc-box{grid-template-columns:1fr}
   main{padding:24px}
   h2{font-size:34px}
 }
@@ -473,22 +611,22 @@ th{
 
       <h1>Acceso privado</h1>
       <h2>BRAND COMMAND CENTER</h2>
-      <p>Operaci├│n, compras, ventas, proveedores, caja y expansi├│n de marca.</p>
+      <p>Operacion, compras, ventas, proveedores, caja y expansión de marca.</p>
 
       <label>Usuario</label>
       <input id="loginUser" type="text" placeholder="pablo o andres">
 
-      <label>Contrase├▒a</label>
-      <input id="loginPass" type="password" placeholder="Contrase├▒a">
+      <label>Contraseña</label>
+      <input id="loginPass" type="password" placeholder="Contraseña">
 
       <button class="btn full" onclick="login()">Entrar al dashboard</button>
 
       <div class="login-note">
-        Acceso inicial: pablo / pariendo2026 ┬À andres / pariendo2026
+        Acceso inicial: pablo / pariendo2026 · andres / pariendo2026
       </div>
 
       <div id="loginError" class="login-error">
-        Usuario o contrase├▒a incorrectos.
+        Usuario o contraseña incorrectos.
       </div>
     </div>
   </div>
@@ -500,8 +638,8 @@ th{
   <div>
     <div class="brand">
       <div class="logo"></div>
-      <h1>PARIENDO<br>PI├æAS</h1>
-      <small>OS ┬À 2026</small>
+      <h1>PARIENDO<br>PIÑAS</h1>
+      <small>OS · 2026</small>
     </div>
 
     <div class="user-box">
@@ -514,7 +652,7 @@ th{
       <button onclick="showView('proveedores',this)">Proveedores</button>
       <button onclick="showView('compras',this)">Compras</button>
       <button onclick="showView('ventas',this)">Ventas</button>
-      <button onclick="showView('historico',this)">Hist├│rico</button>
+      <button onclick="showView('historico',this)">Historico</button>
       <button onclick="showView('caja',this)">Caja</button>
       <button onclick="showView('roadmap',this)">Roadmap</button>
     </nav>
@@ -523,9 +661,9 @@ th{
   <div>
     <div class="sidebar-footer">
       LUJO TROPICAL<br>
-      MARCA EN OPERACI├ôN
+      MARCA EN OPERACIÓN
     </div>
-    <button class="btn logout" onclick="logout()">Cerrar sesi├│n</button>
+    <button class="btn logout" onclick="logout()">Cerrar sesión</button>
   </div>
 </aside>
 
@@ -534,7 +672,7 @@ th{
 <section id="dashboard" class="view active">
   <div class="topbar">
     <div>
-      <div class="kicker">PARIENDO PI├æAS OS</div>
+      <div class="kicker">PARIENDO PIÑAS OS</div>
       <h2>Brand Command Center</h2>
       <p class="subtitle">Sistema interno para operar ventas reales mientras construimos una marca tropical global.</p>
     </div>
@@ -555,7 +693,7 @@ th{
  <div class="panel luxury-manifesto">
 
   <div class="manifesto-kicker">
-    EST. 2026 ┬À COLOMBIA
+    EST. 2026 · COLOMBIA
   </div>
 
   <h3>
@@ -571,14 +709,14 @@ th{
 </div>
 
   <div class="panel">
-    <h3>├Ültimas ventas</h3>
+    <h3>Últimas ventas</h3>
     <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th>Fecha</th>
           <th>Cliente</th>
-          <th>Categor├¡a</th>
+          <th>Categoría</th>
           <th>Producto</th>
           <th>Cantidad</th>
           <th>Total</th>
@@ -604,14 +742,14 @@ th{
       <h3>Nuevo proveedor</h3>
 
       <div class="row">
-        <label>Nombre / Raz├│n social<input id="provNombre" type="text"></label>
-        <label>NIT / C├®dula<input id="provNit" type="text"></label>
+        <label>Nombre / Razón social<input id="provNombre" type="text"></label>
+        <label>NIT / Cédula<input id="provNit" type="text"></label>
       </div>
 
       <div class="row">
         <label>Tipo de proveedor
           <select id="provTipo">
-            <option>Productor agr├¡cola</option>
+            <option>Productor agrícola</option>
             <option>Fabricante</option>
             <option>Taller de ropa</option>
             <option>Proveedor de insumos</option>
@@ -624,8 +762,8 @@ th{
       </div>
 
       <div class="row">
-        <label>Direcci├│n<input id="provDireccion" type="text"></label>
-        <label>Tel├®fono<input id="provTelefono" type="text"></label>
+        <label>Dirección<input id="provDireccion" type="text"></label>
+        <label>Teléfono<input id="provTelefono" type="text"></label>
       </div>
 
       <div class="row">
@@ -660,18 +798,18 @@ th{
   <div class="panel">
     <div class="row">
       <label>Proveedor<input id="compProveedor" type="text" placeholder="Ej: Maravelez, taller, fabricante..."></label>
-      <label>N├║mero de factura<input id="compFactura" type="text"></label>
+      <label>Número de factura<input id="compFactura" type="text"></label>
     </div>
 
     <div class="row">
-      <label>Categor├¡a
+      <label>Categoría
         <select id="compCategoria">
-          <option>Pi├▒a fresca</option>
+          <option>Piña fresca</option>
           <option>Mermeladas</option>
           <option>Salsas</option>
           <option>Jugos</option>
           <option>Ropa</option>
-          <option>Vestidos de ba├▒o</option>
+          <option>Vestidos de baño</option>
           <option>Bloqueadores</option>
           <option>Experiencias</option>
           <option>Insumos</option>
@@ -717,7 +855,7 @@ th{
   <div class="panel">
     <div class="row">
       <label>Cliente<input id="ventaCliente" type="text"></label>
-      <label>N├║mero de factura<input id="ventaFactura" type="text"></label>
+      <label>Número de factura<input id="ventaFactura" type="text"></label>
     </div>
 
     <div class="row">
@@ -727,19 +865,19 @@ th{
           <option>Online</option>
           <option>WhatsApp</option>
           <option>Marketplace</option>
-          <option>Tienda f├¡sica</option>
+          <option>Tienda física</option>
           <option>Mayorista</option>
           <option>Otro</option>
         </select>
       </label>
-      <label>Categor├¡a
+      <label>Categoría
         <select id="ventaCategoria">
-          <option>Pi├▒a fresca</option>
+          <option>Piña fresca</option>
           <option>Mermeladas</option>
           <option>Salsas</option>
           <option>Jugos</option>
           <option>Ropa</option>
-          <option>Vestidos de ba├▒o</option>
+          <option>Vestidos de baño</option>
           <option>Bloqueadores</option>
           <option>Experiencias</option>
           <option>Otros</option>
@@ -768,7 +906,7 @@ th{
     </div>
 
     <div class="row">
-      <label>Retenci├│n / descuento<input id="ventaRetencion" type="number" placeholder="0"></label>
+      <label>Retención / descuento<input id="ventaRetencion" type="number" placeholder="0"></label>
       <label>Anticipo recibido<input id="ventaAnticipo" type="number" placeholder="0"></label>
     </div>
 
@@ -778,7 +916,7 @@ th{
     </div>
 <div class="calc-box">
   <div><span>Subtotal</span><strong id="calcSubtotal">$0</strong></div>
-  <div><span>Retenci├│n / descuento</span><strong id="calcRetencion">$0</strong></div>
+  <div><span>Retención / descuento</span><strong id="calcRetencion">$0</strong></div>
   <div><span>Total venta</span><strong id="calcTotal">$0</strong></div>
   <div><span>Pendiente</span><strong id="calcPendiente">$0</strong></div>
   <div><span>Utilidad estimada</span><strong id="calcUtilidad">$0</strong></div>
@@ -792,8 +930,8 @@ th{
   <div class="topbar">
     <div>
       <div class="kicker">TRAZABILIDAD</div>
-      <h2>Hist├│rico completo</h2>
-      <p class="subtitle">Todas las ventas registradas para revisar operaci├│n, canal, factura y utilidad.</p>
+      <h2>Histórico completo</h2>
+      <p class="subtitle">Todas las ventas registradas para revisar operación, canal, factura y utilidad.</p>
     </div>
   </div>
 
@@ -807,7 +945,7 @@ th{
             <th>Cliente</th>
             <th>Factura</th>
             <th>Canal</th>
-            <th>Categor├¡a</th>
+            <th>Categoría</th>
             <th>Producto</th>
             <th>Cantidad</th>
             <th>Total</th>
@@ -831,17 +969,17 @@ th{
   </div>
 
   <div class="roadmap">
-    <div class="phase"><small>FASE 01</small><strong>Operaci├│n real</strong><span>Registrar proveedores, compras, ventas, caja y utilidad de las primeras operaciones.</span></div>
-    <div class="phase"><small>FASE 02</small><strong>Producto</strong><span>Formalizar l├¡neas: pi├▒a fresca, mermeladas, salsas, jugos y derivados.</span></div>
-    <div class="phase"><small>FASE 03</small><strong>E-commerce</strong><span>Venta agresiva online, WhatsApp, marketplaces y campa├▒as de lanzamiento.</span></div>
+    <div class="phase"><small>FASE 01</small><strong>Operación real</strong><span>Registrar proveedores, compras, ventas, caja y utilidad de las primeras operaciones.</span></div>
+    <div class="phase"><small>FASE 02</small><strong>Producto</strong><span>Formalizar líneas: piña fresca, mermeladas, salsas, jugos y derivados.</span></div>
+    <div class="phase"><small>FASE 03</small><strong>E-commerce</strong><span>Venta agresiva online, WhatsApp, marketplaces y campañas de lanzamiento.</span></div>
     <div class="phase"><small>FASE 04</small><strong>Lifestyle</strong><span>Ropa, beachwear, bloqueadores, accesorios y cultura tropical de marca.</span></div>
-    <div class="phase"><small>FASE 05</small><strong>Global</strong><span>Retail, exportaci├│n, experiencias y una marca tropical con ambici├│n mundial.</span></div>
+    <div class="phase"><small>FASE 05</small><strong>Global</strong><span>Retail, exportación, experiencias y una marca tropical con ambición mundial.</span></div>
   </div>
 
   <div class="vision-panel" style="margin-top:24px;">
     <h3>Manifiesto operativo</h3>
     <p>
-      Cada venta registrada no es solo una transacci├│n: es una se├▒al de mercado.
+      Cada venta registrada no es solo una transacción: es una señal de mercado.
       Cada proveedor no es solo un tercero: es parte de la cadena de valor.
       Cada producto no es solo inventario: es una pieza de una marca que puede crecer.
     </p>
@@ -854,7 +992,7 @@ th{
     <div>
       <div class="kicker">FINANCIERO</div>
       <h2>Caja</h2>
-      <p class="subtitle">Resumen financiero de la operaci├│n de marca.</p>
+      <p class="subtitle">Resumen financiero de la operación de marca.</p>
     </div>
   </div>
 
@@ -872,7 +1010,7 @@ th{
 <script>
 const users = {
   pablo:{pass:"pariendo2026", name:"Pablo Galofre"},
-  andres:{pass:"pariendo2026", name:"Andr├®s Uribe"}
+  andres:{pass:"pariendo2026", name:"Andrés Uribe"}
 };
 
 let proveedores = JSON.parse(localStorage.getItem("pp_proveedores")) || [];
@@ -1002,7 +1140,7 @@ function guardarVenta(){
 
   localStorage.setItem("pp_ventas",JSON.stringify(ventas));
   render();
-  alert("Venta real registrada en Pariendo Pi├▒as OS.");
+  alert("Venta real registrada en Pariendo Piñas OS.");
 }
 
 function render(){
@@ -1035,19 +1173,19 @@ function render(){
 
   tablaProveedores.innerHTML = proveedores.map(p=>`
     <tr>
-      <td>${p.nombre || "ÔÇö"}</td>
-      <td>${p.tipo || "ÔÇö"}</td>
-      <td>${p.ciudad || "ÔÇö"}</td>
-      <td>${p.nit || "ÔÇö"}</td>
+      <td>${p.nombre || "—"}</td>
+      <td>${p.tipo || "—"}</td>
+      <td>${p.ciudad || "—"}</td>
+      <td>${p.nit || "—"}</td>
     </tr>
   `).join("") || `<tr><td colspan="4">Sin proveedores registrados.</td></tr>`;
 
   tablaVentas.innerHTML = ventas.map(v=>`
     <tr>
       <td>${v.fecha}</td>
-      <td>${v.cliente || "ÔÇö"}</td>
-      <td>${v.categoria || "ÔÇö"}</td>
-      <td>${v.producto || "ÔÇö"}</td>
+      <td>${v.cliente || "—"}</td>
+      <td>${v.categoria || "—"}</td>
+      <td>${v.producto || "—"}</td>
       <td>${v.cantidad.toLocaleString("es-CO")} ${v.unidad}</td>
       <td>${money(v.total)}</td>
     </tr>
@@ -1056,11 +1194,11 @@ function render(){
   tablaHistorico.innerHTML = ventas.map(v=>`
     <tr>
       <td>${v.fecha}</td>
-      <td>${v.cliente || "ÔÇö"}</td>
-      <td>${v.factura || "ÔÇö"}</td>
-      <td>${v.canal || "ÔÇö"}</td>
-      <td>${v.categoria || "ÔÇö"}</td>
-      <td>${v.producto || "ÔÇö"}</td>
+      <td>${v.cliente || "—"}</td>
+      <td>${v.factura || "—"}</td>
+      <td>${v.canal || "—"}</td>
+      <td>${v.categoria || "—"}</td>
+      <td>${v.producto || "—"}</td>
       <td>${v.cantidad.toLocaleString("es-CO")} ${v.unidad}</td>
       <td>${money(v.total)}</td>
       <td>${money(v.pendiente)}</td>
