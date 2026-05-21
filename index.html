@@ -547,6 +547,24 @@ body{
   <p>TROPICAL LUXURY FROM COLOMBIA</p>
 
 </footer>
+<script>
+function loginLuxury(){
+  const inputs = document.querySelectorAll(".hero-login input");
+  const user = inputs[0].value.trim().toLowerCase();
+  const pass = inputs[1].value.trim();
 
+  const validUsers = {
+    pablo: "pariendo2026",
+    andres: "pariendo2026"
+  };
+
+  if(validUsers[user] === pass){
+    localStorage.setItem("pp_user", user);
+    window.location.href = "dashboard.html";
+  }else{
+    alert("Usuario o contraseña incorrectos.");
+  }
+}
+</script>
 </body>
 </html>
