@@ -423,18 +423,22 @@ body{
     </div>
 
     <div class="input-group">
-      <label>Usuario</label>
-      <input type="text" placeholder="pablo o andres">
+      <label for="loginUser">Usuario</label>
+      <input id="loginUser" type="text" placeholder="pablo o andres" autocomplete="username">
     </div>
 
     <div class="input-group">
-      <label>Contraseña</label>
-      <input type="password" placeholder="••••••••">
+      <label for="loginPass">Contraseña</label>
+      <input id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password">
     </div>
 
-    <button class="login-btn" onclick="loginLuxury()">
-  Entrar al dashboard
-</button>
+    <button class="login-btn" type="button" onclick="loginLuxury()">
+      Entrar al dashboard
+    </button>
+
+    <div id="loginError" style="display:none;margin-top:16px;text-align:center;color:#9b1c1c;font-size:13px;font-weight:600;">
+      Usuario o contraseña incorrectos.
+    </div>
 
     <div class="credentials">
       acceso inicial:<br>
@@ -549,22 +553,35 @@ body{
 </footer>
 <script>
 function loginLuxury(){
-  const inputs = document.querySelectorAll(".hero-login input");
-  const user = inputs[0].value.trim().toLowerCase();
-  const pass = inputs[1].value.trim();
+  const userInput = document.getElementById("loginUser");
+  const passInput = document.getElementById("loginPass");
+  const errorBox = document.getElementById("loginError");
+
+  const user = userInput.value.trim().toLowerCase();
+  const pass = passInput.value.trim();
 
   const validUsers = {
     pablo: "pariendo2026",
     andres: "pariendo2026"
   };
 
-  if(validUsers[user] === pass){
+  if(validUsers[user] && validUsers[user] === pass){
     localStorage.setItem("pp_user", user);
-    window.location.href = "dashboard.html";
-  }else{
-    alert("Usuario o contraseña incorrectos.");
+    window.location.href = "./admin.html";
+    return;
   }
+
+  errorBox.style.display = "block";
 }
+
+document.addEventListener("keydown", function(event){
+  if(event.key === "Enter"){
+    const active = document.activeElement;
+    if(active && (active.id === "loginUser" || active.id === "loginPass")){
+      loginLuxury();
+    }
+  }
+});
 </script>
 </body>
 </html>
