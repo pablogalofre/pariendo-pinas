@@ -607,29 +607,51 @@ RESPONSIVE
     display:none;
   }
 
-  .hero{
-    min-height:100svh;
+.hero{
+    min-height:88svh;
 
     align-items:flex-end;
 
-    padding:130px 24px 70px;
+    padding:116px 24px 54px;
 
-    background-position:72% center;
-  }
-
-  .hero{
     background:
       linear-gradient(
         to bottom,
-        rgba(6,21,16,.14),
-        rgba(6,21,16,.76),
-        rgba(6,21,16,.96)
+        rgba(6,21,16,.06) 0%,
+        rgba(6,21,16,.64) 48%,
+        rgba(6,21,16,.96) 100%
       ),
       url("./images/login-luxury.png");
+
+    background-size:cover;
+    background-position:58% center;
+  }
+
+  .hero::after{
+    height:90px;
   }
 
   .hero h1{
-    font-size:64px;
+    font-size:55px;
+  }
+
+  .hero-kicker{
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:18px;
+  }
+
+  .hero p{
+    font-size:14px;
+    line-height:1.65;
+    max-width:350px;
+  }
+
+  .hero-btn{
+    margin-top:24px;
+    min-height:48px;
+    padding:0 20px;
+    letter-spacing:2px;
   }
 
   .products{
@@ -697,7 +719,7 @@ RESPONSIVE
     <a href="#objects">Objects</a>
     <a href="#world">Our World</a>
 
-    <a class="investors-btn" href="admin.html">
+    <a class="investors-btn" href="login.html">
       Investors ◆
     </a>
   </nav>
@@ -860,7 +882,7 @@ RESPONSIVE
       expansión y estrategia global.
     </p>
 
-    <a class="private-btn" href="admin.html">
+    <a class="private-btn" href="login.html">
       Acceso privado ◆
     </a>
 
