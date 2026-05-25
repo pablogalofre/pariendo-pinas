@@ -15,6 +15,10 @@
 
 <style>
 
+/* =========================
+RESET
+========================= */
+
 *{
   margin:0;
   padding:0;
@@ -22,17 +26,15 @@
 }
 
 :root{
-  --dark:#031812;
-  --dark2:#061f18;
-  --green:#082d22;
-  --gold:#c49a3d;
-  --gold2:#e0bf70;
-  --cream:#f1e6cf;
-  --paper:#f8f1e3;
-  --white:#fff8ea;
-  --muted:#b9ad96;
-  --ink:#15271f;
-  --line:rgba(196,154,61,.32);
+  --black:#061510;
+  --deep:#071d16;
+  --gold:#c7a04c;
+  --gold-soft:#e3c57f;
+  --cream:#f4ead6;
+  --paper:#f8f2e7;
+  --text:#e8dcc5;
+  --muted:#ab9f89;
+  --line:rgba(199,160,76,.22);
 }
 
 html{
@@ -40,15 +42,15 @@ html{
 }
 
 body{
+  background:var(--black);
+  color:var(--text);
   font-family:'Inter',sans-serif;
-  background:var(--dark);
-  color:var(--cream);
   overflow-x:hidden;
 }
 
 a{
-  color:inherit;
   text-decoration:none;
+  color:inherit;
 }
 
 img{
@@ -57,25 +59,27 @@ img{
 }
 
 /* =========================
-   NAV
-   ========================= */
+NAVBAR
+========================= */
 
 .nav{
   position:fixed;
   top:0;
   left:0;
   width:100%;
-  z-index:50;
+  z-index:999;
+
   padding:28px 5vw;
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 
   background:
     linear-gradient(
       to bottom,
-      rgba(3,24,18,.86),
-      rgba(3,24,18,.34),
+      rgba(6,21,16,.92),
+      rgba(6,21,16,.45),
       transparent
     );
 }
@@ -83,106 +87,116 @@ img{
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
 }
 
-.brand-mark{
-  width:38px;
-  height:52px;
-  position:relative;
-  display:grid;
-  place-items:center;
-  color:var(--gold);
-
+.brand-symbol{
   font-family:'Cormorant Garamond',serif;
-  font-size:34px;
+  font-size:38px;
+  color:var(--gold);
+  line-height:1;
 }
 
-.brand-mark::before{
-  content:"✦";
-  position:absolute;
-  top:-14px;
-  font-size:15px;
-  color:var(--gold2);
-}
-
-.brand-name{
-  color:var(--gold2);
+.brand-text{
+  color:var(--gold-soft);
   letter-spacing:7px;
-  font-size:13px;
   text-transform:uppercase;
+  font-size:12px;
 }
 
 .nav-links{
   display:flex;
   align-items:center;
-  gap:36px;
+  gap:34px;
 
-  color:var(--white);
+  color:#fff;
   font-size:11px;
-  text-transform:uppercase;
   letter-spacing:4px;
+  text-transform:uppercase;
 }
 
-.private-link{
+.nav-links a{
+  opacity:.82;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  opacity:1;
+  color:var(--gold-soft);
+}
+
+.investors-btn{
+  padding:14px 22px;
   border:1px solid var(--line);
-  padding:14px 20px;
-  color:var(--gold2);
-  background:rgba(3,24,18,.28);
+  background:rgba(199,160,76,.08);
+  color:var(--gold-soft)!important;
 }
 
 /* =========================
-   HERO
-   ========================= */
+HERO
+========================= */
 
 .hero{
-  min-height:100vh;
-
   position:relative;
+  min-height:100vh;
 
   display:flex;
   align-items:center;
 
-  padding:130px 7vw 70px;
+  padding:140px 7vw 90px;
 
   background:
     linear-gradient(
       90deg,
-      rgba(3,24,18,.96) 0%,
-      rgba(3,24,18,.72) 34%,
-      rgba(3,24,18,.18) 69%,
-      rgba(3,24,18,.05) 100%
+      rgba(6,21,16,.97) 0%,
+      rgba(6,21,16,.88) 32%,
+      rgba(6,21,16,.40) 62%,
+      rgba(6,21,16,.12) 100%
     ),
-
     url("./images/login-luxury.png");
 
   background-size:cover;
   background-position:center center;
 }
 
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:200px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--black)
+    );
+}
+
 .hero-content{
   position:relative;
   z-index:2;
-  max-width:720px;
+  max-width:620px;
 }
 
-.kicker{
-  color:var(--gold2);
+.hero-kicker{
+  color:var(--gold-soft);
   letter-spacing:7px;
   text-transform:uppercase;
   font-size:12px;
-  margin-bottom:24px;
+
+  margin-bottom:28px;
 }
 
 .hero h1{
   font-family:'Cormorant Garamond',serif;
-  font-size:100px;
-  line-height:.86;
+  font-size:110px;
+  line-height:.88;
   font-weight:400;
 
-  color:var(--white);
+  color:#fff;
 
-  margin-bottom:30px;
+  margin-bottom:26px;
 }
 
 .hero-line{
@@ -190,45 +204,477 @@ img{
   height:1px;
   background:var(--gold);
 
-  margin:0 0 26px;
+  margin-bottom:28px;
 }
 
 .hero p{
   max-width:500px;
 
-  color:rgba(255,248,234,.78);
+  color:rgba(255,255,255,.76);
 
-  font-size:16px;
   line-height:1.9;
+  font-size:17px;
 }
 
-.btn{
+.hero-btn{
   display:inline-flex;
-
   align-items:center;
   justify-content:center;
 
-  min-height:52px;
+  min-height:54px;
 
-  padding:0 28px;
+  padding:0 30px;
+
+  margin-top:38px;
 
   border:1px solid var(--line);
 
-  color:var(--gold2);
+  color:var(--gold-soft);
 
   letter-spacing:4px;
   text-transform:uppercase;
   font-size:11px;
   font-weight:700;
 
-  background:rgba(3,24,18,.24);
+  transition:.3s;
+}
 
-  margin-top:36px;
+.hero-btn:hover{
+  background:var(--gold);
+  color:var(--black);
 }
 
 /* =========================
-   CONTINÚA...
-   ========================= */
+STATEMENT
+========================= */
+
+.statement{
+  background:var(--paper);
+  color:#16231c;
+
+  padding:90px 10vw;
+
+  text-align:center;
+}
+
+.statement-symbol{
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;
+  color:var(--gold);
+
+  margin-bottom:18px;
+}
+
+.statement h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:46px;
+  font-weight:400;
+
+  letter-spacing:6px;
+  text-transform:uppercase;
+
+  margin-bottom:24px;
+}
+
+.statement p{
+  max-width:760px;
+  margin:auto;
+
+  color:#6b6559;
+
+  line-height:1.9;
+  font-size:16px;
+}
+
+/* =========================
+PRODUCT GRID
+========================= */
+
+.products{
+  background:var(--black);
+
+  padding:100px 5vw;
+
+  display:grid;
+  grid-template-columns:.9fr 3fr;
+  gap:26px;
+}
+
+.products-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.products-left small{
+  color:var(--gold-soft);
+  letter-spacing:6px;
+  text-transform:uppercase;
+  font-size:11px;
+}
+
+.products-left h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:56px;
+  line-height:1;
+
+  font-weight:400;
+
+  color:#fff;
+
+  margin:22px 0;
+}
+
+.products-left p{
+  max-width:320px;
+
+  color:rgba(255,255,255,.66);
+
+  line-height:1.8;
+  font-size:15px;
+}
+
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.card{
+  position:relative;
+  min-height:500px;
+
+  overflow:hidden;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  padding:30px;
+
+  background-size:cover;
+  background-position:center;
+
+  border:1px solid rgba(199,160,76,.18);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.02),
+      rgba(6,21,16,.92)
+    );
+
+  z-index:1;
+}
+
+.card > *{
+  position:relative;
+  z-index:2;
+}
+
+.card small{
+  color:var(--gold-soft);
+  letter-spacing:4px;
+  font-size:11px;
+
+  margin-bottom:14px;
+}
+
+.card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;
+  line-height:1;
+  font-weight:400;
+
+  color:#fff;
+
+  margin-bottom:14px;
+}
+
+.card p{
+  color:rgba(255,255,255,.76);
+
+  line-height:1.7;
+  font-size:13px;
+}
+
+.card a{
+  margin-top:18px;
+
+  color:var(--gold-soft);
+
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:10px;
+}
+
+.produce{
+  background-image:url("./images/drop-produce.png");
+}
+
+.gourmet{
+  background-image:url("./images/drop-jam.png");
+}
+
+.lifestyle{
+  background-image:url("./images/drop-beachwear.png");
+}
+
+.objects{
+  background-image:url("./images/drop-objects.png");
+}
+
+/* =========================
+PRIVATE
+========================= */
+
+.private{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.private-image{
+  min-height:520px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(6,21,16,.12),
+      rgba(6,21,16,.45)
+    ),
+    url("./images/drop-objects.png");
+
+  background-size:cover;
+  background-position:center;
+}
+
+.private-copy{
+  background:var(--deep);
+
+  padding:90px 7vw;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.private-copy small{
+  color:var(--gold-soft);
+
+  letter-spacing:6px;
+  text-transform:uppercase;
+  font-size:11px;
+}
+
+.private-copy h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:58px;
+  line-height:1;
+
+  font-weight:400;
+
+  color:#fff;
+
+  margin:24px 0;
+}
+
+.private-copy p{
+  max-width:480px;
+
+  color:rgba(255,255,255,.70);
+
+  line-height:1.9;
+  font-size:15px;
+}
+
+.private-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  width:max-content;
+
+  min-height:54px;
+
+  padding:0 28px;
+
+  margin-top:36px;
+
+  border:1px solid var(--line);
+
+  color:var(--gold-soft);
+
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:11px;
+  font-weight:700;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+  background:#04100c;
+
+  padding:70px 5vw 30px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+
+  margin-bottom:40px;
+}
+
+.footer-brand h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:44px;
+  font-weight:400;
+
+  color:var(--gold-soft);
+
+  margin-bottom:12px;
+}
+
+.footer-brand p{
+  color:rgba(255,255,255,.55);
+
+  line-height:1.8;
+  max-width:320px;
+}
+
+.footer-col small{
+  display:block;
+
+  color:var(--gold-soft);
+
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:10px;
+
+  margin-bottom:18px;
+}
+
+.footer-col a{
+  display:block;
+
+  color:rgba(255,255,255,.62);
+
+  margin-bottom:12px;
+
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.copy{
+  border-top:1px solid rgba(255,255,255,.05);
+
+  padding-top:24px;
+
+  text-align:center;
+
+  color:rgba(255,255,255,.34);
+
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1050px){
+
+  .nav{
+    padding:22px;
+    background:rgba(6,21,16,.94);
+  }
+
+  .nav-links a:not(.investors-btn){
+    display:none;
+  }
+
+  .hero{
+    min-height:100svh;
+
+    align-items:flex-end;
+
+    padding:130px 24px 70px;
+
+    background-position:72% center;
+  }
+
+  .hero{
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(6,21,16,.14),
+        rgba(6,21,16,.76),
+        rgba(6,21,16,.96)
+      ),
+      url("./images/login-luxury.png");
+  }
+
+  .hero h1{
+    font-size:64px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+    padding:70px 24px;
+  }
+
+  .products-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    min-height:420px;
+  }
+
+  .statement{
+    padding:70px 24px;
+  }
+
+  .statement h2{
+    font-size:32px;
+    letter-spacing:3px;
+  }
+
+  .private{
+    grid-template-columns:1fr;
+  }
+
+  .private-image{
+    min-height:320px;
+  }
+
+  .private-copy{
+    padding:70px 24px;
+  }
+
+  .private-copy h2{
+    font-size:42px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
 
 </style>
 </head>
@@ -237,9 +683,10 @@ img{
 
 <header class="nav">
 
-  <a class="brand" href="#">
-    <div class="brand-mark">PP</div>
-    <div class="brand-name">
+  <a href="#" class="brand">
+    <div class="brand-symbol">PP</div>
+
+    <div class="brand-text">
       Pariendo Piñas
     </div>
   </a>
@@ -250,7 +697,7 @@ img{
     <a href="#objects">Objects</a>
     <a href="#world">Our World</a>
 
-    <a class="private-link" href="admin.html">
+    <a class="investors-btn" href="login.html">
       Investors ◆
     </a>
   </nav>
@@ -261,8 +708,8 @@ img{
 
   <div class="hero-content">
 
-    <div class="kicker">
-      Tropical luxury from Colombia
+    <div class="hero-kicker">
+      Tropical Luxury From Colombia
     </div>
 
     <h1>
@@ -280,10 +727,200 @@ img{
       para una vida más cálida.
     </p>
 
-    <a class="btn" href="#drops">
+    <a class="hero-btn" href="#products">
       Explora nuestro mundo ◆
     </a>
 
   </div>
 
 </section>
+
+<section class="statement" id="world">
+
+  <div class="statement-symbol">PP</div>
+
+  <h2>
+    A Tropical House Built Slowly.
+  </h2>
+
+  <p>
+    Nacimos en Colombia para llevar lo mejor del trópico al mundo.
+    Calidad, diseño y cultura en cada detalle.
+  </p>
+
+</section>
+
+<section class="products" id="products">
+
+  <div class="products-left">
+
+    <small>First Drops</small>
+
+    <h2>
+      Objetos para<br>
+      una vida más cálida.
+    </h2>
+
+    <p>
+      Una primera colección de produce,
+      gourmet, lifestyle y objetos tropicales
+      diseñados como una marca global.
+    </p>
+
+  </div>
+
+  <div class="products-grid">
+
+    <article class="card produce" id="produce">
+
+      <small>01</small>
+
+      <h3>Produce</h3>
+
+      <p>
+        Piñas premium seleccionadas con obsesión.
+      </p>
+
+      <a href="#">
+        Ver más ◆
+      </a>
+
+    </article>
+
+    <article class="card gourmet">
+
+      <small>02</small>
+
+      <h3>Gourmet</h3>
+
+      <p>
+        Mermeladas tropicales hechas en pequeños lotes.
+      </p>
+
+      <a href="#">
+        Ver más ◆
+      </a>
+
+    </article>
+
+    <article class="card lifestyle" id="lifestyle">
+
+      <small>03</small>
+
+      <h3>Lifestyle</h3>
+
+      <p>
+        Beachwear y piezas creadas para el sol.
+      </p>
+
+      <a href="#">
+        Ver más ◆
+      </a>
+
+    </article>
+
+    <article class="card objects" id="objects">
+
+      <small>04</small>
+
+      <h3>Objects</h3>
+
+      <p>
+        Objetos que convierten lo cotidiano en ritual.
+      </p>
+
+      <a href="#">
+        Ver más ◆
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section class="private">
+
+  <div class="private-image"></div>
+
+  <div class="private-copy">
+
+    <small>
+      Private Brand Command
+    </small>
+
+    <h2>
+      Para operadores,<br>
+      socios e inversionistas.
+    </h2>
+
+    <p>
+      Accede al sistema privado de la marca:
+      operaciones, compras, drops, ventas,
+      expansión y estrategia global.
+    </p>
+
+    <a class="private-btn" href="login.html">
+      Acceso privado ◆
+    </a>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+
+      <h3>
+        Pariendo Piñas
+      </h3>
+
+      <p>
+        Tropical luxury from Colombia.
+        Produce, objects, lifestyle and culture.
+      </p>
+
+    </div>
+
+    <div class="footer-col">
+
+      <small>Navegación</small>
+
+      <a href="#produce">Produce</a>
+      <a href="#lifestyle">Lifestyle</a>
+      <a href="#objects">Objects</a>
+
+    </div>
+
+    <div class="footer-col">
+
+      <small>Legal</small>
+
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+
+    </div>
+
+    <div class="footer-col">
+
+      <small>Connect</small>
+
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Email</a>
+
+    </div>
+
+  </div>
+
+  <div class="copy">
+    © 2026 PARIENDO PIÑAS — ALL RIGHTS RESERVED
+  </div>
+
+</footer>
+
+</body>
+</html>
