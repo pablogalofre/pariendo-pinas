@@ -750,6 +750,55 @@ PRICING INTELLIGENCE
   }
 }
 
+
+/* =========================
+PRICING P&L REFINEMENT
+========================= */
+.pricing-inputs{grid-template-columns:repeat(3,1fr);}
+.pricing-section-title{
+  grid-column:1/-1;
+  margin:10px 0 0;
+  padding-top:10px;
+  border-top:1px solid var(--line);
+  font-family:Arial,sans-serif;
+  color:var(--gold);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:11px;
+}
+.pricing-mini{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:18px;
+}
+.pricing-mini div{
+  background:rgba(255,255,255,.55);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+}
+.pricing-mini span{
+  display:block;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:8px;
+}
+.pricing-mini strong{
+  color:var(--green);
+  font-size:24px;
+  font-weight:400;
+}
+.break-row.tax span{color:#f0d492;}
+.break-row.finance span{color:#c7d7ff;}
+.break-row.profit span{color:#9be1a7;}
+@media(max-width:1100px){
+  .pricing-inputs,.pricing-mini{grid-template-columns:1fr;}
+}
+
 </style>
 </head>
 
@@ -1093,8 +1142,8 @@ PRICING INTELLIGENCE
   <div class="pricing-hero">
     <h3>Decidir precio antes de vender.</h3>
     <p>
-      Este módulo toma precio de compra, merma, flete, costos operativos y condición de pago.
-      Calcula el precio mínimo contado y crédito para proteger la utilidad de Pariendo Piñas.
+      Este módulo separa costos reales, impuestos/retenciones y financiación.
+      Calcula el precio mínimo contado y crédito para proteger una utilidad objetivo sobre venta.
     </p>
   </div>
 
@@ -1103,28 +1152,55 @@ PRICING INTELLIGENCE
       <h3>Variables de precio</h3>
 
       <div class="pricing-inputs">
+
+        <div class="pricing-section-title">Costos base por kg</div>
+
         <label>Precio compra por kg
           <input id="priceCompraKg" type="number" value="1600">
         </label>
 
-        <label>Margen objetivo %
-          <input id="priceMargen" type="number" value="15">
-        </label>
-
         <label>Merma %
-          <input id="priceMerma" type="number" value="2">
+          <input id="priceMerma" type="number" value="2" step="0.1">
         </label>
 
         <label>Flete por kg
           <input id="priceFleteKg" type="number" value="120">
         </label>
 
-        <label>Costo operativo por kg
+        <label>Empaque por kg
+          <input id="priceEmpaqueKg" type="number" value="0">
+        </label>
+
+        <label>Mano de obra por kg
+          <input id="priceManoObraKg" type="number" value="0">
+        </label>
+
+        <label>Operación / otros por kg
           <input id="priceOperacionKg" type="number" value="80">
         </label>
 
-        <label>Costo financiero crédito %
-          <input id="priceFinanciero" type="number" value="3">
+        <div class="pricing-section-title">Impuestos y retenciones</div>
+
+        <label>Asofrucol %
+          <input id="priceAsofrucol" type="number" value="1" step="0.1">
+        </label>
+
+        <label>Retención compras agrícolas %
+          <input id="priceRetencionAgricola" type="number" value="1.5" step="0.1">
+        </label>
+
+        <label>GMF / 4x1000 %
+          <input id="priceGmf" type="number" value="0.4" step="0.1">
+        </label>
+
+        <div class="pricing-section-title">Financiación y margen</div>
+
+        <label>Financiación crédito %
+          <input id="priceFinanciero" type="number" value="1" step="0.1">
+        </label>
+
+        <label>Margen objetivo %
+          <input id="priceMargen" type="number" value="15" step="0.1">
         </label>
 
         <label>Precio de venta simulado
@@ -1134,6 +1210,7 @@ PRICING INTELLIGENCE
         <label>Kilos proyectados
           <input id="priceKilos" type="number" value="24000">
         </label>
+
       </div>
 
       <div class="action-row">
@@ -1165,12 +1242,24 @@ PRICING INTELLIGENCE
         </div>
 
         <div class="break-row">
-          <span>Flete + operación</span>
+          <span>Flete + empaque + operación</span>
           <div class="break-bar"><div id="barOperacion" class="break-fill" style="width:0%"></div></div>
           <strong id="breakOperacion">$0</strong>
         </div>
 
-        <div class="break-row">
+        <div class="break-row tax">
+          <span>Impuestos / retenciones</span>
+          <div class="break-bar"><div id="barImpuestos" class="break-fill" style="width:0%"></div></div>
+          <strong id="breakImpuestos">$0</strong>
+        </div>
+
+        <div class="break-row finance">
+          <span>Financiación crédito</span>
+          <div class="break-bar"><div id="barFinanciacion" class="break-fill" style="width:0%"></div></div>
+          <strong id="breakFinanciacion">$0</strong>
+        </div>
+
+        <div class="break-row profit">
           <span>Utilidad objetivo</span>
           <div class="break-bar"><div id="barUtilidad" class="break-fill" style="width:0%"></div></div>
           <strong id="breakUtilidad">$0</strong>
@@ -1184,6 +1273,12 @@ PRICING INTELLIGENCE
     <div class="card"><span>Utilidad proyectada</span><strong id="profitProjected">$0</strong></div>
     <div class="card"><span>Facturación proyectada</span><strong id="revenueProjected">$0</strong></div>
     <div class="card"><span>Alerta de precio</span><strong id="priceAlert">—</strong></div>
+  </div>
+
+  <div class="pricing-mini">
+    <div><span>Costo total por kg</span><strong id="costTotalKg">$0</strong></div>
+    <div><span>Impuestos por kg</span><strong id="taxTotalKg">$0</strong></div>
+    <div><span>Utilidad por kg</span><strong id="profitKg">$0</strong></div>
   </div>
 
   <div class="panel">
@@ -1533,67 +1628,121 @@ function calcularVentaEnVivo(){
   document.getElementById(id).addEventListener("input", calcularVentaEnVivo);
 });
 
+function getNumber(id){
+  const el = document.getElementById(id);
+  return el ? Number(el.value || 0) : 0;
+}
+
+function setText(id,value){
+  const el = document.getElementById(id);
+  if(el) el.innerText = value;
+}
+
+function setBar(id,value,total){
+  const el = document.getElementById(id);
+  if(el) el.style.width = Math.min(100, Math.max(0, (value / (total || 1)) * 100)) + "%";
+}
+
 function calcularPricing(){
-  const compraKg = Number(document.getElementById("priceCompraKg").value || 0);
-  const margen = Number(document.getElementById("priceMargen").value || 0) / 100;
-  const merma = Number(document.getElementById("priceMerma").value || 0) / 100;
-  const fleteKg = Number(document.getElementById("priceFleteKg").value || 0);
-  const operacionKg = Number(document.getElementById("priceOperacionKg").value || 0);
-  const financiero = Number(document.getElementById("priceFinanciero").value || 0) / 100;
-  const ventaReal = Number(document.getElementById("priceVentaReal").value || 0);
-  const kilos = Number(document.getElementById("priceKilos").value || 0);
+  const compraKg = getNumber("priceCompraKg");
+  const margen = getNumber("priceMargen") / 100;
+  const merma = getNumber("priceMerma") / 100;
+
+  const fleteKg = getNumber("priceFleteKg");
+  const empaqueKg = getNumber("priceEmpaqueKg");
+  const manoObraKg = getNumber("priceManoObraKg");
+  const operacionKg = getNumber("priceOperacionKg");
+
+  const asofrucol = getNumber("priceAsofrucol") / 100;
+  const retencionAgricola = getNumber("priceRetencionAgricola") / 100;
+  const gmf = getNumber("priceGmf") / 100;
+
+  const financiero = getNumber("priceFinanciero") / 100;
+  const ventaReal = getNumber("priceVentaReal");
+  const kilos = getNumber("priceKilos");
 
   const costoMerma = compraKg * merma;
-  const costoBase = compraKg + costoMerma + fleteKg + operacionKg;
+  const costoOperacion = fleteKg + empaqueKg + manoObraKg + operacionKg;
+  const costoBase = compraKg + costoMerma + costoOperacion;
 
-  const precioMinContado = costoBase / (1 - margen);
-  const precioMinCredito = precioMinContado * (1 + financiero);
+  const tasaImpuestos = asofrucol + retencionAgricola + gmf;
 
-  const utilidadObjetivo = precioMinContado - costoBase;
-  const margenReal = ventaReal > 0 ? ((ventaReal - costoBase) / ventaReal) * 100 : 0;
-  const utilidadProyectada = (ventaReal - costoBase) * kilos;
+  /*
+    Precio mínimo contado = costo base / (1 - margen objetivo - impuestos/retenciones)
+    Margen, Asofrucol, retención agrícola y GMF se calculan sobre el precio de venta.
+    Financiación se separa y solo se suma para el precio mínimo crédito.
+  */
+  const denominador = 1 - margen - tasaImpuestos;
+  const precioMinContado = denominador > 0 ? costoBase / denominador : 0;
+
+  const impuestosContado = precioMinContado * tasaImpuestos;
+  const utilidadObjetivo = precioMinContado * margen;
+
+  const costoFinanciacion = precioMinContado * financiero;
+  const precioMinCredito = precioMinContado + costoFinanciacion;
+
+  const impuestosVentaReal = ventaReal * tasaImpuestos;
+  const utilidadRealKg = ventaReal - impuestosVentaReal - costoBase;
+  const margenReal = ventaReal > 0 ? (utilidadRealKg / ventaReal) * 100 : 0;
+
+  const utilidadProyectada = utilidadRealKg * kilos;
   const facturacionProyectada = ventaReal * kilos;
 
-  document.getElementById("minContado").innerText = money(Math.ceil(precioMinContado));
-  document.getElementById("minCredito").innerText = money(Math.ceil(precioMinCredito));
+  setText("minContado", money(Math.ceil(precioMinContado)));
+  setText("minCredito", money(Math.ceil(precioMinCredito)));
 
-  document.getElementById("realMargin").innerText = margenReal.toFixed(1) + "%";
-  document.getElementById("profitProjected").innerText = money(utilidadProyectada);
-  document.getElementById("revenueProjected").innerText = money(facturacionProyectada);
+  setText("realMargin", margenReal.toFixed(1) + "%");
+  setText("profitProjected", money(utilidadProyectada));
+  setText("revenueProjected", money(facturacionProyectada));
+  setText("costTotalKg", money(costoBase));
+  setText("taxTotalKg", money(impuestosVentaReal));
+  setText("profitKg", money(utilidadRealKg));
 
   const status = document.getElementById("pricingStatus");
   const alert = document.getElementById("priceAlert");
 
-  status.className = "pricing-status";
+  if(status){
+    status.className = "pricing-status";
 
-  if(margenReal >= margen * 100){
-    status.classList.add("status-green");
-    status.innerText = "🟢 Precio rentable";
-    alert.innerText = "OK";
-  }else if(margenReal >= (margen * 100) - 3){
-    status.classList.add("status-yellow");
-    status.innerText = "🟡 Margen apretado";
-    alert.innerText = "Revisar";
-  }else{
-    status.classList.add("status-red");
-    status.innerText = "🔴 No vender a ese precio";
-    alert.innerText = "Alerta";
+    if(margenReal >= margen * 100){
+      status.classList.add("status-green");
+      status.innerText = "🟢 Precio rentable";
+      if(alert) alert.innerText = "OK";
+    }else if(margenReal >= (margen * 100) - 3){
+      status.classList.add("status-yellow");
+      status.innerText = "🟡 Margen apretado";
+      if(alert) alert.innerText = "Revisar";
+    }else{
+      status.classList.add("status-red");
+      status.innerText = "🔴 No vender a ese precio";
+      if(alert) alert.innerText = "Alerta";
+    }
   }
 
-  document.getElementById("breakCompra").innerText = money(compraKg);
-  document.getElementById("breakMerma").innerText = money(costoMerma);
-  document.getElementById("breakOperacion").innerText = money(fleteKg + operacionKg);
-  document.getElementById("breakUtilidad").innerText = money(utilidadObjetivo);
+  setText("breakCompra", money(compraKg));
+  setText("breakMerma", money(costoMerma));
+  setText("breakOperacion", money(costoOperacion));
+  setText("breakImpuestos", money(impuestosContado));
+  setText("breakFinanciacion", money(costoFinanciacion));
+  setText("breakUtilidad", money(utilidadObjetivo));
 
-  const totalBreak = precioMinContado || 1;
-  document.getElementById("barCompra").style.width = Math.min(100,(compraKg/totalBreak)*100) + "%";
-  document.getElementById("barMerma").style.width = Math.min(100,(costoMerma/totalBreak)*100) + "%";
-  document.getElementById("barOperacion").style.width = Math.min(100,((fleteKg+operacionKg)/totalBreak)*100) + "%";
-  document.getElementById("barUtilidad").style.width = Math.min(100,(utilidadObjetivo/totalBreak)*100) + "%";
+  const totalBreak = precioMinCredito || precioMinContado || 1;
+  setBar("barCompra", compraKg, totalBreak);
+  setBar("barMerma", costoMerma, totalBreak);
+  setBar("barOperacion", costoOperacion, totalBreak);
+  setBar("barImpuestos", impuestosContado, totalBreak);
+  setBar("barFinanciacion", costoFinanciacion, totalBreak);
+  setBar("barUtilidad", utilidadObjetivo, totalBreak);
 
-  document.getElementById("scenarioLow").innerText = money(Math.ceil(((compraKg - 100) + ((compraKg - 100) * merma) + fleteKg + operacionKg) / (1 - margen)));
-  document.getElementById("scenarioMid").innerText = money(Math.ceil(precioMinContado));
-  document.getElementById("scenarioHigh").innerText = money(Math.ceil(((compraKg + 100) + ((compraKg + 100) * merma) + fleteKg + operacionKg) / (1 - margen)));
+  const minForCompra = (valorCompra) => {
+    const mermaValor = valorCompra * merma;
+    const base = valorCompra + mermaValor + costoOperacion;
+    return denominador > 0 ? base / denominador : 0;
+  };
+
+  setText("scenarioLow", money(Math.ceil(minForCompra(compraKg - 100))));
+  setText("scenarioMid", money(Math.ceil(precioMinContado)));
+  setText("scenarioHigh", money(Math.ceil(minForCompra(compraKg + 100))));
 }
 
 function guardarPricingScenario(){
@@ -1631,7 +1780,7 @@ function renderPricingScenarios(){
   `).join("") || `<tr><td colspan="5">Sin escenarios guardados.</td></tr>`;
 }
 
-["priceCompraKg","priceMargen","priceMerma","priceFleteKg","priceOperacionKg","priceFinanciero","priceVentaReal","priceKilos"].forEach(id=>{
+["priceCompraKg","priceMargen","priceMerma","priceFleteKg","priceEmpaqueKg","priceManoObraKg","priceOperacionKg","priceAsofrucol","priceRetencionAgricola","priceGmf","priceFinanciero","priceVentaReal","priceKilos"].forEach(id=>{
   const el = document.getElementById(id);
   if(el){
     el.addEventListener("input", calcularPricing);
