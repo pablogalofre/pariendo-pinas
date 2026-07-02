@@ -597,6 +597,159 @@ th{
   main{padding:24px}
   h2{font-size:34px}
 }
+
+/* =========================
+PRICING INTELLIGENCE
+========================= */
+
+.pricing-hero{
+  background:linear-gradient(135deg,rgba(8,41,31,.98),rgba(15,61,47,.95));
+  color:var(--cream);
+  border-radius:var(--radius);
+  padding:32px;
+  box-shadow:var(--shadow);
+  margin-bottom:24px;
+}
+
+.pricing-hero h3{
+  font-size:36px;
+  font-weight:400;
+  margin-bottom:10px;
+}
+
+.pricing-hero p{
+  font-family:Arial,sans-serif;
+  color:rgba(246,236,216,.78);
+  line-height:1.7;
+  max-width:820px;
+}
+
+.pricing-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:24px;
+}
+
+.pricing-inputs{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.pricing-inputs label{
+  display:block;
+}
+
+.pricing-result{
+  background:rgba(8,41,31,.96);
+  color:var(--cream);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.pricing-result small{
+  display:block;
+  font-family:Arial,sans-serif;
+  letter-spacing:3px;
+  color:var(--gold2);
+  margin-bottom:12px;
+}
+
+.price-big{
+  font-size:54px;
+  font-weight:400;
+  margin-bottom:10px;
+}
+
+.pricing-status{
+  display:inline-block;
+  margin-top:14px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  font-weight:700;
+}
+
+.status-green{background:rgba(91,184,113,.16);color:#8fd19e;border:1px solid rgba(143,209,158,.32);}
+.status-yellow{background:rgba(231,199,111,.16);color:#e7c76f;border:1px solid rgba(231,199,111,.32);}
+.status-red{background:rgba(217,121,121,.16);color:#d97979;border:1px solid rgba(217,121,121,.32);}
+
+.breakdown{
+  margin-top:22px;
+  display:grid;
+  gap:10px;
+}
+
+.break-row{
+  display:grid;
+  grid-template-columns:160px 1fr 110px;
+  gap:12px;
+  align-items:center;
+  font-family:Arial,sans-serif;
+  font-size:13px;
+}
+
+.break-bar{
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  overflow:hidden;
+}
+
+.break-fill{
+  height:100%;
+  background:var(--gold2);
+  border-radius:999px;
+}
+
+.scenario-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:18px;
+}
+
+.scenario{
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  background:rgba(255,255,255,.52);
+}
+
+.scenario span{
+  display:block;
+  font-family:Arial,sans-serif;
+  color:var(--muted);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:8px;
+}
+
+.scenario strong{
+  color:var(--green);
+  font-size:25px;
+  font-weight:400;
+}
+
+@media(max-width:1100px){
+  .pricing-grid,
+  .pricing-inputs,
+  .scenario-grid{
+    grid-template-columns:1fr;
+  }
+
+  .price-big{
+    font-size:40px;
+  }
+
+  .break-row{
+    grid-template-columns:1fr;
+  }
+}
+
 </style>
 </head>
 
@@ -652,6 +805,7 @@ th{
       <button onclick="showView('proveedores',this)">Proveedores</button>
       <button onclick="showView('compras',this)">Compras</button>
       <button onclick="showView('ventas',this)">Ventas</button>
+      <button onclick="showView('pricing',this)">Pricing Intelligence</button>
       <button onclick="showView('historico',this)">Historico</button>
       <button onclick="showView('caja',this)">Caja</button>
       <button onclick="showView('roadmap',this)">Roadmap</button>
@@ -926,6 +1080,152 @@ th{
 </section>
 
 
+
+<section id="pricing" class="view">
+  <div class="topbar">
+    <div>
+      <div class="kicker">PRICING INTELLIGENCE</div>
+      <h2>Precio mínimo rentable</h2>
+      <p class="subtitle">Simulador para saber a qué precio debemos vender la piña para conservar un margen mínimo del 15%.</p>
+    </div>
+  </div>
+
+  <div class="pricing-hero">
+    <h3>Decidir precio antes de vender.</h3>
+    <p>
+      Este módulo toma precio de compra, merma, flete, costos operativos y condición de pago.
+      Calcula el precio mínimo contado y crédito para proteger la utilidad de Pariendo Piñas.
+    </p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="panel">
+      <h3>Variables de precio</h3>
+
+      <div class="pricing-inputs">
+        <label>Precio compra por kg
+          <input id="priceCompraKg" type="number" value="1600">
+        </label>
+
+        <label>Margen objetivo %
+          <input id="priceMargen" type="number" value="15">
+        </label>
+
+        <label>Merma %
+          <input id="priceMerma" type="number" value="2">
+        </label>
+
+        <label>Flete por kg
+          <input id="priceFleteKg" type="number" value="120">
+        </label>
+
+        <label>Costo operativo por kg
+          <input id="priceOperacionKg" type="number" value="80">
+        </label>
+
+        <label>Costo financiero crédito %
+          <input id="priceFinanciero" type="number" value="3">
+        </label>
+
+        <label>Precio de venta simulado
+          <input id="priceVentaReal" type="number" value="2100">
+        </label>
+
+        <label>Kilos proyectados
+          <input id="priceKilos" type="number" value="24000">
+        </label>
+      </div>
+
+      <div class="action-row">
+        <button class="btn gold" onclick="calcularPricing()">Calcular precio</button>
+        <button class="btn outline" onclick="guardarPricingScenario()">Guardar escenario</button>
+      </div>
+    </div>
+
+    <div class="pricing-result">
+      <small>PRECIO MÍNIMO CONTADO</small>
+      <div class="price-big" id="minContado">$0</div>
+
+      <small>PRECIO MÍNIMO CRÉDITO</small>
+      <div class="price-big" id="minCredito">$0</div>
+
+      <div id="pricingStatus" class="pricing-status status-yellow">Calculando...</div>
+
+      <div class="breakdown">
+        <div class="break-row">
+          <span>Compra</span>
+          <div class="break-bar"><div id="barCompra" class="break-fill" style="width:0%"></div></div>
+          <strong id="breakCompra">$0</strong>
+        </div>
+
+        <div class="break-row">
+          <span>Merma</span>
+          <div class="break-bar"><div id="barMerma" class="break-fill" style="width:0%"></div></div>
+          <strong id="breakMerma">$0</strong>
+        </div>
+
+        <div class="break-row">
+          <span>Flete + operación</span>
+          <div class="break-bar"><div id="barOperacion" class="break-fill" style="width:0%"></div></div>
+          <strong id="breakOperacion">$0</strong>
+        </div>
+
+        <div class="break-row">
+          <span>Utilidad objetivo</span>
+          <div class="break-bar"><div id="barUtilidad" class="break-fill" style="width:0%"></div></div>
+          <strong id="breakUtilidad">$0</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards" style="margin-top:24px;">
+    <div class="card"><span>Margen real simulado</span><strong id="realMargin">0%</strong></div>
+    <div class="card"><span>Utilidad proyectada</span><strong id="profitProjected">$0</strong></div>
+    <div class="card"><span>Facturación proyectada</span><strong id="revenueProjected">$0</strong></div>
+    <div class="card"><span>Alerta de precio</span><strong id="priceAlert">—</strong></div>
+  </div>
+
+  <div class="panel">
+    <h3>Sensibilidad precio de compra</h3>
+
+    <div class="scenario-grid">
+      <div class="scenario">
+        <span>Compra baja</span>
+        <strong id="scenarioLow">$0</strong>
+      </div>
+
+      <div class="scenario">
+        <span>Compra actual</span>
+        <strong id="scenarioMid">$0</strong>
+      </div>
+
+      <div class="scenario">
+        <span>Compra alta</span>
+        <strong id="scenarioHigh">$0</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Escenarios guardados</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Compra kg</th>
+          <th>Contado mínimo</th>
+          <th>Crédito mínimo</th>
+          <th>Margen</th>
+        </tr>
+      </thead>
+      <tbody id="tablaPricing"></tbody>
+    </table>
+  </div>
+</section>
+
+
 <section id="historico" class="view">
   <div class="topbar">
     <div>
@@ -1016,6 +1316,7 @@ const users = {
 let proveedores = JSON.parse(localStorage.getItem("pp_proveedores")) || [];
 let compras = JSON.parse(localStorage.getItem("pp_compras")) || [];
 let ventas = JSON.parse(localStorage.getItem("pp_ventas")) || [];
+let pricingScenarios = JSON.parse(localStorage.getItem("pp_pricing_scenarios")) || [];
 
 function login(){
   const user = loginUser.value.trim().toLowerCase();
@@ -1205,6 +1506,9 @@ function render(){
       <td>${money(v.utilidad)}</td>
     </tr>
   `).join("") || `<tr><td colspan="10">Sin ventas registradas.</td></tr>`;
+
+  calcularPricing();
+  renderPricingScenarios();
 }
 function calcularVentaEnVivo(){
   const cantidad = Number(document.getElementById("ventaCantidad").value || 0);
@@ -1228,6 +1532,112 @@ function calcularVentaEnVivo(){
 ["ventaCantidad","ventaValorUnidad","ventaRetencion","ventaAnticipo","ventaCosto"].forEach(id=>{
   document.getElementById(id).addEventListener("input", calcularVentaEnVivo);
 });
+
+function calcularPricing(){
+  const compraKg = Number(document.getElementById("priceCompraKg").value || 0);
+  const margen = Number(document.getElementById("priceMargen").value || 0) / 100;
+  const merma = Number(document.getElementById("priceMerma").value || 0) / 100;
+  const fleteKg = Number(document.getElementById("priceFleteKg").value || 0);
+  const operacionKg = Number(document.getElementById("priceOperacionKg").value || 0);
+  const financiero = Number(document.getElementById("priceFinanciero").value || 0) / 100;
+  const ventaReal = Number(document.getElementById("priceVentaReal").value || 0);
+  const kilos = Number(document.getElementById("priceKilos").value || 0);
+
+  const costoMerma = compraKg * merma;
+  const costoBase = compraKg + costoMerma + fleteKg + operacionKg;
+
+  const precioMinContado = costoBase / (1 - margen);
+  const precioMinCredito = precioMinContado * (1 + financiero);
+
+  const utilidadObjetivo = precioMinContado - costoBase;
+  const margenReal = ventaReal > 0 ? ((ventaReal - costoBase) / ventaReal) * 100 : 0;
+  const utilidadProyectada = (ventaReal - costoBase) * kilos;
+  const facturacionProyectada = ventaReal * kilos;
+
+  document.getElementById("minContado").innerText = money(Math.ceil(precioMinContado));
+  document.getElementById("minCredito").innerText = money(Math.ceil(precioMinCredito));
+
+  document.getElementById("realMargin").innerText = margenReal.toFixed(1) + "%";
+  document.getElementById("profitProjected").innerText = money(utilidadProyectada);
+  document.getElementById("revenueProjected").innerText = money(facturacionProyectada);
+
+  const status = document.getElementById("pricingStatus");
+  const alert = document.getElementById("priceAlert");
+
+  status.className = "pricing-status";
+
+  if(margenReal >= margen * 100){
+    status.classList.add("status-green");
+    status.innerText = "🟢 Precio rentable";
+    alert.innerText = "OK";
+  }else if(margenReal >= (margen * 100) - 3){
+    status.classList.add("status-yellow");
+    status.innerText = "🟡 Margen apretado";
+    alert.innerText = "Revisar";
+  }else{
+    status.classList.add("status-red");
+    status.innerText = "🔴 No vender a ese precio";
+    alert.innerText = "Alerta";
+  }
+
+  document.getElementById("breakCompra").innerText = money(compraKg);
+  document.getElementById("breakMerma").innerText = money(costoMerma);
+  document.getElementById("breakOperacion").innerText = money(fleteKg + operacionKg);
+  document.getElementById("breakUtilidad").innerText = money(utilidadObjetivo);
+
+  const totalBreak = precioMinContado || 1;
+  document.getElementById("barCompra").style.width = Math.min(100,(compraKg/totalBreak)*100) + "%";
+  document.getElementById("barMerma").style.width = Math.min(100,(costoMerma/totalBreak)*100) + "%";
+  document.getElementById("barOperacion").style.width = Math.min(100,((fleteKg+operacionKg)/totalBreak)*100) + "%";
+  document.getElementById("barUtilidad").style.width = Math.min(100,(utilidadObjetivo/totalBreak)*100) + "%";
+
+  document.getElementById("scenarioLow").innerText = money(Math.ceil(((compraKg - 100) + ((compraKg - 100) * merma) + fleteKg + operacionKg) / (1 - margen)));
+  document.getElementById("scenarioMid").innerText = money(Math.ceil(precioMinContado));
+  document.getElementById("scenarioHigh").innerText = money(Math.ceil(((compraKg + 100) + ((compraKg + 100) * merma) + fleteKg + operacionKg) / (1 - margen)));
+}
+
+function guardarPricingScenario(){
+  calcularPricing();
+
+  const compraKg = Number(document.getElementById("priceCompraKg").value || 0);
+  const contado = document.getElementById("minContado").innerText;
+  const credito = document.getElementById("minCredito").innerText;
+  const margen = document.getElementById("realMargin").innerText;
+
+  pricingScenarios.push({
+    fecha:new Date().toLocaleDateString(),
+    compraKg,
+    contado,
+    credito,
+    margen
+  });
+
+  localStorage.setItem("pp_pricing_scenarios", JSON.stringify(pricingScenarios));
+  renderPricingScenarios();
+  alert("Escenario de pricing guardado.");
+}
+
+function renderPricingScenarios(){
+  if(!document.getElementById("tablaPricing")) return;
+
+  tablaPricing.innerHTML = pricingScenarios.map(s=>`
+    <tr>
+      <td>${s.fecha}</td>
+      <td>${money(s.compraKg)}</td>
+      <td>${s.contado}</td>
+      <td>${s.credito}</td>
+      <td>${s.margen}</td>
+    </tr>
+  `).join("") || `<tr><td colspan="5">Sin escenarios guardados.</td></tr>`;
+}
+
+["priceCompraKg","priceMargen","priceMerma","priceFleteKg","priceOperacionKg","priceFinanciero","priceVentaReal","priceKilos"].forEach(id=>{
+  const el = document.getElementById(id);
+  if(el){
+    el.addEventListener("input", calcularPricing);
+  }
+});
+
 const savedUser = localStorage.getItem("pp_user");
 if(savedUser){
   enterApp(savedUser);
