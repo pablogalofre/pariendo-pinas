@@ -411,6 +411,119 @@ REGISTRO DE CLIENTES
   .client-registration-form,.client-registration-info{padding:26px 20px}
 }
 
+
+/* =========================
+PAGO AUTORIZADO POR CLIENTE
+========================= */
+.client-payment{
+  display:none;
+  margin:22px 0 0;
+  padding:20px;
+  border:1px solid rgba(199,160,76,.32);
+  background:rgba(199,160,76,.07);
+}
+.client-payment.visible{display:block}
+.client-payment-title{
+  margin-bottom:8px;
+  color:var(--gold-soft);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:700;
+}
+.client-payment-copy{
+  margin-bottom:16px;
+  color:rgba(255,255,255,.58);
+  font-size:11px;
+  line-height:1.6;
+}
+.client-payment-methods{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:14px;
+}
+.client-payment-option{
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 14px;
+  border:1px solid rgba(199,160,76,.24);
+  color:#fff;
+  cursor:pointer;
+}
+.client-payment-option input{accent-color:var(--gold)}
+.client-payment-option.disabled{
+  opacity:.35;
+  pointer-events:none;
+}
+.client-payment-note{
+  margin-top:12px;
+  color:rgba(255,255,255,.42);
+  font-size:10px;
+  line-height:1.6;
+}
+@media(max-width:680px){
+  .client-payment-methods{grid-template-columns:1fr}
+}
+
+
+/* =========================
+UNIVERSO 100% PIÑA
+========================= */
+.pineapple-lines{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:28px 0 30px;
+}
+.pineapple-line-card{
+  padding:22px;
+  border:1px solid rgba(199,160,76,.28);
+  background:rgba(255,255,255,.025);
+}
+.pineapple-line-card small{
+  display:block;
+  margin-bottom:9px;
+  color:var(--gold-soft);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.pineapple-line-card strong{
+  display:block;
+  margin-bottom:8px;
+  font-family:Georgia,serif;
+  font-size:22px;
+  font-weight:400;
+}
+.pineapple-line-card p{
+  margin:0;
+  color:rgba(255,255,255,.56);
+  font-size:11px;
+  line-height:1.65;
+}
+.pineapple-pillars{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:22px;
+}
+.pineapple-pillars span{
+  padding:9px 11px;
+  border:1px solid rgba(199,160,76,.25);
+  font-size:8px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.conditional-field{display:none}
+.conditional-field.visible{display:block}
+@media(max-width:760px){
+  .pineapple-lines{grid-template-columns:1fr}
+}
+
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -419,7 +532,7 @@ REGISTRO DE CLIENTES
   <a href="#home" class="brand" aria-label="Pariendo Piñas"><div class="brand-symbol">PP</div><div class="brand-text">Pariendo Piñas</div></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
   <nav class="nav-links" id="navLinks">
-    <a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Our World</a><a class="nav-private" href="login.html">Private Office ◆</a>
+    <a href="#produce">Fresh</a><a href="#wholesale">Business</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Objects</a><a class="nav-private" href="login.html">Private Office ◆</a>
   </nav>
 </header>
 <main>
@@ -427,30 +540,44 @@ REGISTRO DE CLIENTES
   <div class="hero-content reveal">
     <div class="hero-kicker">From the finest pineapples of Colombia</div>
     <h1>Pariendo<br>Piñas<span>Tropical Luxury</span></h1>
-    <p class="hero-copy">Fruta premium, programas de exportación y una línea high-end inspirada en la energía, el color y la sofisticación del trópico colombiano.</p>
+    <p class="hero-copy">Una casa de marca construida completamente alrededor de la piña: fruta fresca, transformación, gastronomía, diseño, objetos y experiencias tropicales.</p>
     <div class="hero-actions"><a class="btn" href="#wholesale">Comprar al por mayor ◆</a><a class="btn btn-light" href="#lifestyle">Discover Lifestyle</a></div>
-    <div class="hero-note"><span>Premium Produce</span><span>Worldwide Export</span><span>High-End Lifestyle</span></div>
+    <div class="hero-note"><span>Fresh Pineapple</span><span>Pineapple Industry</span><span>Pineapple Lifestyle</span></div>
   </div>
   <div class="scroll-cue">Scroll</div>
 </section>
 <section class="manifesto">
   <div class="manifesto-mark reveal">PP</div>
   <h2 class="reveal">La mejor fruta tropical del mundo merece una marca extraordinaria.</h2>
-  <p class="reveal">Nacimos en Colombia para transformar el origen en cultura: seleccionar mejor, presentar mejor y llevar el trópico al mundo con una mirada contemporánea, sofisticada y profundamente nuestra.</p>
+  <p class="reveal">Nacimos en Colombia para construir un universo completo alrededor de una sola fruta extraordinaria: la piña. Del cultivo a la industria, de la mesa al diseño y de los objetos a las experiencias.</p>
 </section>
 <section class="produce-section" id="produce">
   <div class="produce-visual reveal"></div>
   <div class="produce-copy">
-    <div class="section-label reveal">01 — Produce</div>
-    <h2 class="reveal">Pineapple<br>at its finest.</h2>
-    <p class="reveal">Piña premium seleccionada para compradores que valoran dulzura, consistencia, trazabilidad y una presentación impecable. Soluciones para food service, retail, industria y programas de volumen.</p>
-    <div class="produce-specs reveal">
-      <div class="produce-spec"><strong>Sweet Gold</strong><span>Premium selection</span></div>
-      <div class="produce-spec"><strong>Fresh</strong><span>From Colombia</span></div>
-      <div class="produce-spec"><strong>Retail</strong><span>Curated presentation</span></div>
-      <div class="produce-spec"><strong>Food Service</strong><span>Reliable supply</span></div>
+    <div class="section-label reveal">01 — Fresh Pineapple</div>
+    <h2 class="reveal">One fruit.<br>Two destinations.</h2>
+    <p class="reveal">Cada lote se clasifica según su destino comercial y las especificaciones acordadas con el cliente. Conservamos la esencia, el sabor y el origen de la piña, ajustando selección y presentación a cada proceso.</p>
+
+    <div class="pineapple-lines reveal">
+      <article class="pineapple-line-card">
+        <small>Fresh Export</small>
+        <strong>Para consumo fresco</strong>
+        <p>Piña seleccionada para retail, supermercados, hoteles, restaurantes, food service y programas de exportación.</p>
+      </article>
+      <article class="pineapple-line-card">
+        <small>Fresh Industry</small>
+        <strong>Para transformación</strong>
+        <p>Piña destinada a jugos, pulpas, mermeladas, conservas, deshidratación, liofilización e ingredientes alimentarios.</p>
+      </article>
     </div>
-    <a class="btn" href="#wholesale">Configurar pedido mayorista ◆</a>
+
+    <div class="produce-specs reveal">
+      <div class="produce-spec"><strong>Sweet Gold</strong><span>Origen Colombia</span></div>
+      <div class="produce-spec"><strong>Trazabilidad</strong><span>Por lote y destino</span></div>
+      <div class="produce-spec"><strong>Fresh Export</strong><span>Presentación seleccionada</span></div>
+      <div class="produce-spec"><strong>Fresh Industry</strong><span>Rendimiento para proceso</span></div>
+    </div>
+    <a class="btn" href="#wholesale">Configurar programa de compra ◆</a>
   </div>
 </section>
 
@@ -458,11 +585,11 @@ REGISTRO DE CLIENTES
   <div class="wholesale-head">
     <div>
       <div class="section-label reveal">Venta mayorista</div>
-      <h2 class="reveal">Piña fresca<br>desde 6.000 kg.</h2>
+      <h2 class="reveal">Programas de piña<br>desde 6.000 kg.</h2>
     </div>
     <p class="reveal">
-      Configura una solicitud de compra para retail, industria, food service o distribución.
-      El precio publicado respeta la política comercial de Pariendo Piñas: ninguna venta se cotiza por debajo de $2.180 por kilogramo. La disponibilidad se confirma antes del despacho.
+      Selecciona Fresh Export para consumo fresco o Fresh Industry para transformación alimentaria.
+      El precio público respeta la política comercial de Pariendo Piñas: ninguna venta se cotiza por debajo de $2.180 por kilogramo. Los precios negociados se aplican exclusivamente mediante un código comercial autorizado.
     </p>
   </div>
 
@@ -471,6 +598,28 @@ REGISTRO DE CLIENTES
       <h3>Configura tu pedido</h3>
 
       <div class="wholesale-grid">
+        <div class="wholesale-field">
+          <label for="wholesaleProductLine">Línea de piña</label>
+          <select id="wholesaleProductLine">
+            <option value="fresh-export">Fresh Export — consumo fresco</option>
+            <option value="fresh-industry">Fresh Industry — transformación</option>
+          </select>
+        </div>
+
+        <div class="wholesale-field conditional-field" id="industryApplicationField">
+          <label for="industryApplication">Aplicación industrial</label>
+          <select id="industryApplication">
+            <option value="">Seleccione una aplicación</option>
+            <option>Jugos y bebidas</option>
+            <option>Pulpas y concentrados</option>
+            <option>Mermeladas y conservas</option>
+            <option>Deshidratación</option>
+            <option>Liofilización</option>
+            <option>Ingredientes alimentarios</option>
+            <option>Otro proceso</option>
+          </select>
+        </div>
+
         <div class="wholesale-field">
           <label for="wholesaleName">Nombre o empresa</label>
           <input id="wholesaleName" type="text" placeholder="Nombre de su empresa">
@@ -487,13 +636,14 @@ REGISTRO DE CLIENTES
         </div>
 
         <div class="wholesale-field">
-          <label for="wholesaleUse">Destino comercial</label>
+          <label for="wholesaleUse">Canal o destino</label>
           <select id="wholesaleUse">
             <option>Retail</option>
-            <option>Industria</option>
+            <option>Supermercados</option>
             <option>Food service</option>
             <option>Distribución mayorista</option>
             <option>Exportación</option>
+            <option>Industria alimentaria</option>
             <option>Otro</option>
           </select>
         </div>
@@ -549,7 +699,7 @@ REGISTRO DE CLIENTES
 
         <div class="wholesale-product">
           <small>Producto</small>
-          <strong>Piña Golden fresca</strong>
+          <strong id="wholesaleProductSummary">Fresh Export — Piña Golden</strong>
         </div>
 
         <div class="wholesale-lines">
@@ -573,6 +723,31 @@ REGISTRO DE CLIENTES
       </div>
 
       <div>
+        <div class="client-payment" id="clientPayment">
+          <div class="client-payment-title">Pago habilitado para este cliente</div>
+          <div class="client-payment-copy" id="clientPaymentCopy">
+            Valide su código comercial para consultar los medios de pago autorizados.
+          </div>
+
+          <div class="client-payment-methods">
+            <label class="client-payment-option" id="paymentOptionPse">
+              <input type="radio" name="clientPaymentMethod" value="pse">
+              <span>PSE</span>
+            </label>
+
+            <label class="client-payment-option" id="paymentOptionCard">
+              <input type="radio" name="clientPaymentMethod" value="card">
+              <span>Tarjeta débito o crédito</span>
+            </label>
+          </div>
+
+          <button class="btn wholesale-submit" id="clientPayNow" type="button">Continuar al pago ◆</button>
+          <div class="client-payment-note">
+            Los medios de pago dependen de la negociación registrada para cada cliente.
+            El cobro definitivo debe procesarse mediante una pasarela de pagos autorizada.
+          </div>
+        </div>
+
         <button class="btn wholesale-submit" id="wholesaleSubmit" type="button">Solicitar cotización ◆</button>
         <p class="wholesale-disclaimer">
           Esta solicitud no constituye una venta definitiva. El precio nunca será inferior a $2.180/kg. Disponibilidad, calidad, logística, retenciones y condiciones de pago se confirman por el equipo comercial.
@@ -633,6 +808,20 @@ REGISTRO DE CLIENTES
         <div class="client-field">
           <label for="clientCity">Ciudad</label>
           <input id="clientCity" type="text" placeholder="Ciudad principal">
+        </div>
+
+        <div class="client-field">
+          <label for="clientProductLine">Línea de interés</label>
+          <select id="clientProductLine">
+            <option value="">Seleccione una línea</option>
+            <option>Fresh Export</option>
+            <option>Fresh Industry</option>
+            <option>Pineapple Gourmet</option>
+            <option>Pineapple Lifestyle</option>
+            <option>Pineapple Objects</option>
+            <option>Pineapple Experiences</option>
+            <option>Varias líneas</option>
+          </select>
         </div>
 
         <div class="client-field">
@@ -721,7 +910,7 @@ REGISTRO DE CLIENTES
   <div class="export-grid">
     <article class="export-card reveal"><div class="num">01</div><h3>Retail</h3><p>Programas de suministro para tiendas, mercados especializados y cadenas que buscan una fruta con mayor valor percibido.</p></article>
     <article class="export-card reveal"><div class="num">02</div><h3>Food Service</h3><p>Soluciones para hoteles, restaurantes, cocinas profesionales y operadores de hospitalidad.</p></article>
-    <article class="export-card reveal"><div class="num">03</div><h3>Industrial</h3><p>Producto para transformación, ingredientes, derivados y desarrollos de valor agregado.</p></article>
+    <article class="export-card reveal"><div class="num">03</div><h3>Fresh Industry</h3><p>Piña clasificada para transformación en jugos, pulpas, conservas, deshidratados, liofilizados e ingredientes.</p></article>
     <article class="export-card reveal"><div class="num">04</div><h3>Container Programs</h3><p>Programas de volumen diseñados según mercado, frecuencia, especificación y requerimientos logísticos.</p></article>
   </div>
   <div class="trust-bar reveal"><div class="trust-item">Traceability</div><div class="trust-item">Export Quality</div><div class="trust-item">Cold Chain Planning</div><div class="trust-item">Colombian Origin</div><div class="trust-item">Commercial Programs</div></div>
@@ -730,7 +919,7 @@ REGISTRO DE CLIENTES
   <div class="gourmet-copy">
     <div class="section-label reveal">03 — Gourmet</div>
     <h2 class="reveal">Born from<br>the fruit.</h2>
-    <p class="reveal">Mermeladas, salsas y pequeños lotes que conservan la intensidad del trópico y convierten la piña en una experiencia de mesa.</p>
+    <p class="reveal">Mermeladas, chutneys, salsas, conservas, snacks, deshidratados y liofilizados creados exclusivamente a partir de la piña.</p>
     <div style="margin-top:34px" class="reveal"><a class="btn btn-dark" href="mailto:hello@papinas.com?subject=Gourmet%20Inquiry">Discover Gourmet ◆</a></div>
   </div>
   <div class="gourmet-visual reveal"><div class="gourmet-visual-text"><strong>Small batches.<br>Big tropical character.</strong><span>Pariendo Piñas Gourmet</span></div></div>
@@ -739,18 +928,18 @@ REGISTRO DE CLIENTES
   <div class="lifestyle-copy reveal">
     <div class="eyebrow">04 — High-End Lifestyle</div>
     <h2>Wear the<br>tropics.<span>Pariendo Piñas Lifestyle</span></h2>
-    <p>Piezas high-end para quienes llevan el trópico como una actitud: diseño, movimiento, sofisticación y una energía imposible de ignorar.</p>
-    <div class="lifestyle-categories"><span>Golf</span><span>Beach</span><span>Travel</span><span>Cycling</span><span>Resort</span></div>
+    <p>Ropa y accesorios inspirados exclusivamente en la piña: su corona, geometría, color, cultivo y energía tropical convertidos en diseño.</p>
+    <div class="lifestyle-categories"><span>Pineapple Golf</span><span>Pineapple Beach</span><span>Pineapple Travel</span><span>Pineapple Cycling</span><span>Pineapple Resort</span></div>
     <a class="btn btn-light" href="#private">Explore the Collection ◆</a>
   </div>
 </section>
 <section class="world-grid" id="world">
   <div class="world-image reveal"></div>
   <div class="world-copy">
-    <div class="section-label reveal">05 — Our World</div>
-    <h2 class="reveal">Objects,<br>culture & ritual.</h2>
-    <p class="reveal">Pariendo Piñas no termina en la fruta ni en la ropa. Es un universo de objetos, experiencias y colaboraciones que convierten lo cotidiano en algo más cálido, más libre y más memorable.</p>
-    <div class="world-quote reveal">“The pineapple is the origin. The lifestyle is the culture.”</div>
+    <div class="section-label reveal">05 — Pineapple Objects & Experiences</div>
+    <h2 class="reveal">One fruit.<br>An entire world.</h2>
+    <p class="reveal">Objetos, aromas, piezas para el hogar, regalos, experiencias gastronómicas, visitas al cultivo y colaboraciones que nacen siempre de la cultura de la piña.</p>
+    <div class="world-quote reveal">“Everything begins with the pineapple.”</div>
   </div>
 </section>
 <section class="private" id="private">
@@ -762,8 +951,8 @@ REGISTRO DE CLIENTES
 </main>
 <footer class="footer">
   <div class="footer-top">
-    <div class="footer-brand"><h3>Pariendo Piñas</h3><p>Premium produce, worldwide export and high-end tropical lifestyle from Colombia.</p><div class="footer-location">Bogotá · Colombia<br>Worldwide Export</div></div>
-    <div class="footer-col"><small>Business</small><a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
+    <div class="footer-brand"><h3>Pariendo Piñas</h3><p>The pineapple house: fresh produce, industry, gourmet, lifestyle, objects and experiences from Colombia.</p><div class="footer-location">Bogotá · Colombia<br>Worldwide Export</div></div>
+    <div class="footer-col"><small>Business</small><a href="#produce">Fresh Pineapple</a><a href="#wholesale">Pineapple Business</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
     <div class="footer-col"><small>House</small><a href="#lifestyle">Lifestyle</a><a href="#world">Objects</a><a href="#world">Our World</a></div>
     <div class="footer-col"><small>Connect</small><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:hello@papinas.com">Email</a><a href="login.html">Private Office</a></div>
   </div>
@@ -781,6 +970,9 @@ const wholesaleConfig={
 };
 
 const wholesaleKg=document.getElementById("wholesaleKg");
+const wholesaleProductLine=document.getElementById("wholesaleProductLine");
+const industryApplication=document.getElementById("industryApplication");
+const industryApplicationField=document.getElementById("industryApplicationField");
 const wholesalePayment=document.getElementById("wholesalePayment");
 const wholesaleCity=document.getElementById("wholesaleCity");
 const wholesaleError=document.getElementById("wholesaleError");
@@ -789,7 +981,30 @@ function formatCop(value){
   return "$"+Math.round(Number(value||0)).toLocaleString("es-CO");
 }
 
+function getProductLineData(){
+  const isIndustry=wholesaleProductLine.value==="fresh-industry";
+  return {
+    value:wholesaleProductLine.value,
+    label:isIndustry
+      ?"Fresh Industry — Piña para transformación"
+      :"Fresh Export — Piña Golden seleccionada",
+    shortLabel:isIndustry?"Fresh Industry":"Fresh Export",
+    isIndustry
+  };
+}
+
+function updateProductLineUI(){
+  const product=getProductLineData();
+  industryApplicationField.classList.toggle("visible",product.isIndustry);
+  document.getElementById("wholesaleProductSummary").textContent=product.label;
+
+  if(!product.isIndustry){
+    industryApplication.value="";
+  }
+}
+
 function updateWholesale(){
+  updateProductLineUI();
   let kg=Number(wholesaleKg.value||0);
   const isValid=kg>=wholesaleConfig.minimumKg;
 
@@ -824,7 +1039,7 @@ function updateWholesale(){
   return {kg,price,isValid,total:Math.max(0,kg)*price};
 }
 
-[wholesaleKg,wholesalePayment,wholesaleCity].forEach(el=>{
+[wholesaleKg,wholesaleProductLine,industryApplication,wholesalePayment,wholesaleCity].forEach(el=>{
   el.addEventListener("input",updateWholesale);
   el.addEventListener("change",updateWholesale);
 });
@@ -837,6 +1052,8 @@ document.getElementById("wholesaleSubmit").addEventListener("click",()=>{
   const city=wholesaleCity.value.trim();
   const date=document.getElementById("wholesaleDate").value;
   const use=document.getElementById("wholesaleUse").value;
+  const product=getProductLineData();
+  const application=industryApplication.value;
   const notes=document.getElementById("wholesaleNotes").value.trim();
   const condition=wholesalePayment.value==="credito"?"Crédito sujeto a aprobación":"Contado";
 
@@ -850,13 +1067,21 @@ document.getElementById("wholesaleSubmit").addEventListener("click",()=>{
     return;
   }
 
+  if(product.isIndustry&&!application){
+    wholesaleError.textContent="Selecciona la aplicación prevista para la piña de industria.";
+    industryApplication.focus();
+    return;
+  }
+
   const message=[
     "SOLICITUD MAYORISTA — PARIENDO PIÑAS",
     "",
     "Cliente: "+name,
     "WhatsApp: "+phone,
     "Correo: "+(email||"No informado"),
-    "Uso: "+use,
+    "Línea: "+product.shortLabel,
+    "Aplicación industrial: "+(product.isIndustry?application:"No aplica"),
+    "Canal o destino: "+use,
     "Cantidad: "+result.kg.toLocaleString("es-CO")+" kg",
     "Precio mayorista: "+formatCop(result.price)+"/kg",
     "Total estimado: "+formatCop(result.total),
@@ -889,19 +1114,81 @@ const COMMERCIAL_CODES={
     customer:"Drycol S.A.S.",
     authorizedPrice:2080,
     expires:"2026-12-31",
-    active:true
+    active:true,
+    authorizedProductLines:["fresh-industry"],
+
+    // Condiciones autorizadas según la negociación del cliente.
+    allowedPaymentMethods:["pse","card"],
+
+    // Reemplazar con enlaces generados por la pasarela de pagos.
+    paymentLinks:{
+      pse:"",
+      card:""
+    }
   }
 };
 
 let negotiatedPrice=null;
 let negotiatedCustomer=null;
+let negotiatedClientData=null;
 
 const commercialCodeInput=document.getElementById("commercialCode");
 const commercialCodeStatus=document.getElementById("commercialCodeStatus");
+const clientPayment=document.getElementById("clientPayment");
+const clientPaymentCopy=document.getElementById("clientPaymentCopy");
+const paymentOptionPse=document.getElementById("paymentOptionPse");
+const paymentOptionCard=document.getElementById("paymentOptionCard");
+const clientPayNow=document.getElementById("clientPayNow");
+
+
+function hideClientPayment(){
+  clientPayment.classList.remove("visible");
+  clientPaymentCopy.textContent="";
+  document.querySelectorAll('input[name="clientPaymentMethod"]').forEach(input=>{
+    input.checked=false;
+  });
+}
+
+function configureClientPayment(data){
+  const allowed=Array.isArray(data.allowedPaymentMethods)
+    ? data.allowedPaymentMethods
+    : [];
+
+  const pseEnabled=allowed.includes("pse");
+  const cardEnabled=allowed.includes("card");
+
+  paymentOptionPse.classList.toggle("disabled",!pseEnabled);
+  paymentOptionCard.classList.toggle("disabled",!cardEnabled);
+
+  paymentOptionPse.querySelector("input").disabled=!pseEnabled;
+  paymentOptionCard.querySelector("input").disabled=!cardEnabled;
+
+  document.querySelectorAll('input[name="clientPaymentMethod"]').forEach(input=>{
+    input.checked=false;
+  });
+
+  if(!pseEnabled&&!cardEnabled){
+    hideClientPayment();
+    return;
+  }
+
+  const labels=[];
+  if(pseEnabled) labels.push("PSE");
+  if(cardEnabled) labels.push("tarjeta");
+
+  clientPaymentCopy.textContent=
+    "Cliente: "+data.customer+
+    ". Medios autorizados: "+labels.join(" y ")+
+    ". Total estimado: "+document.getElementById("wholesaleTotal").textContent+".";
+
+  clientPayment.classList.add("visible");
+}
 
 function resetCommercialCode(message){
   negotiatedPrice=null;
   negotiatedCustomer=null;
+  negotiatedClientData=null;
+  hideClientPayment();
   commercialCodeStatus.className="commercial-code-status visible error";
   commercialCodeStatus.textContent=message;
   updateWholesale();
@@ -931,21 +1218,31 @@ document.getElementById("applyCommercialCode").addEventListener("click",()=>{
 
   negotiatedPrice=Number(data.authorizedPrice);
   negotiatedCustomer=data.customer;
+  negotiatedClientData=data;
+
+  if(Array.isArray(data.authorizedProductLines)&&data.authorizedProductLines.length===1){
+    wholesaleProductLine.value=data.authorizedProductLines[0];
+    updateProductLineUI();
+  }
 
   commercialCodeStatus.className="commercial-code-status visible";
   commercialCodeStatus.innerHTML=
     "✓ Cliente verificado<br>"+
     "<strong>"+data.customer+"</strong><br>"+
+    "Línea autorizada: <strong>"+getProductLineData().shortLabel+"</strong><br>"+
     "Precio autorizado: <strong>"+formatCop(data.authorizedPrice)+"/kg</strong><br>"+
     "Vigente hasta: <strong>"+expiry.toLocaleDateString("es-CO")+"</strong>";
 
   updateWholesale();
+  configureClientPayment(data);
 });
 
 commercialCodeInput.addEventListener("input",()=>{
   if(negotiatedPrice!==null){
     negotiatedPrice=null;
     negotiatedCustomer=null;
+    negotiatedClientData=null;
+    hideClientPayment();
     commercialCodeStatus.className="commercial-code-status";
     commercialCodeStatus.textContent="";
     updateWholesale();
@@ -966,6 +1263,10 @@ updateWholesale=function(){
     document.getElementById("wholesaleTotal").textContent=
       formatCop(total);
 
+    if(negotiatedClientData&&clientPayment.classList.contains("visible")){
+      configureClientPayment(negotiatedClientData);
+    }
+
     return {
       ...result,
       price:negotiatedPrice,
@@ -977,6 +1278,68 @@ updateWholesale=function(){
   return result;
 };
 
+
+// ===== Pago según negociación del cliente =====
+clientPayNow.addEventListener("click",()=>{
+  if(!negotiatedClientData){
+    commercialCodeStatus.className="commercial-code-status visible error";
+    commercialCodeStatus.textContent="Valide primero un código comercial.";
+    return;
+  }
+
+  const selected=document.querySelector(
+    'input[name="clientPaymentMethod"]:checked'
+  );
+
+  if(!selected){
+    clientPaymentCopy.textContent=
+      "Seleccione PSE o tarjeta para continuar.";
+    return;
+  }
+
+  const method=selected.value;
+  const allowed=negotiatedClientData.allowedPaymentMethods||[];
+
+  if(!allowed.includes(method)){
+    clientPaymentCopy.textContent=
+      "Este medio de pago no está autorizado para el cliente.";
+    return;
+  }
+
+  const paymentUrl=
+    negotiatedClientData.paymentLinks&&
+    negotiatedClientData.paymentLinks[method]
+      ? negotiatedClientData.paymentLinks[method]
+      : "";
+
+  if(paymentUrl){
+    window.open(paymentUrl,"_blank","noopener");
+    return;
+  }
+
+  const result=updateWholesale();
+  const methodName=method==="pse"?"PSE":"Tarjeta";
+  const subject=
+    "Solicitud de enlace de pago — "+negotiatedClientData.customer;
+  const body=[
+    "SOLICITUD DE PAGO — PARIENDO PIÑAS",
+    "",
+    "Cliente: "+negotiatedClientData.customer,
+    "Código comercial validado: "+commercialCodeInput.value.trim().toUpperCase(),
+    "Línea: "+getProductLineData().shortLabel,
+    "Medio solicitado: "+methodName,
+    "Cantidad: "+result.kg.toLocaleString("es-CO")+" kg",
+    "Precio autorizado: "+formatCop(result.price)+"/kg",
+    "Total estimado: "+formatCop(result.total),
+    "",
+    "El enlace de la pasarela de pagos todavía no está configurado."
+  ].join("\n");
+
+  window.location.href=
+    "mailto:hello@papinas.com?subject="+encodeURIComponent(subject)+
+    "&body="+encodeURIComponent(body);
+});
+
 // ===== Registro de clientes =====
 document.getElementById("clientRegistrationSubmit").addEventListener("click",()=>{
   const company=document.getElementById("clientCompany").value.trim();
@@ -986,6 +1349,7 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click",()=
   const phone=document.getElementById("clientPhone").value.trim();
   const email=document.getElementById("clientEmail").value.trim();
   const city=document.getElementById("clientCity").value.trim();
+  const productLine=document.getElementById("clientProductLine").value;
   const businessType=document.getElementById("clientBusinessType").value;
   const monthlyKg=document.getElementById("clientMonthlyKg").value;
   const paymentInterest=document.getElementById("clientPaymentInterest").value;
@@ -993,7 +1357,7 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click",()=
   const consent=document.getElementById("clientConsent").checked;
   const status=document.getElementById("clientRegistrationStatus");
 
-  if(!company||!nit||!contact||!phone||!email||!city||!businessType||!monthlyKg){
+  if(!company||!nit||!contact||!phone||!email||!city||!productLine||!businessType||!monthlyKg){
     status.textContent="Complete los campos obligatorios de empresa, contacto y perfil comercial.";
     return;
   }
@@ -1013,6 +1377,7 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click",()=
     "WhatsApp: "+phone,
     "Correo: "+email,
     "Ciudad: "+city,
+    "Línea de interés: "+productLine,
     "Tipo de comprador: "+businessType,
     "Volumen mensual estimado: "+monthlyKg,
     "Condición de interés: "+paymentInterest,
@@ -1027,6 +1392,8 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click",()=
     "&body="+encodeURIComponent(message);
 });
 
+hideClientPayment();
+updateProductLineUI();
 updateWholesale();
 
 </script>
