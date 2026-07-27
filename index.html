@@ -34,6 +34,201 @@ a{text-decoration:none;color:inherit} button{font:inherit} img{width:100%;max-wi
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:1100px){.nav{min-height:76px;padding:0 22px;background:rgba(6,21,16,.94)}.menu-toggle{display:block}.nav-links{position:fixed;inset:0;padding:120px 28px 40px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:24px;background:rgba(6,21,16,.98);transform:translateX(100%);transition:.35s ease;font-size:13px}.menu-open .nav-links{transform:none}.nav-private{margin-top:12px}.hero{min-height:92svh;align-items:flex-end;padding:118px 24px 62px;background:linear-gradient(to bottom,rgba(6,21,16,.05) 0%,rgba(6,21,16,.43) 43%,rgba(6,21,16,.96) 100%),url("./images/login-luxury.png");background-size:cover;background-position:60% center}.hero h1{font-size:58px;line-height:.9}.hero h1 span{letter-spacing:5px;margin-top:16px}.hero-copy{font-size:14px;line-height:1.65;max-width:390px}.hero-note,.scroll-cue{display:none}.manifesto{padding:78px 24px}.produce-section,.gourmet-section,.world-grid{grid-template-columns:1fr}.produce-visual,.gourmet-visual,.world-image{min-height:500px}.produce-copy,.gourmet-copy,.world-copy{padding:76px 24px}.export{padding:78px 24px}.export-head{grid-template-columns:1fr;gap:28px}.export-grid{grid-template-columns:1fr 1fr}.trust-bar{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line)}.trust-item:last-child{border-bottom:0}.lifestyle-section{min-height:720px;padding:78px 24px;background-position:62% center}.lifestyle-copy h2{font-size:64px}.private{padding:70px 20px}.private-shell{padding:48px 28px;grid-template-columns:1fr}.private-action{justify-content:flex-start}.footer{padding:64px 24px 28px}.footer-top{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){.brand-text{letter-spacing:3px;font-size:9px}.hero-actions{flex-direction:column;align-items:stretch}.btn{width:100%}.manifesto h2{font-size:40px}.produce-visual,.gourmet-visual,.world-image{min-height:390px}.produce-visual::after{left:24px;bottom:28px;font-size:52px}.produce-specs{grid-template-columns:1fr}.export-grid{grid-template-columns:1fr}.export-card{min-height:210px}.export-card h3{margin-top:35px}.gourmet-visual-text{left:24px;right:24px;bottom:26px;align-items:flex-start;flex-direction:column}.lifestyle-copy h2{font-size:52px}.footer-top{grid-template-columns:1fr}.copy{flex-direction:column}}
+
+/* =========================
+VENTA MAYORISTA
+========================= */
+.wholesale{
+  padding:110px 6vw;
+  background:
+    radial-gradient(circle at 85% 10%,rgba(199,160,76,.12),transparent 32%),
+    linear-gradient(135deg,#071d16,#061510);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.wholesale-head{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:52px;
+}
+.wholesale-head h2{
+  margin-top:22px;
+  color:#fff;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(54px,6vw,88px);
+  line-height:.9;
+  font-weight:400;
+}
+.wholesale-head p{
+  max-width:590px;
+  color:rgba(255,255,255,.64);
+  line-height:1.9;
+  font-size:15px;
+}
+.wholesale-shell{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:24px;
+  align-items:stretch;
+}
+.wholesale-form,
+.wholesale-summary{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  padding:38px;
+}
+.wholesale-form h3,
+.wholesale-summary h3{
+  color:#fff;
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+  font-weight:400;
+  margin-bottom:26px;
+}
+.wholesale-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.wholesale-field label{
+  display:block;
+  margin-bottom:9px;
+  color:var(--gold-soft);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:700;
+}
+.wholesale-field input,
+.wholesale-field select,
+.wholesale-field textarea{
+  width:100%;
+  min-height:54px;
+  border:1px solid rgba(199,160,76,.25);
+  background:rgba(255,255,255,.045);
+  color:#fff;
+  padding:14px 16px;
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  outline:none;
+}
+.wholesale-field textarea{min-height:110px;resize:vertical}
+.wholesale-field select option{color:#111}
+.wholesale-field input:focus,
+.wholesale-field select:focus,
+.wholesale-field textarea:focus{border-color:var(--gold)}
+.wholesale-field.full{grid-column:1/-1}
+.wholesale-help{
+  margin-top:8px;
+  color:rgba(255,255,255,.44);
+  font-size:11px;
+  line-height:1.5;
+}
+.wholesale-error{
+  min-height:20px;
+  margin-top:12px;
+  color:#f2a2a2;
+  font-size:12px;
+}
+.wholesale-summary{
+  background:linear-gradient(145deg,rgba(199,160,76,.10),rgba(255,255,255,.025));
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.wholesale-product{
+  padding-bottom:24px;
+  border-bottom:1px solid var(--line);
+}
+.wholesale-product small{
+  display:block;
+  color:var(--gold-soft);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:9px;
+  margin-bottom:10px;
+}
+.wholesale-product strong{
+  color:#fff;
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+  font-weight:400;
+}
+.wholesale-lines{
+  display:grid;
+  gap:0;
+  margin:22px 0;
+}
+.wholesale-line{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:15px 0;
+  border-bottom:1px solid rgba(199,160,76,.14);
+}
+.wholesale-line span{
+  color:rgba(255,255,255,.56);
+  font-size:12px;
+}
+.wholesale-line strong{
+  color:#fff;
+  font-size:15px;
+  text-align:right;
+}
+.wholesale-total{
+  margin:8px 0 26px;
+  padding:22px;
+  border:1px solid rgba(199,160,76,.35);
+  background:rgba(199,160,76,.08);
+}
+.wholesale-total span{
+  display:block;
+  color:var(--gold-soft);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:9px;
+  margin-bottom:8px;
+}
+.wholesale-total strong{
+  color:#fff;
+  font-family:'Cormorant Garamond',serif;
+  font-size:46px;
+  font-weight:400;
+}
+.wholesale-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:24px;
+}
+.wholesale-badges span{
+  padding:10px 12px;
+  border:1px solid rgba(199,160,76,.2);
+  color:var(--gold-soft);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:8px;
+}
+.wholesale-submit{width:100%}
+.wholesale-disclaimer{
+  margin-top:14px;
+  color:rgba(255,255,255,.4);
+  font-size:10px;
+  line-height:1.6;
+}
+@media(max-width:1100px){
+  .wholesale{padding:78px 24px}
+  .wholesale-head,.wholesale-shell{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .wholesale-grid{grid-template-columns:1fr}
+  .wholesale-field.full{grid-column:auto}
+  .wholesale-form,.wholesale-summary{padding:26px 20px}
+  .wholesale-total strong{font-size:38px}
+}
+
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -42,7 +237,7 @@ a{text-decoration:none;color:inherit} button{font:inherit} img{width:100%;max-wi
   <a href="#home" class="brand" aria-label="Pariendo Piñas"><div class="brand-symbol">PP</div><div class="brand-text">Pariendo Piñas</div></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
   <nav class="nav-links" id="navLinks">
-    <a href="#produce">Produce</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Our World</a><a class="nav-private" href="login.html">Private Office ◆</a>
+    <a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Our World</a><a class="nav-private" href="login.html">Private Office ◆</a>
   </nav>
 </header>
 <main>
@@ -51,7 +246,7 @@ a{text-decoration:none;color:inherit} button{font:inherit} img{width:100%;max-wi
     <div class="hero-kicker">From the finest pineapples of Colombia</div>
     <h1>Pariendo<br>Piñas<span>Tropical Luxury</span></h1>
     <p class="hero-copy">Fruta premium, programas de exportación y una línea high-end inspirada en la energía, el color y la sofisticación del trópico colombiano.</p>
-    <div class="hero-actions"><a class="btn" href="#produce">Explore Produce ◆</a><a class="btn btn-light" href="#lifestyle">Discover Lifestyle</a></div>
+    <div class="hero-actions"><a class="btn" href="#wholesale">Comprar al por mayor ◆</a><a class="btn btn-light" href="#lifestyle">Discover Lifestyle</a></div>
     <div class="hero-note"><span>Premium Produce</span><span>Worldwide Export</span><span>High-End Lifestyle</span></div>
   </div>
   <div class="scroll-cue">Scroll</div>
@@ -73,9 +268,126 @@ a{text-decoration:none;color:inherit} button{font:inherit} img{width:100%;max-wi
       <div class="produce-spec"><strong>Retail</strong><span>Curated presentation</span></div>
       <div class="produce-spec"><strong>Food Service</strong><span>Reliable supply</span></div>
     </div>
-    <a class="btn" href="mailto:hello@papinas.com?subject=Produce%20Inquiry">Request Produce Information ◆</a>
+    <a class="btn" href="#wholesale">Configurar pedido mayorista ◆</a>
   </div>
 </section>
+
+<section class="wholesale" id="wholesale">
+  <div class="wholesale-head">
+    <div>
+      <div class="section-label reveal">Venta mayorista</div>
+      <h2 class="reveal">Piña fresca<br>desde 6.000 kg.</h2>
+    </div>
+    <p class="reveal">
+      Configura una solicitud de compra para retail, industria, food service o distribución.
+      El precio mostrado es una referencia comercial y la disponibilidad se confirma antes del despacho.
+    </p>
+  </div>
+
+  <div class="wholesale-shell reveal">
+    <div class="wholesale-form">
+      <h3>Configura tu pedido</h3>
+
+      <div class="wholesale-grid">
+        <div class="wholesale-field">
+          <label for="wholesaleName">Nombre o empresa</label>
+          <input id="wholesaleName" type="text" placeholder="Ej. Drycol S.A.S.">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesalePhone">WhatsApp</label>
+          <input id="wholesalePhone" type="tel" placeholder="+57 300 000 0000">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleEmail">Correo</label>
+          <input id="wholesaleEmail" type="email" placeholder="compras@empresa.com">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleUse">Destino comercial</label>
+          <select id="wholesaleUse">
+            <option>Retail</option>
+            <option>Industria</option>
+            <option>Food service</option>
+            <option>Distribución mayorista</option>
+            <option>Exportación</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleKg">Cantidad requerida (kg)</label>
+          <input id="wholesaleKg" type="number" min="6000" step="100" value="6000">
+          <div class="wholesale-help">Pedido mínimo: 6.000 kg.</div>
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleCity">Ciudad de entrega</label>
+          <input id="wholesaleCity" type="text" placeholder="Ej. Mosquera, Cundinamarca">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleDate">Fecha deseada</label>
+          <input id="wholesaleDate" type="date">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesalePayment">Condición de compra</label>
+          <select id="wholesalePayment">
+            <option value="contado">Contado</option>
+            <option value="credito">Crédito — sujeto a aprobación</option>
+          </select>
+        </div>
+
+        <div class="wholesale-field full">
+          <label for="wholesaleNotes">Especificaciones u observaciones</label>
+          <textarea id="wholesaleNotes" placeholder="Calibre, grado de maduración, frecuencia, empaque o requerimientos especiales."></textarea>
+        </div>
+      </div>
+
+      <div id="wholesaleError" class="wholesale-error" aria-live="polite"></div>
+    </div>
+
+    <aside class="wholesale-summary">
+      <div>
+        <h3>Resumen estimado</h3>
+
+        <div class="wholesale-product">
+          <small>Producto</small>
+          <strong>Piña Golden fresca</strong>
+        </div>
+
+        <div class="wholesale-lines">
+          <div class="wholesale-line"><span>Cantidad</span><strong id="wholesaleKgSummary">6.000 kg</strong></div>
+          <div class="wholesale-line"><span>Precio de referencia</span><strong id="wholesalePriceSummary">$1.890/kg</strong></div>
+          <div class="wholesale-line"><span>Condición</span><strong id="wholesalePaymentSummary">Contado</strong></div>
+          <div class="wholesale-line"><span>Entrega</span><strong id="wholesaleCitySummary">Por definir</strong></div>
+        </div>
+
+        <div class="wholesale-total">
+          <span>Total estimado</span>
+          <strong id="wholesaleTotal">$11.340.000</strong>
+        </div>
+
+        <div class="wholesale-badges">
+          <span>Origen Colombia</span>
+          <span>Trazabilidad</span>
+          <span>Volumen mayorista</span>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn wholesale-submit" id="wholesaleSubmit" type="button">Solicitar cotización ◆</button>
+        <p class="wholesale-disclaimer">
+          Esta solicitud no constituye una venta definitiva. Precio, disponibilidad, calidad, logística,
+          retenciones y condiciones de pago se confirman por el equipo comercial.
+        </p>
+      </div>
+    </aside>
+  </div>
+</section>
+
 <section class="export" id="export">
   <div class="export-head">
     <div><div class="section-label reveal">02 — Export</div><h2 class="reveal">Colombia<br>to the world.</h2></div>
@@ -126,7 +438,7 @@ a{text-decoration:none;color:inherit} button{font:inherit} img{width:100%;max-wi
 <footer class="footer">
   <div class="footer-top">
     <div class="footer-brand"><h3>Pariendo Piñas</h3><p>Premium produce, worldwide export and high-end tropical lifestyle from Colombia.</p><div class="footer-location">Bogotá · Colombia<br>Worldwide Export</div></div>
-    <div class="footer-col"><small>Business</small><a href="#produce">Produce</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
+    <div class="footer-col"><small>Business</small><a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
     <div class="footer-col"><small>House</small><a href="#lifestyle">Lifestyle</a><a href="#world">Objects</a><a href="#world">Our World</a></div>
     <div class="footer-col"><small>Connect</small><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:hello@papinas.com">Email</a><a href="login.html">Private Office</a></div>
   </div>
@@ -134,6 +446,108 @@ a{text-decoration:none;color:inherit} button{font:inherit} img{width:100%;max-wi
 </footer>
 <script>
 const nav=document.getElementById('nav');const menuToggle=document.getElementById('menuToggle');const navLinks=document.getElementById('navLinks');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});menuToggle.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menuToggle.setAttribute('aria-expanded',String(open))});navLinks.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{document.body.classList.remove('menu-open');menuToggle.setAttribute('aria-expanded','false')})});const revealItems=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.12});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('visible'))}
+
+const wholesaleConfig={
+  minimumKg:6000,
+  contadoPrice:1890,
+  creditoPrice:1910,
+  whatsappNumber:""
+};
+
+const wholesaleKg=document.getElementById("wholesaleKg");
+const wholesalePayment=document.getElementById("wholesalePayment");
+const wholesaleCity=document.getElementById("wholesaleCity");
+const wholesaleError=document.getElementById("wholesaleError");
+
+function formatCop(value){
+  return "$"+Math.round(Number(value||0)).toLocaleString("es-CO");
+}
+
+function updateWholesale(){
+  let kg=Number(wholesaleKg.value||0);
+  const isValid=kg>=wholesaleConfig.minimumKg;
+
+  if(!isValid){
+    wholesaleError.textContent="La compra mínima mayorista es de 6.000 kg.";
+  }else{
+    wholesaleError.textContent="";
+  }
+
+  const price=wholesalePayment.value==="credito"
+    ? wholesaleConfig.creditoPrice
+    : wholesaleConfig.contadoPrice;
+
+  document.getElementById("wholesaleKgSummary").textContent=
+    Math.max(0,kg).toLocaleString("es-CO")+" kg";
+  document.getElementById("wholesalePriceSummary").textContent=
+    formatCop(price)+"/kg";
+  document.getElementById("wholesalePaymentSummary").textContent=
+    wholesalePayment.value==="credito"?"Crédito":"Contado";
+  document.getElementById("wholesaleCitySummary").textContent=
+    wholesaleCity.value.trim()||"Por definir";
+  document.getElementById("wholesaleTotal").textContent=
+    formatCop(Math.max(0,kg)*price);
+
+  return {kg,price,isValid,total:Math.max(0,kg)*price};
+}
+
+[wholesaleKg,wholesalePayment,wholesaleCity].forEach(el=>{
+  el.addEventListener("input",updateWholesale);
+  el.addEventListener("change",updateWholesale);
+});
+
+document.getElementById("wholesaleSubmit").addEventListener("click",()=>{
+  const result=updateWholesale();
+  const name=document.getElementById("wholesaleName").value.trim();
+  const phone=document.getElementById("wholesalePhone").value.trim();
+  const email=document.getElementById("wholesaleEmail").value.trim();
+  const city=wholesaleCity.value.trim();
+  const date=document.getElementById("wholesaleDate").value;
+  const use=document.getElementById("wholesaleUse").value;
+  const notes=document.getElementById("wholesaleNotes").value.trim();
+  const condition=wholesalePayment.value==="credito"?"Crédito sujeto a aprobación":"Contado";
+
+  if(!result.isValid){
+    wholesaleKg.focus();
+    return;
+  }
+
+  if(!name||!phone||!city){
+    wholesaleError.textContent="Completa nombre o empresa, WhatsApp y ciudad de entrega.";
+    return;
+  }
+
+  const message=[
+    "SOLICITUD MAYORISTA — PARIENDO PIÑAS",
+    "",
+    "Cliente: "+name,
+    "WhatsApp: "+phone,
+    "Correo: "+(email||"No informado"),
+    "Uso: "+use,
+    "Cantidad: "+result.kg.toLocaleString("es-CO")+" kg",
+    "Precio de referencia: "+formatCop(result.price)+"/kg",
+    "Total estimado: "+formatCop(result.total),
+    "Condición: "+condition,
+    "Ciudad de entrega: "+city,
+    "Fecha deseada: "+(date||"Por definir"),
+    "Observaciones: "+(notes||"Sin observaciones")
+  ].join("\n");
+
+  if(wholesaleConfig.whatsappNumber){
+    window.open(
+      "https://wa.me/"+wholesaleConfig.whatsappNumber+"?text="+encodeURIComponent(message),
+      "_blank",
+      "noopener"
+    );
+  }else{
+    window.location.href=
+      "mailto:hello@papinas.com?subject="+encodeURIComponent("Solicitud mayorista de piña")+
+      "&body="+encodeURIComponent(message);
+  }
+});
+
+updateWholesale();
+
 </script>
 </body>
 </html>
