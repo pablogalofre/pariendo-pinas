@@ -229,6 +229,156 @@ VENTA MAYORISTA
   .wholesale-total strong{font-size:38px}
 }
 
+
+/* =========================
+REGISTRO DE CLIENTES
+========================= */
+.commercial-code-status{
+  display:none;
+  margin-top:12px;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  background:rgba(199,160,76,.06);
+  color:var(--gold-soft);
+  font-size:12px;
+  line-height:1.7;
+}
+.commercial-code-status.visible{display:block}
+.commercial-code-status.error{
+  border-color:rgba(242,162,162,.35);
+  background:rgba(242,162,162,.06);
+  color:#f2a2a2;
+}
+.client-registration{
+  padding:110px 6vw;
+  background:var(--paper);
+  color:var(--ink);
+}
+.client-registration-head{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:48px;
+}
+.client-registration-head h2{
+  margin-top:22px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,6vw,84px);
+  line-height:.92;
+  font-weight:400;
+}
+.client-registration-head p{
+  max-width:590px;
+  color:#6c665b;
+  line-height:1.9;
+  font-size:15px;
+}
+.client-registration-shell{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+}
+.client-registration-form,
+.client-registration-info{
+  padding:38px;
+  border:1px solid rgba(20,35,28,.16);
+  background:#fffaf0;
+}
+.client-registration-form h3,
+.client-registration-info h3{
+  margin-bottom:26px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+  font-weight:500;
+}
+.client-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.client-field label{
+  display:block;
+  margin-bottom:9px;
+  color:#6f561f;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:700;
+}
+.client-field input,
+.client-field select,
+.client-field textarea{
+  width:100%;
+  min-height:54px;
+  padding:14px 16px;
+  border:1px solid rgba(20,35,28,.20);
+  background:#fff;
+  color:var(--ink);
+  font:14px 'Inter',sans-serif;
+  outline:none;
+}
+.client-field textarea{min-height:112px;resize:vertical}
+.client-field input:focus,
+.client-field select:focus,
+.client-field textarea:focus{border-color:var(--gold)}
+.client-field.full{grid-column:1/-1}
+.client-check{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  color:#6c665b;
+  font-size:12px;
+  line-height:1.6;
+}
+.client-check input{width:17px;height:17px;margin-top:2px}
+.client-registration-info{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:var(--ink);
+  color:#fff;
+}
+.client-registration-info p{
+  color:rgba(255,255,255,.66);
+  line-height:1.8;
+  font-size:14px;
+}
+.client-benefits{
+  display:grid;
+  gap:0;
+  margin:28px 0;
+  border-top:1px solid var(--line);
+}
+.client-benefit{
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
+}
+.client-benefit strong{
+  display:block;
+  color:var(--gold-soft);
+  margin-bottom:5px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:23px;
+  font-weight:500;
+}
+.client-benefit span{color:rgba(255,255,255,.52);font-size:12px;line-height:1.6}
+.client-registration-status{
+  min-height:20px;
+  margin-top:14px;
+  color:#7d6123;
+  font-size:12px;
+}
+@media(max-width:1100px){
+  .client-registration{padding:78px 24px}
+  .client-registration-head,.client-registration-shell{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .client-grid{grid-template-columns:1fr}
+  .client-field.full{grid-column:auto}
+  .client-registration-form,.client-registration-info{padding:26px 20px}
+}
+
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -237,7 +387,7 @@ VENTA MAYORISTA
   <a href="#home" class="brand" aria-label="Pariendo Piñas"><div class="brand-symbol">PP</div><div class="brand-text">Pariendo Piñas</div></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
   <nav class="nav-links" id="navLinks">
-    <a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Our World</a><a class="nav-private" href="login.html">Private Office ◆</a>
+    <a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Our World</a><a class="nav-private" href="login.html">Private Office ◆</a>
   </nav>
 </header>
 <main>
@@ -291,17 +441,17 @@ VENTA MAYORISTA
       <div class="wholesale-grid">
         <div class="wholesale-field">
           <label for="wholesaleName">Nombre o empresa</label>
-          <input id="wholesaleName" type="text" placeholder="Ej. Drycol S.A.S.">
+          <input id="wholesaleName" type="text" placeholder="Nombre de su empresa">
         </div>
 
         <div class="wholesale-field">
           <label for="wholesalePhone">WhatsApp</label>
-          <input id="wholesalePhone" type="tel" placeholder="+57 300 000 0000">
+          <input id="wholesalePhone" type="tel" placeholder="Teléfono de contacto">
         </div>
 
         <div class="wholesale-field">
           <label for="wholesaleEmail">Correo</label>
-          <input id="wholesaleEmail" type="email" placeholder="compras@empresa.com">
+          <input id="wholesaleEmail" type="email" placeholder="correo@empresa.com">
         </div>
 
         <div class="wholesale-field">
@@ -324,7 +474,7 @@ VENTA MAYORISTA
 
         <div class="wholesale-field">
           <label for="wholesaleCity">Ciudad de entrega</label>
-          <input id="wholesaleCity" type="text" placeholder="Ej. Mosquera, Cundinamarca">
+          <input id="wholesaleCity" type="text" placeholder="Ciudad de entrega">
         </div>
 
         <div class="wholesale-field">
@@ -342,13 +492,15 @@ VENTA MAYORISTA
         </div>
 
         <div class="wholesale-field full">
-          <label for="commercialCode">Código comercial</label>
+          <label for="commercialCode">Código comercial (opcional)</label>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <input id="commercialCode" type="text" placeholder="Ingrese su código de cliente" style="flex:1">
-            <button type="button" class="btn" id="applyCommercialCode">Aplicar</button>
+            <input id="commercialCode" type="text" placeholder="Código comercial" style="flex:1">
+            <button type="button" class="btn" id="applyCommercialCode">Validar código</button>
           </div>
-          <div class="wholesale-help">Solo disponible para clientes previamente registrados en Pariendo Piñas.</div>
-          <div id="commercialCodeStatus" style="margin-top:10px;color:#c7a04c;font-size:12px;"></div>
+          <div class="wholesale-help">Si ya es cliente de Pariendo Piñas, ingrese su código comercial para aplicar su precio autorizado.</div>
+          <div id="commercialCodeStatus" class="commercial-code-status" aria-live="polite"></div>
+        </div>
+
         <div class="wholesale-field full">
           <label for="wholesaleNotes">Especificaciones u observaciones</label>
           <textarea id="wholesaleNotes" placeholder="Calibre, grado de maduración, frecuencia, empaque o requerimientos especiales."></textarea>
@@ -393,6 +545,137 @@ VENTA MAYORISTA
           Esta solicitud no constituye una venta definitiva. El precio nunca será inferior a $2.180/kg. Disponibilidad, calidad, logística, retenciones y condiciones de pago se confirman por el equipo comercial.
         </p>
       </div>
+    </aside>
+  </div>
+</section>
+
+
+<section class="client-registration" id="client-registration">
+  <div class="client-registration-head">
+    <div>
+      <div class="section-label reveal">Clientes mayoristas</div>
+      <h2 class="reveal">Regístrate<br>como cliente.</h2>
+    </div>
+    <p class="reveal">
+      Crea una solicitud de vinculación comercial para acceder a precios autorizados,
+      historial de compras y condiciones especiales sujetas a aprobación.
+    </p>
+  </div>
+
+  <div class="client-registration-shell reveal">
+    <div class="client-registration-form">
+      <h3>Solicitud de registro</h3>
+
+      <div class="client-grid">
+        <div class="client-field">
+          <label for="clientCompany">Razón social o empresa</label>
+          <input id="clientCompany" type="text" placeholder="Nombre legal de la empresa">
+        </div>
+
+        <div class="client-field">
+          <label for="clientNit">NIT o identificación tributaria</label>
+          <input id="clientNit" type="text" placeholder="Número de identificación">
+        </div>
+
+        <div class="client-field">
+          <label for="clientContact">Persona de contacto</label>
+          <input id="clientContact" type="text" placeholder="Nombre completo">
+        </div>
+
+        <div class="client-field">
+          <label for="clientRole">Cargo</label>
+          <input id="clientRole" type="text" placeholder="Cargo en la empresa">
+        </div>
+
+        <div class="client-field">
+          <label for="clientPhone">WhatsApp</label>
+          <input id="clientPhone" type="tel" placeholder="Teléfono de contacto">
+        </div>
+
+        <div class="client-field">
+          <label for="clientEmail">Correo corporativo</label>
+          <input id="clientEmail" type="email" placeholder="correo@empresa.com">
+        </div>
+
+        <div class="client-field">
+          <label for="clientCity">Ciudad</label>
+          <input id="clientCity" type="text" placeholder="Ciudad principal">
+        </div>
+
+        <div class="client-field">
+          <label for="clientBusinessType">Tipo de comprador</label>
+          <select id="clientBusinessType">
+            <option value="">Seleccione una opción</option>
+            <option>Retail</option>
+            <option>Industria</option>
+            <option>Food service</option>
+            <option>Distribución mayorista</option>
+            <option>Exportación</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="client-field">
+          <label for="clientMonthlyKg">Volumen mensual estimado</label>
+          <select id="clientMonthlyKg">
+            <option value="">Seleccione un rango</option>
+            <option>6.000 a 12.000 kg</option>
+            <option>12.001 a 25.000 kg</option>
+            <option>25.001 a 50.000 kg</option>
+            <option>Más de 50.000 kg</option>
+          </select>
+        </div>
+
+        <div class="client-field">
+          <label for="clientPaymentInterest">Condición de interés</label>
+          <select id="clientPaymentInterest">
+            <option>Contado</option>
+            <option>Crédito — sujeto a estudio</option>
+          </select>
+        </div>
+
+        <div class="client-field full">
+          <label for="clientNotes">Información adicional</label>
+          <textarea id="clientNotes" placeholder="Cuéntenos sobre su operación, frecuencia de compra, destinos o requerimientos."></textarea>
+        </div>
+
+        <div class="client-field full">
+          <label class="client-check">
+            <input id="clientConsent" type="checkbox">
+            <span>Autorizo a Pariendo Piñas a contactarme y a validar la información comercial suministrada.</span>
+          </label>
+        </div>
+
+        <div class="client-field full">
+          <button class="btn btn-dark" id="clientRegistrationSubmit" type="button">Enviar solicitud de registro ◆</button>
+          <div id="clientRegistrationStatus" class="client-registration-status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="client-registration-info">
+      <div>
+        <div class="eyebrow">Pariendo Piñas Business</div>
+        <h3>Beneficios para clientes registrados</h3>
+        <p>La aprobación del registro no genera automáticamente crédito ni descuentos. Cada condición comercial es autorizada individualmente.</p>
+
+        <div class="client-benefits">
+          <div class="client-benefit">
+            <strong>Código comercial</strong>
+            <span>Acceso a un precio autorizado cuando exista una negociación vigente.</span>
+          </div>
+          <div class="client-benefit">
+            <strong>Atención prioritaria</strong>
+            <span>Seguimiento comercial para programas recurrentes y compras de volumen.</span>
+          </div>
+          <div class="client-benefit">
+            <strong>Condiciones personalizadas</strong>
+            <span>Evaluación de frecuencia, logística, calidad, empaque y forma de pago.</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="btn" href="#wholesale">Ya tengo código comercial ◆</a>
     </aside>
   </div>
 </section>
@@ -447,7 +730,7 @@ VENTA MAYORISTA
 <footer class="footer">
   <div class="footer-top">
     <div class="footer-brand"><h3>Pariendo Piñas</h3><p>Premium produce, worldwide export and high-end tropical lifestyle from Colombia.</p><div class="footer-location">Bogotá · Colombia<br>Worldwide Export</div></div>
-    <div class="footer-col"><small>Business</small><a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
+    <div class="footer-col"><small>Business</small><a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
     <div class="footer-col"><small>House</small><a href="#lifestyle">Lifestyle</a><a href="#world">Objects</a><a href="#world">Our World</a></div>
     <div class="footer-col"><small>Connect</small><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:hello@papinas.com">Email</a><a href="login.html">Private Office</a></div>
   </div>
@@ -567,46 +850,151 @@ updateWholesale();
 
 
 // ===== Códigos comerciales =====
+// Demostración local. En producción, estos datos deben consultarse desde el ERP/Supabase.
 const COMMERCIAL_CODES={
   "PP-DRYCOL-2026":{
     customer:"Drycol S.A.S.",
     authorizedPrice:2080,
-    expires:"2026-12-31"
+    expires:"2026-12-31",
+    active:true
   }
 };
 
 let negotiatedPrice=null;
+let negotiatedCustomer=null;
+
+const commercialCodeInput=document.getElementById("commercialCode");
+const commercialCodeStatus=document.getElementById("commercialCodeStatus");
+
+function resetCommercialCode(message){
+  negotiatedPrice=null;
+  negotiatedCustomer=null;
+  commercialCodeStatus.className="commercial-code-status visible error";
+  commercialCodeStatus.textContent=message;
+  updateWholesale();
+}
 
 document.getElementById("applyCommercialCode").addEventListener("click",()=>{
- const code=document.getElementById("commercialCode").value.trim().toUpperCase();
- const status=document.getElementById("commercialCodeStatus");
- if(!COMMERCIAL_CODES[code]){
-    negotiatedPrice=null;
-    status.style.color="#f2a2a2";
-    status.textContent="Código inválido o vencido.";
-    updateWholesale();
+  const code=commercialCodeInput.value.trim().toUpperCase();
+  const data=COMMERCIAL_CODES[code];
+
+  if(!code){
+    resetCommercialCode("Ingrese un código comercial para validarlo.");
     return;
- }
- const data=COMMERCIAL_CODES[code];
- negotiatedPrice=data.authorizedPrice;
- status.style.color="#c7a04c";
- status.innerHTML="✓ Cliente: <strong>"+data.customer+"</strong><br>Precio autorizado: <strong>"+formatCop(data.authorizedPrice)+"/kg</strong>";
- updateWholesale();
+  }
+
+  if(!data||data.active!==true){
+    resetCommercialCode("El código no es válido o no se encuentra activo.");
+    return;
+  }
+
+  const today=new Date();
+  const expiry=new Date(data.expires+"T23:59:59");
+
+  if(Number.isNaN(expiry.getTime())||expiry<today){
+    resetCommercialCode("El código comercial se encuentra vencido.");
+    return;
+  }
+
+  negotiatedPrice=Number(data.authorizedPrice);
+  negotiatedCustomer=data.customer;
+
+  commercialCodeStatus.className="commercial-code-status visible";
+  commercialCodeStatus.innerHTML=
+    "✓ Cliente verificado<br>"+
+    "<strong>"+data.customer+"</strong><br>"+
+    "Precio autorizado: <strong>"+formatCop(data.authorizedPrice)+"/kg</strong><br>"+
+    "Vigente hasta: <strong>"+expiry.toLocaleDateString("es-CO")+"</strong>";
+
+  updateWholesale();
 });
 
-// parche updateWholesale para respetar precio autorizado
-const _oldUpdate=updateWholesale;
+commercialCodeInput.addEventListener("input",()=>{
+  if(negotiatedPrice!==null){
+    negotiatedPrice=null;
+    negotiatedCustomer=null;
+    commercialCodeStatus.className="commercial-code-status";
+    commercialCodeStatus.textContent="";
+    updateWholesale();
+  }
+});
+
+// Extiende el cálculo público para aplicar el precio autorizado del cliente.
+const baseUpdateWholesale=updateWholesale;
 updateWholesale=function(){
- const result=_oldUpdate();
- if(negotiatedPrice!==null){
-    const kg=Number(document.getElementById("wholesaleKg").value||0);
-    const total=kg*negotiatedPrice;
-    document.getElementById("wholesalePriceSummary").textContent=formatCop(negotiatedPrice)+"/kg";
-    document.getElementById("wholesaleTotal").textContent=formatCop(total);
-    return {...result,price:negotiatedPrice,total:total};
- }
- return result;
+  const result=baseUpdateWholesale();
+
+  if(negotiatedPrice!==null){
+    const kg=Number(wholesaleKg.value||0);
+    const total=Math.max(0,kg)*negotiatedPrice;
+
+    document.getElementById("wholesalePriceSummary").textContent=
+      formatCop(negotiatedPrice)+"/kg";
+    document.getElementById("wholesaleTotal").textContent=
+      formatCop(total);
+
+    return {
+      ...result,
+      price:negotiatedPrice,
+      total,
+      commercialCustomer:negotiatedCustomer
+    };
+  }
+
+  return result;
 };
+
+// ===== Registro de clientes =====
+document.getElementById("clientRegistrationSubmit").addEventListener("click",()=>{
+  const company=document.getElementById("clientCompany").value.trim();
+  const nit=document.getElementById("clientNit").value.trim();
+  const contact=document.getElementById("clientContact").value.trim();
+  const role=document.getElementById("clientRole").value.trim();
+  const phone=document.getElementById("clientPhone").value.trim();
+  const email=document.getElementById("clientEmail").value.trim();
+  const city=document.getElementById("clientCity").value.trim();
+  const businessType=document.getElementById("clientBusinessType").value;
+  const monthlyKg=document.getElementById("clientMonthlyKg").value;
+  const paymentInterest=document.getElementById("clientPaymentInterest").value;
+  const notes=document.getElementById("clientNotes").value.trim();
+  const consent=document.getElementById("clientConsent").checked;
+  const status=document.getElementById("clientRegistrationStatus");
+
+  if(!company||!nit||!contact||!phone||!email||!city||!businessType||!monthlyKg){
+    status.textContent="Complete los campos obligatorios de empresa, contacto y perfil comercial.";
+    return;
+  }
+
+  if(!consent){
+    status.textContent="Debe autorizar el contacto y la validación de la información.";
+    return;
+  }
+
+  const message=[
+    "SOLICITUD DE REGISTRO — PARIENDO PIÑAS",
+    "",
+    "Empresa: "+company,
+    "NIT / identificación: "+nit,
+    "Contacto: "+contact,
+    "Cargo: "+(role||"No informado"),
+    "WhatsApp: "+phone,
+    "Correo: "+email,
+    "Ciudad: "+city,
+    "Tipo de comprador: "+businessType,
+    "Volumen mensual estimado: "+monthlyKg,
+    "Condición de interés: "+paymentInterest,
+    "Información adicional: "+(notes||"Sin información adicional")
+  ].join("
+");
+
+  status.textContent="Preparando su solicitud de registro…";
+
+  window.location.href=
+    "mailto:hello@papinas.com?subject="+
+    encodeURIComponent("Solicitud de registro como cliente — "+company)+
+    "&body="+encodeURIComponent(message);
+});
+
 updateWholesale();
 
 </script>
