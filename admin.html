@@ -909,7 +909,7 @@ MOTOR DE RENTABILIDAD V3
     <div class="card"><span>Total compras</span><strong id="dashCompras">$0</strong></div>
     <div class="card"><span>Total ventas</span><strong id="dashVentas">$0</strong></div>
     <div class="card"><span>Productos vendidos</span><strong id="dashUnidades">0</strong></div>
-    <div class="card"><span>Utilidad</span><strong id="dashUtilidad">$0</strong></div>
+    <div class="card"><span>Utilidad económica actual</span><strong id="dashUtilidad">$0</strong></div>
   </div>
 
  <div class="panel luxury-manifesto">
@@ -1419,7 +1419,7 @@ MOTOR DE RENTABILIDAD V3
     <div class="card"><span>Compras</span><strong id="cajaCompras">$0</strong></div>
     <div class="card"><span>Ventas</span><strong id="cajaVentas">$0</strong></div>
     <div class="card"><span>Pendiente</span><strong id="cajaPendiente">$0</strong></div>
-    <div class="card"><span>Utilidad</span><strong id="cajaUtilidad">$0</strong></div>
+    <div class="card"><span>Utilidad económica actual</span><strong id="cajaUtilidad">$0</strong></div>
   </div>
 </section>
 
@@ -1567,29 +1567,48 @@ function render(){
   let totalCompras = 0;
   let totalVentas = 0;
   let unidadesVendidas = 0;
-  let utilidad = 0;
   let anticipos = 0;
 
-  compras.forEach(c=> totalCompras += c.total);
+  compras.forEach(c=> totalCompras += Number(c.total || 0));
 
   ventas.forEach(v=>{
-    totalVentas += v.total;
-    unidadesVendidas += v.cantidad;
-    utilidad += v.utilidad;
-    anticipos += v.anticipo;
+    totalVentas += Number(v.subtotal ?? v.total ?? 0);
+    unidadesVendidas += Number(v.cantidad || 0);
+    anticipos += Number(v.anticipo || 0);
   });
 
-  const pendiente = totalVentas - anticipos;
+  const pendiente = Math.max(0, totalVentas - anticipos);
+
+  /*
+    La utilidad del dashboard NO se toma de v.utilidad porque los registros
+    antiguos podían guardar la venta completa como utilidad cuando el costo
+    asociado estaba vacío. Se calcula con el Motor de Rentabilidad:
+
+    venta neta comercial
+    - compra bruta
+    - logística
+    - Asofrucol
+    - financiación
+    - GMF estimado
+
+    La retefuente practicada por el cliente no reduce la utilidad económica.
+  */
+  const operacionActual = typeof calcularOperacionConPrecio === "function"
+    ? calcularOperacionConPrecio(Math.max(0, getNumber("priceVentaKg")))
+    : null;
+  const utilidadEconomica = operacionActual
+    ? Number(operacionActual.utilidadEconomica || 0)
+    : 0;
 
   dashCompras.innerText = money(totalCompras);
   dashVentas.innerText = money(totalVentas);
   dashUnidades.innerText = unidadesVendidas.toLocaleString("es-CO");
-  dashUtilidad.innerText = money(utilidad);
+  dashUtilidad.innerText = money(utilidadEconomica);
 
   cajaCompras.innerText = money(totalCompras);
   cajaVentas.innerText = money(totalVentas);
   cajaPendiente.innerText = money(pendiente);
-  cajaUtilidad.innerText = money(utilidad);
+  cajaUtilidad.innerText = money(utilidadEconomica);
 
   tablaProveedores.innerHTML = proveedores.map(p=>`
     <tr>
@@ -1626,7 +1645,11 @@ function render(){
     </tr>
   `).join("") || `<tr><td colspan="10">Sin ventas registradas.</td></tr>`;
 
-  calcularPricing();
+  const resultadoMotor = calcularPricing();
+  if(resultadoMotor){
+    dashUtilidad.innerText = money(resultadoMotor.utilidadEconomica);
+    cajaUtilidad.innerText = money(resultadoMotor.utilidadEconomica);
+  }
   renderPricingScenarios();
 }
 function calcularVentaEnVivo(){
