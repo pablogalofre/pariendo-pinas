@@ -1135,7 +1135,7 @@ PRICING P&L REFINEMENT
     <div>
       <div class="kicker">PRICING INTELLIGENCE</div>
       <h2>Precio mínimo rentable</h2>
-      <p class="subtitle">Simulador para saber a qué precio debemos vender la piña para conservar un margen mínimo del 15%.</p>
+      <p class="subtitle">Calcula el precio mínimo rentable por kilogramo incorporando merma real, costos, cargos sobre la venta y financiación.</p>
     </div>
   </div>
 
@@ -1195,7 +1195,7 @@ PRICING P&L REFINEMENT
 
         <div class="pricing-section-title">Financiación y margen</div>
 
-        <label>Financiación crédito %
+        <label>Financiación / costo del crédito sobre venta %
           <input id="priceFinanciero" type="number" value="1" step="0.1">
         </label>
 
@@ -1214,8 +1214,8 @@ PRICING P&L REFINEMENT
       </div>
 
       <div class="action-row">
-        <button class="btn gold" onclick="calcularPricing()">Calcular precio</button>
-        <button class="btn outline" onclick="guardarPricingScenario()">Guardar escenario</button>
+        <button class="btn gold" type="button" onclick="calcularPricing()">Calcular precio</button>
+        <button class="btn outline" type="button" onclick="guardarPricingScenario()">Guardar escenario</button>
       </div>
     </div>
 
@@ -1644,46 +1644,77 @@ function setBar(id,value,total){
 }
 
 function calcularPricing(){
-  const compraKg = getNumber("priceCompraKg");
-  const margen = getNumber("priceMargen") / 100;
-  const merma = getNumber("priceMerma") / 100;
+  const compraKg = Math.max(0, getNumber("priceCompraKg"));
+  const margen = Math.max(0, getNumber("priceMargen")) / 100;
+  const merma = Math.min(0.99, Math.max(0, getNumber("priceMerma") / 100));
 
-  const fleteKg = getNumber("priceFleteKg");
-  const empaqueKg = getNumber("priceEmpaqueKg");
-  const manoObraKg = getNumber("priceManoObraKg");
-  const operacionKg = getNumber("priceOperacionKg");
+  const fleteKg = Math.max(0, getNumber("priceFleteKg"));
+  const empaqueKg = Math.max(0, getNumber("priceEmpaqueKg"));
+  const manoObraKg = Math.max(0, getNumber("priceManoObraKg"));
+  const operacionKg = Math.max(0, getNumber("priceOperacionKg"));
 
-  const asofrucol = getNumber("priceAsofrucol") / 100;
-  const retencionAgricola = getNumber("priceRetencionAgricola") / 100;
-  const gmf = getNumber("priceGmf") / 100;
+  const asofrucol = Math.max(0, getNumber("priceAsofrucol")) / 100;
+  const retencionAgricola = Math.max(0, getNumber("priceRetencionAgricola")) / 100;
+  const gmf = Math.max(0, getNumber("priceGmf")) / 100;
+  const financiero = Math.max(0, getNumber("priceFinanciero")) / 100;
 
-  const financiero = getNumber("priceFinanciero") / 100;
-  const ventaReal = getNumber("priceVentaReal");
-  const kilos = getNumber("priceKilos");
+  const ventaReal = Math.max(0, getNumber("priceVentaReal"));
+  const kilos = Math.max(0, getNumber("priceKilos"));
 
-  const costoMerma = compraKg * merma;
+  /*
+    MERMA CORRECTA:
+    Si se pierde un porcentaje del producto comprado, el costo de compra por
+    kilogramo realmente vendible es compra / (1 - merma).
+
+    Ejemplo: compra $1.600/kg y merma 2%:
+    $1.600 / 0,98 = $1.632,65 por kg vendible.
+  */
+  const compraAjustadaMerma = merma < 1 ? compraKg / (1 - merma) : 0;
+  const costoMerma = Math.max(0, compraAjustadaMerma - compraKg);
+
   const costoOperacion = fleteKg + empaqueKg + manoObraKg + operacionKg;
-  const costoBase = compraKg + costoMerma + costoOperacion;
+  const costoBase = compraAjustadaMerma + costoOperacion;
 
   const tasaImpuestos = asofrucol + retencionAgricola + gmf;
 
   /*
-    Precio mínimo contado = costo base / (1 - margen objetivo - impuestos/retenciones)
-    Margen, Asofrucol, retención agrícola y GMF se calculan sobre el precio de venta.
-    Financiación se separa y solo se suma para el precio mínimo crédito.
+    PRECIO MÍNIMO:
+    Se despeja el precio para que después de pagar porcentajes sobre venta
+    quede el margen objetivo.
+
+    Contado: costo / (1 - margen - impuestos)
+    Crédito: costo / (1 - margen - impuestos - financiación)
   */
-  const denominador = 1 - margen - tasaImpuestos;
-  const precioMinContado = denominador > 0 ? costoBase / denominador : 0;
+  const denominadorContado = 1 - margen - tasaImpuestos;
+  const denominadorCredito = 1 - margen - tasaImpuestos - financiero;
+
+  const precioMinContado = denominadorContado > 0
+    ? costoBase / denominadorContado
+    : 0;
+
+  const precioMinCredito = denominadorCredito > 0
+    ? costoBase / denominadorCredito
+    : 0;
 
   const impuestosContado = precioMinContado * tasaImpuestos;
-  const utilidadObjetivo = precioMinContado * margen;
+  const utilidadObjetivoContado = precioMinContado * margen;
 
-  const costoFinanciacion = precioMinContado * financiero;
-  const precioMinCredito = precioMinContado + costoFinanciacion;
+  const impuestosCredito = precioMinCredito * tasaImpuestos;
+  const costoFinanciacion = precioMinCredito * financiero;
+  const utilidadObjetivoCredito = precioMinCredito * margen;
 
   const impuestosVentaReal = ventaReal * tasaImpuestos;
-  const utilidadRealKg = ventaReal - impuestosVentaReal - costoBase;
-  const margenReal = ventaReal > 0 ? (utilidadRealKg / ventaReal) * 100 : 0;
+  const costoFinancieroVentaReal = ventaReal * financiero;
+
+  // El precio simulado se evalúa como una venta a crédito cuando financiación > 0.
+  const utilidadRealKg = ventaReal
+    - impuestosVentaReal
+    - costoFinancieroVentaReal
+    - costoBase;
+
+  const margenReal = ventaReal > 0
+    ? (utilidadRealKg / ventaReal) * 100
+    : 0;
 
   const utilidadProyectada = utilidadRealKg * kilos;
   const facturacionProyectada = ventaReal * kilos;
@@ -1695,16 +1726,25 @@ function calcularPricing(){
   setText("profitProjected", money(utilidadProyectada));
   setText("revenueProjected", money(facturacionProyectada));
   setText("costTotalKg", money(costoBase));
-  setText("taxTotalKg", money(impuestosVentaReal));
+  setText("taxTotalKg", money(impuestosVentaReal + costoFinancieroVentaReal));
   setText("profitKg", money(utilidadRealKg));
 
   const status = document.getElementById("pricingStatus");
   const alert = document.getElementById("priceAlert");
+  const tasasInvalidas = denominadorContado <= 0 || denominadorCredito <= 0;
 
   if(status){
     status.className = "pricing-status";
 
-    if(margenReal >= margen * 100){
+    if(tasasInvalidas){
+      status.classList.add("status-red");
+      status.innerText = "🔴 Porcentajes inválidos";
+      if(alert) alert.innerText = "Revisar tasas";
+    }else if(ventaReal <= 0){
+      status.classList.add("status-yellow");
+      status.innerText = "🟡 Ingresa precio de venta";
+      if(alert) alert.innerText = "Sin precio";
+    }else if(margenReal + 0.0001 >= margen * 100){
       status.classList.add("status-green");
       status.innerText = "🟢 Precio rentable";
       if(alert) alert.innerText = "OK";
@@ -1722,22 +1762,23 @@ function calcularPricing(){
   setText("breakCompra", money(compraKg));
   setText("breakMerma", money(costoMerma));
   setText("breakOperacion", money(costoOperacion));
-  setText("breakImpuestos", money(impuestosContado));
+  setText("breakImpuestos", money(impuestosCredito));
   setText("breakFinanciacion", money(costoFinanciacion));
-  setText("breakUtilidad", money(utilidadObjetivo));
+  setText("breakUtilidad", money(utilidadObjetivoCredito));
 
   const totalBreak = precioMinCredito || precioMinContado || 1;
   setBar("barCompra", compraKg, totalBreak);
   setBar("barMerma", costoMerma, totalBreak);
   setBar("barOperacion", costoOperacion, totalBreak);
-  setBar("barImpuestos", impuestosContado, totalBreak);
+  setBar("barImpuestos", impuestosCredito, totalBreak);
   setBar("barFinanciacion", costoFinanciacion, totalBreak);
-  setBar("barUtilidad", utilidadObjetivo, totalBreak);
+  setBar("barUtilidad", utilidadObjetivoCredito, totalBreak);
 
   const minForCompra = (valorCompra) => {
-    const mermaValor = valorCompra * merma;
-    const base = valorCompra + mermaValor + costoOperacion;
-    return denominador > 0 ? base / denominador : 0;
+    const compraValida = Math.max(0, valorCompra);
+    const compraAjustada = merma < 1 ? compraValida / (1 - merma) : 0;
+    const base = compraAjustada + costoOperacion;
+    return denominadorContado > 0 ? base / denominadorContado : 0;
   };
 
   setText("scenarioLow", money(Math.ceil(minForCompra(compraKg - 100))));
