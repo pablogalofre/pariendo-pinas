@@ -799,6 +799,25 @@ PRICING P&L REFINEMENT
   .pricing-inputs,.pricing-mini{grid-template-columns:1fr;}
 }
 
+
+/* =========================
+MOTOR DE RENTABILIDAD V3
+========================= */
+.price-big.compact{font-size:42px;margin-top:-4px;}
+.break-row.claim span{color:#f3a9a9;}
+.operation-cards{grid-template-columns:repeat(4,1fr);}
+.quality-grid{grid-template-columns:repeat(6,1fr);}
+.finance-grid{align-items:start;}
+.ledger-list{display:grid;gap:12px;font-family:Arial,sans-serif;}
+.ledger-list>div{display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-bottom:1px solid var(--line);}
+.ledger-list span{color:var(--muted);font-size:13px;}
+.ledger-list strong{color:var(--green);font-size:18px;text-align:right;}
+.ledger-list .highlight{background:rgba(216,182,106,.12);border:1px solid rgba(184,138,43,.22);border-radius:16px;padding:15px;}
+.ledger-note{margin-top:16px;color:var(--muted);font-family:Arial,sans-serif;font-size:12px;line-height:1.65;}
+.table-wrap{overflow-x:auto;}
+@media(max-width:1300px){.quality-grid{grid-template-columns:repeat(3,1fr);}.operation-cards{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:1100px){.quality-grid,.operation-cards{grid-template-columns:1fr;}}
+
 </style>
 </head>
 
@@ -854,7 +873,7 @@ PRICING P&L REFINEMENT
       <button onclick="showView('proveedores',this)">Proveedores</button>
       <button onclick="showView('compras',this)">Compras</button>
       <button onclick="showView('ventas',this)">Ventas</button>
-      <button onclick="showView('pricing',this)">Pricing Intelligence</button>
+      <button onclick="showView('pricing',this)">Motor de Rentabilidad</button>
       <button onclick="showView('historico',this)">Historico</button>
       <button onclick="showView('caja',this)">Caja</button>
       <button onclick="showView('roadmap',this)">Roadmap</button>
@@ -1133,193 +1152,198 @@ PRICING P&L REFINEMENT
 <section id="pricing" class="view">
   <div class="topbar">
     <div>
-      <div class="kicker">PRICING INTELLIGENCE</div>
-      <h2>Precio mínimo rentable</h2>
-      <p class="subtitle">Calcula el precio mínimo rentable por kilogramo incorporando merma real, costos, cargos sobre la venta y financiación.</p>
+      <div class="kicker">MOTOR DE RENTABILIDAD</div>
+      <h2>Rentabilidad real por operación</h2>
+      <p class="subtitle">Compra, recepción del cliente, reclamaciones, retenciones y caja, sin confundir utilidad con dinero recibido.</p>
     </div>
   </div>
 
   <div class="pricing-hero">
-    <h3>Decidir precio antes de vender.</h3>
+    <h3>Compra → Entrega → Reclamación → Rentabilidad.</h3>
     <p>
-      Este módulo separa costos reales, impuestos/retenciones y financiación.
-      Calcula el precio mínimo contado y crédito para proteger una utilidad objetivo sobre venta.
+      La merma solo se reconoce cuando el comprador recibe y acepta menos kilos. Las retenciones se muestran por separado:
+      la retención practicada a Guapa es una obligación de MSC frente a la DIAN; la retención practicada por Drycol es un saldo tributario a favor de MSC.
     </p>
   </div>
 
   <div class="pricing-grid">
     <div class="panel">
-      <h3>Variables de precio</h3>
+      <h3>Datos de la operación</h3>
 
       <div class="pricing-inputs">
+        <div class="pricing-section-title">1. Compra a proveedor</div>
 
-        <div class="pricing-section-title">Costos base por kg</div>
-
-        <label>Precio compra por kg
-          <input id="priceCompraKg" type="number" value="1600">
+        <label>Proveedor
+          <input id="priceProveedor" type="text" value="Agrícola Guapa S.A.S.">
+        </label>
+        <label>Kilos comprados / despachados
+          <input id="priceKilosDespachados" type="number" value="6000" step="0.01">
+        </label>
+        <label>Precio de compra por kg
+          <input id="priceCompraKg" type="number" value="1600" step="1">
+        </label>
+        <label>Retención practicada al proveedor %
+          <input id="priceRetProveedor" type="number" value="1.5" step="0.1">
+        </label>
+        <label>Flete total asumido por MSC
+          <input id="priceFleteTotal" type="number" value="0" step="1">
+        </label>
+        <label>Cargue + descargue
+          <input id="priceManipulacionTotal" type="number" value="0" step="1">
+        </label>
+        <label>Otros costos de la operación
+          <input id="priceOtrosCostos" type="number" value="0" step="1">
         </label>
 
-        <label>Merma %
-          <input id="priceMerma" type="number" value="2" step="0.1">
+        <div class="pricing-section-title">2. Venta y recepción del cliente</div>
+
+        <label>Cliente
+          <input id="priceCliente" type="text" value="Drycol S.A.S.">
+        </label>
+        <label>Precio de venta por kg
+          <input id="priceVentaKg" type="number" value="1890" step="1">
+        </label>
+        <label>Kilos aceptados por el comprador
+          <input id="priceKilosAceptados" type="number" value="6000" step="0.01">
+        </label>
+        <label>Descuento extraordinario / reclamación
+          <input id="priceDescuentoExtra" type="number" value="1000000" step="1">
+        </label>
+        <label>Motivo de la reclamación
+          <select id="priceMotivoReclamo">
+            <option>Deterioro de la fruta</option>
+            <option>Sobremaduración</option>
+            <option>Golpes o daño físico</option>
+            <option>Falta de peso</option>
+            <option>Daño en transporte</option>
+            <option>Acuerdo comercial</option>
+            <option>Sin reclamación</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label>Responsable probable
+          <select id="priceResponsable">
+            <option>Por determinar</option>
+            <option>Proveedor / origen</option>
+            <option>Transportador</option>
+            <option>Manipulación</option>
+            <option>Pariendo Piñas</option>
+            <option>Cliente</option>
+            <option>Compartida</option>
+          </select>
         </label>
 
-        <label>Flete por kg
-          <input id="priceFleteKg" type="number" value="120">
-        </label>
+        <div class="pricing-section-title">3. Retenciones, banco y margen</div>
 
-        <label>Empaque por kg
-          <input id="priceEmpaqueKg" type="number" value="0">
-        </label>
-
-        <label>Mano de obra por kg
-          <input id="priceManoObraKg" type="number" value="0">
-        </label>
-
-        <label>Operación / otros por kg
-          <input id="priceOperacionKg" type="number" value="80">
-        </label>
-
-        <div class="pricing-section-title">Impuestos y retenciones</div>
-
-        <label>Asofrucol %
+        <label>Asofrucol retenido por cliente %
           <input id="priceAsofrucol" type="number" value="1" step="0.1">
         </label>
-
-        <label>Retención compras agrícolas %
-          <input id="priceRetencionAgricola" type="number" value="1.5" step="0.1">
+        <label>Retención en la fuente a favor de MSC %
+          <input id="priceRetCliente" type="number" value="1.5" step="0.1">
         </label>
-
-        <label>GMF / 4x1000 %
+        <label>GMF bancario estimado %
           <input id="priceGmf" type="number" value="0.4" step="0.1">
         </label>
-
-        <div class="pricing-section-title">Financiación y margen</div>
-
-        <label>Financiación / costo del crédito sobre venta %
-          <input id="priceFinanciero" type="number" value="1" step="0.1">
+        <label>Costo financiero de la venta %
+          <input id="priceFinanciero" type="number" value="0" step="0.1">
         </label>
-
-        <label>Margen objetivo %
+        <label>Margen objetivo sobre venta neta %
           <input id="priceMargen" type="number" value="15" step="0.1">
         </label>
-
-        <label>Precio de venta simulado
-          <input id="priceVentaReal" type="number" value="2100">
-        </label>
-
-        <label>Kilos proyectados
-          <input id="priceKilos" type="number" value="24000">
-        </label>
-
       </div>
 
       <div class="action-row">
-        <button class="btn gold" type="button" onclick="calcularPricing()">Calcular precio</button>
+        <button class="btn gold" type="button" onclick="calcularPricing()">Calcular operación</button>
         <button class="btn outline" type="button" onclick="guardarPricingScenario()">Guardar escenario</button>
       </div>
     </div>
 
     <div class="pricing-result">
-      <small>PRECIO MÍNIMO CONTADO</small>
-      <div class="price-big" id="minContado">$0</div>
+      <small>UTILIDAD ECONÓMICA</small>
+      <div class="price-big" id="profitOperation">$0</div>
 
-      <small>PRECIO MÍNIMO CRÉDITO</small>
-      <div class="price-big" id="minCredito">$0</div>
+      <small>MARGEN REAL</small>
+      <div class="price-big compact" id="realMargin">0%</div>
 
       <div id="pricingStatus" class="pricing-status status-yellow">Calculando...</div>
 
       <div class="breakdown">
-        <div class="break-row">
-          <span>Compra</span>
-          <div class="break-bar"><div id="barCompra" class="break-fill" style="width:0%"></div></div>
-          <strong id="breakCompra">$0</strong>
-        </div>
-
-        <div class="break-row">
-          <span>Merma</span>
-          <div class="break-bar"><div id="barMerma" class="break-fill" style="width:0%"></div></div>
-          <strong id="breakMerma">$0</strong>
-        </div>
-
-        <div class="break-row">
-          <span>Flete + empaque + operación</span>
-          <div class="break-bar"><div id="barOperacion" class="break-fill" style="width:0%"></div></div>
-          <strong id="breakOperacion">$0</strong>
-        </div>
-
-        <div class="break-row tax">
-          <span>Impuestos / retenciones</span>
-          <div class="break-bar"><div id="barImpuestos" class="break-fill" style="width:0%"></div></div>
-          <strong id="breakImpuestos">$0</strong>
-        </div>
-
-        <div class="break-row finance">
-          <span>Financiación crédito</span>
-          <div class="break-bar"><div id="barFinanciacion" class="break-fill" style="width:0%"></div></div>
-          <strong id="breakFinanciacion">$0</strong>
-        </div>
-
-        <div class="break-row profit">
-          <span>Utilidad objetivo</span>
-          <div class="break-bar"><div id="barUtilidad" class="break-fill" style="width:0%"></div></div>
-          <strong id="breakUtilidad">$0</strong>
-        </div>
+        <div class="break-row"><span>Venta bruta aceptada</span><div class="break-bar"><div id="barVenta" class="break-fill" style="width:0%"></div></div><strong id="breakVenta">$0</strong></div>
+        <div class="break-row claim"><span>Reclamación extraordinaria</span><div class="break-bar"><div id="barReclamo" class="break-fill" style="width:0%"></div></div><strong id="breakReclamo">$0</strong></div>
+        <div class="break-row"><span>Costo fruta</span><div class="break-bar"><div id="barCompra" class="break-fill" style="width:0%"></div></div><strong id="breakCompra">$0</strong></div>
+        <div class="break-row"><span>Logística + operación</span><div class="break-bar"><div id="barOperacion" class="break-fill" style="width:0%"></div></div><strong id="breakOperacion">$0</strong></div>
+        <div class="break-row tax"><span>Asofrucol</span><div class="break-bar"><div id="barAsofrucol" class="break-fill" style="width:0%"></div></div><strong id="breakAsofrucol">$0</strong></div>
+        <div class="break-row finance"><span>GMF + financiación</span><div class="break-bar"><div id="barFinanciacion" class="break-fill" style="width:0%"></div></div><strong id="breakFinanciacion">$0</strong></div>
+        <div class="break-row profit"><span>Utilidad</span><div class="break-bar"><div id="barUtilidad" class="break-fill" style="width:0%"></div></div><strong id="breakUtilidad">$0</strong></div>
       </div>
     </div>
   </div>
 
-  <div class="cards" style="margin-top:24px;">
-    <div class="card"><span>Margen real simulado</span><strong id="realMargin">0%</strong></div>
-    <div class="card"><span>Utilidad proyectada</span><strong id="profitProjected">$0</strong></div>
-    <div class="card"><span>Facturación proyectada</span><strong id="revenueProjected">$0</strong></div>
-    <div class="card"><span>Alerta de precio</span><strong id="priceAlert">—</strong></div>
-  </div>
-
-  <div class="pricing-mini">
-    <div><span>Costo total por kg</span><strong id="costTotalKg">$0</strong></div>
-    <div><span>Impuestos por kg</span><strong id="taxTotalKg">$0</strong></div>
-    <div><span>Utilidad por kg</span><strong id="profitKg">$0</strong></div>
+  <div class="cards operation-cards" style="margin-top:24px;">
+    <div class="card"><span>Venta neta comercial</span><strong id="saleNet">$0</strong></div>
+    <div class="card"><span>Costo total operación</span><strong id="costOperation">$0</strong></div>
+    <div class="card"><span>Utilidad por kg aceptado</span><strong id="profitKg">$0</strong></div>
+    <div class="card"><span>Precio mínimo rentable/kg</span><strong id="minContado">$0</strong></div>
   </div>
 
   <div class="panel">
-    <h3>Sensibilidad precio de compra</h3>
+    <h3>Recepción y calidad</h3>
+    <div class="pricing-mini quality-grid">
+      <div><span>Kilos despachados</span><strong id="sentKg">0 kg</strong></div>
+      <div><span>Kilos aceptados</span><strong id="acceptedKg">0 kg</strong></div>
+      <div><span>Merma / rechazo</span><strong id="rejectedKg">0 kg</strong></div>
+      <div><span>Merma %</span><strong id="rejectedPct">0%</strong></div>
+      <div><span>Venta nominal por kg</span><strong id="nominalPriceKg">$0</strong></div>
+      <div><span>Venta efectiva por kg despachado</span><strong id="effectivePriceKg">$0</strong></div>
+    </div>
+  </div>
 
+  <div class="grid finance-grid">
+    <div class="panel">
+      <h3>Compra y obligación tributaria</h3>
+      <div class="ledger-list">
+        <div><span>Factura bruta de Guapa</span><strong id="purchaseGross">$0</strong></div>
+        <div><span>Pago neto al proveedor</span><strong id="supplierPayment">$0</strong></div>
+        <div><span>Retención practicada a Guapa</span><strong id="supplierWithholding">$0</strong></div>
+        <div class="highlight"><span>Obligación frente a la DIAN</span><strong id="taxLiability">$0</strong></div>
+      </div>
+      <p class="ledger-note">La retención practicada al proveedor no reduce el costo de la fruta. MSC paga una parte a Guapa y declara la parte retenida ante la DIAN.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Caja de la venta</h3>
+      <div class="ledger-list">
+        <div><span>Venta neta comercial</span><strong id="cashSaleNet">$0</strong></div>
+        <div><span>Asofrucol descontado</span><strong id="cashAsofrucol">$0</strong></div>
+        <div><span>Retención a favor de MSC</span><strong id="clientWithholding">$0</strong></div>
+        <div><span>Consignación estimada de Drycol</span><strong id="cashReceived">$0</strong></div>
+        <div class="highlight"><span>Caja neta después de toda la operación</span><strong id="cashNetOperation">$0</strong></div>
+      </div>
+      <p class="ledger-note">La retención de Drycol reduce el efectivo recibido, pero queda como anticipo tributario a favor de MSC; no se descuenta de la utilidad económica.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Sensibilidad del precio de compra</h3>
     <div class="scenario-grid">
-      <div class="scenario">
-        <span>Compra baja</span>
-        <strong id="scenarioLow">$0</strong>
-      </div>
-
-      <div class="scenario">
-        <span>Compra actual</span>
-        <strong id="scenarioMid">$0</strong>
-      </div>
-
-      <div class="scenario">
-        <span>Compra alta</span>
-        <strong id="scenarioHigh">$0</strong>
-      </div>
+      <div class="scenario"><span>Compra $100 más baja</span><strong id="scenarioLow">$0</strong></div>
+      <div class="scenario"><span>Compra actual</span><strong id="scenarioMid">$0</strong></div>
+      <div class="scenario"><span>Compra $100 más alta</span><strong id="scenarioHigh">$0</strong></div>
     </div>
   </div>
 
   <div class="panel">
     <h3>Escenarios guardados</h3>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Compra kg</th>
-          <th>Contado mínimo</th>
-          <th>Crédito mínimo</th>
-          <th>Margen</th>
-        </tr>
-      </thead>
-      <tbody id="tablaPricing"></tbody>
-    </table>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Fecha</th><th>Proveedor → Cliente</th><th>Compra/kg</th><th>Venta/kg</th><th>Reclamación</th><th>Utilidad</th><th>Margen</th></tr>
+        </thead>
+        <tbody id="tablaPricing"></tbody>
+      </table>
+    </div>
   </div>
 </section>
-
 
 <section id="historico" class="view">
   <div class="topbar">
@@ -1643,189 +1667,195 @@ function setBar(id,value,total){
   if(el) el.style.width = Math.min(100, Math.max(0, (value / (total || 1)) * 100)) + "%";
 }
 
+function calcularOperacionConPrecio(precioVentaKg, compraKgOverride = null, financieroOverride = null){
+  const kilosDespachados = Math.max(0, getNumber("priceKilosDespachados"));
+  const kilosAceptados = Math.min(kilosDespachados, Math.max(0, getNumber("priceKilosAceptados")));
+  const compraKg = compraKgOverride === null ? Math.max(0, getNumber("priceCompraKg")) : Math.max(0, compraKgOverride);
+  const retProveedor = Math.max(0, getNumber("priceRetProveedor")) / 100;
+  const flete = Math.max(0, getNumber("priceFleteTotal"));
+  const manipulacion = Math.max(0, getNumber("priceManipulacionTotal"));
+  const otros = Math.max(0, getNumber("priceOtrosCostos"));
+  const descuentoExtra = Math.max(0, getNumber("priceDescuentoExtra"));
+  const asofrucolPct = Math.max(0, getNumber("priceAsofrucol")) / 100;
+  const retClientePct = Math.max(0, getNumber("priceRetCliente")) / 100;
+  const gmfPct = Math.max(0, getNumber("priceGmf")) / 100;
+  const financieroPct = financieroOverride === null ? Math.max(0, getNumber("priceFinanciero")) / 100 : financieroOverride;
+
+  const compraBruta = kilosDespachados * compraKg;
+  const retencionProveedor = compraBruta * retProveedor;
+  const pagoProveedor = compraBruta - retencionProveedor;
+  const costosLogisticos = flete + manipulacion + otros;
+  const costoOperacion = compraBruta + costosLogisticos;
+
+  // El comprador castiga la merma pagando únicamente los kilos aceptados.
+  const ventaBrutaAceptada = kilosAceptados * Math.max(0, precioVentaKg);
+  const ventaNetaComercial = Math.max(0, ventaBrutaAceptada - descuentoExtra);
+
+  // Asofrucol se presenta como cargo parafiscal de la venta.
+  // La retefuente del cliente afecta caja, pero no la utilidad económica.
+  const asofrucol = ventaNetaComercial * asofrucolPct;
+  const retencionCliente = ventaNetaComercial * retClientePct;
+  const costoFinanciero = ventaNetaComercial * financieroPct;
+  const consignacionAntesGmf = Math.max(0, ventaNetaComercial - asofrucol - retencionCliente - costoFinanciero);
+  const gmf = consignacionAntesGmf * gmfPct;
+  const cajaRecibida = consignacionAntesGmf - gmf;
+
+  const utilidadEconomica = ventaNetaComercial - asofrucol - costoFinanciero - gmf - costoOperacion;
+  const margenReal = ventaNetaComercial > 0 ? utilidadEconomica / ventaNetaComercial : 0;
+  const utilidadKgAceptado = kilosAceptados > 0 ? utilidadEconomica / kilosAceptados : 0;
+
+  // Caja una vez se paga proveedor, logística y la retención practicada a Guapa.
+  const cajaNetaOperacion = cajaRecibida - pagoProveedor - costosLogisticos - retencionProveedor;
+
+  return {
+    kilosDespachados,kilosAceptados,compraKg,precioVentaKg,descuentoExtra,
+    compraBruta,retencionProveedor,pagoProveedor,costosLogisticos,costoOperacion,
+    ventaBrutaAceptada,ventaNetaComercial,asofrucol,retencionCliente,
+    costoFinanciero,gmf,cajaRecibida,cajaNetaOperacion,
+    utilidadEconomica,margenReal,utilidadKgAceptado
+  };
+}
+
+function buscarPrecioMinimo(compraKgOverride = null, financieroOverride = null){
+  const objetivo = Math.max(0, getNumber("priceMargen")) / 100;
+  const kilosAceptados = Math.max(0, getNumber("priceKilosAceptados"));
+  if(kilosAceptados <= 0) return 0;
+
+  let bajo = 0;
+  let alto = 100000;
+  for(let i=0;i<80;i++){
+    const medio = (bajo + alto) / 2;
+    const r = calcularOperacionConPrecio(medio, compraKgOverride, financieroOverride);
+    if(r.margenReal >= objetivo) alto = medio;
+    else bajo = medio;
+  }
+  return alto;
+}
+
 function calcularPricing(){
-  const compraKg = Math.max(0, getNumber("priceCompraKg"));
-  const margen = Math.max(0, getNumber("priceMargen")) / 100;
-  const merma = Math.min(0.99, Math.max(0, getNumber("priceMerma") / 100));
+  const precioVentaKg = Math.max(0, getNumber("priceVentaKg"));
+  const r = calcularOperacionConPrecio(precioVentaKg);
+  const margenObjetivo = Math.max(0, getNumber("priceMargen")) / 100;
+  const precioMinimo = buscarPrecioMinimo(null, 0);
+  const precioMinimoCredito = buscarPrecioMinimo(null, Math.max(0, getNumber("priceFinanciero")) / 100);
 
-  const fleteKg = Math.max(0, getNumber("priceFleteKg"));
-  const empaqueKg = Math.max(0, getNumber("priceEmpaqueKg"));
-  const manoObraKg = Math.max(0, getNumber("priceManoObraKg"));
-  const operacionKg = Math.max(0, getNumber("priceOperacionKg"));
+  const mermaKg = Math.max(0, r.kilosDespachados - r.kilosAceptados);
+  const mermaPct = r.kilosDespachados > 0 ? mermaKg / r.kilosDespachados : 0;
+  const precioEfectivoDespachado = r.kilosDespachados > 0 ? r.ventaNetaComercial / r.kilosDespachados : 0;
 
-  const asofrucol = Math.max(0, getNumber("priceAsofrucol")) / 100;
-  const retencionAgricola = Math.max(0, getNumber("priceRetencionAgricola")) / 100;
-  const gmf = Math.max(0, getNumber("priceGmf")) / 100;
-  const financiero = Math.max(0, getNumber("priceFinanciero")) / 100;
+  setText("profitOperation", money(r.utilidadEconomica));
+  setText("realMargin", (r.margenReal * 100).toFixed(1) + "%");
+  setText("saleNet", money(r.ventaNetaComercial));
+  setText("costOperation", money(r.costoOperacion + r.asofrucol + r.costoFinanciero + r.gmf));
+  setText("profitKg", money(r.utilidadKgAceptado));
+  setText("minContado", money(Math.ceil(precioMinimo)));
 
-  const ventaReal = Math.max(0, getNumber("priceVentaReal"));
-  const kilos = Math.max(0, getNumber("priceKilos"));
+  setText("sentKg", r.kilosDespachados.toLocaleString("es-CO") + " kg");
+  setText("acceptedKg", r.kilosAceptados.toLocaleString("es-CO") + " kg");
+  setText("rejectedKg", mermaKg.toLocaleString("es-CO") + " kg");
+  setText("rejectedPct", (mermaPct * 100).toFixed(2) + "%");
+  setText("nominalPriceKg", money(precioVentaKg));
+  setText("effectivePriceKg", money(precioEfectivoDespachado));
 
-  /*
-    MERMA CORRECTA:
-    Si se pierde un porcentaje del producto comprado, el costo de compra por
-    kilogramo realmente vendible es compra / (1 - merma).
+  setText("purchaseGross", money(r.compraBruta));
+  setText("supplierPayment", money(r.pagoProveedor));
+  setText("supplierWithholding", money(r.retencionProveedor));
+  setText("taxLiability", money(r.retencionProveedor));
 
-    Ejemplo: compra $1.600/kg y merma 2%:
-    $1.600 / 0,98 = $1.632,65 por kg vendible.
-  */
-  const compraAjustadaMerma = merma < 1 ? compraKg / (1 - merma) : 0;
-  const costoMerma = Math.max(0, compraAjustadaMerma - compraKg);
+  setText("cashSaleNet", money(r.ventaNetaComercial));
+  setText("cashAsofrucol", money(r.asofrucol));
+  setText("clientWithholding", money(r.retencionCliente));
+  setText("cashReceived", money(r.cajaRecibida));
+  setText("cashNetOperation", money(r.cajaNetaOperacion));
 
-  const costoOperacion = fleteKg + empaqueKg + manoObraKg + operacionKg;
-  const costoBase = compraAjustadaMerma + costoOperacion;
+  setText("breakVenta", money(r.ventaBrutaAceptada));
+  setText("breakReclamo", money(r.descuentoExtra));
+  setText("breakCompra", money(r.compraBruta));
+  setText("breakOperacion", money(r.costosLogisticos));
+  setText("breakAsofrucol", money(r.asofrucol));
+  setText("breakFinanciacion", money(r.gmf + r.costoFinanciero));
+  setText("breakUtilidad", money(r.utilidadEconomica));
 
-  const tasaImpuestos = asofrucol + retencionAgricola + gmf;
-
-  /*
-    PRECIO MÍNIMO:
-    Se despeja el precio para que después de pagar porcentajes sobre venta
-    quede el margen objetivo.
-
-    Contado: costo / (1 - margen - impuestos)
-    Crédito: costo / (1 - margen - impuestos - financiación)
-  */
-  const denominadorContado = 1 - margen - tasaImpuestos;
-  const denominadorCredito = 1 - margen - tasaImpuestos - financiero;
-
-  const precioMinContado = denominadorContado > 0
-    ? costoBase / denominadorContado
-    : 0;
-
-  const precioMinCredito = denominadorCredito > 0
-    ? costoBase / denominadorCredito
-    : 0;
-
-  const impuestosContado = precioMinContado * tasaImpuestos;
-  const utilidadObjetivoContado = precioMinContado * margen;
-
-  const impuestosCredito = precioMinCredito * tasaImpuestos;
-  const costoFinanciacion = precioMinCredito * financiero;
-  const utilidadObjetivoCredito = precioMinCredito * margen;
-
-  const impuestosVentaReal = ventaReal * tasaImpuestos;
-  const costoFinancieroVentaReal = ventaReal * financiero;
-
-  // El precio simulado se evalúa como una venta a crédito cuando financiación > 0.
-  const utilidadRealKg = ventaReal
-    - impuestosVentaReal
-    - costoFinancieroVentaReal
-    - costoBase;
-
-  const margenReal = ventaReal > 0
-    ? (utilidadRealKg / ventaReal) * 100
-    : 0;
-
-  const utilidadProyectada = utilidadRealKg * kilos;
-  const facturacionProyectada = ventaReal * kilos;
-
-  setText("minContado", money(Math.ceil(precioMinContado)));
-  setText("minCredito", money(Math.ceil(precioMinCredito)));
-
-  setText("realMargin", margenReal.toFixed(1) + "%");
-  setText("profitProjected", money(utilidadProyectada));
-  setText("revenueProjected", money(facturacionProyectada));
-  setText("costTotalKg", money(costoBase));
-  setText("taxTotalKg", money(impuestosVentaReal + costoFinancieroVentaReal));
-  setText("profitKg", money(utilidadRealKg));
+  const escala = Math.max(r.ventaBrutaAceptada,1);
+  setBar("barVenta",r.ventaBrutaAceptada,escala);
+  setBar("barReclamo",r.descuentoExtra,escala);
+  setBar("barCompra",r.compraBruta,escala);
+  setBar("barOperacion",r.costosLogisticos,escala);
+  setBar("barAsofrucol",r.asofrucol,escala);
+  setBar("barFinanciacion",r.gmf+r.costoFinanciero,escala);
+  setBar("barUtilidad",Math.max(0,r.utilidadEconomica),escala);
 
   const status = document.getElementById("pricingStatus");
-  const alert = document.getElementById("priceAlert");
-  const tasasInvalidas = denominadorContado <= 0 || denominadorCredito <= 0;
-
   if(status){
     status.className = "pricing-status";
-
-    if(tasasInvalidas){
-      status.classList.add("status-red");
-      status.innerText = "🔴 Porcentajes inválidos";
-      if(alert) alert.innerText = "Revisar tasas";
-    }else if(ventaReal <= 0){
+    if(r.kilosAceptados <= 0 || precioVentaKg <= 0){
       status.classList.add("status-yellow");
-      status.innerText = "🟡 Ingresa precio de venta";
-      if(alert) alert.innerText = "Sin precio";
-    }else if(margenReal + 0.0001 >= margen * 100){
+      status.innerText = "🟡 Completa los datos de la venta";
+    }else if(r.utilidadEconomica < 0){
+      status.classList.add("status-red");
+      status.innerText = "🔴 Operación con pérdida";
+    }else if(r.margenReal + 0.000001 >= margenObjetivo){
       status.classList.add("status-green");
-      status.innerText = "🟢 Precio rentable";
-      if(alert) alert.innerText = "OK";
-    }else if(margenReal >= (margen * 100) - 3){
-      status.classList.add("status-yellow");
-      status.innerText = "🟡 Margen apretado";
-      if(alert) alert.innerText = "Revisar";
+      status.innerText = "🟢 Margen objetivo cumplido";
     }else{
-      status.classList.add("status-red");
-      status.innerText = "🔴 No vender a ese precio";
-      if(alert) alert.innerText = "Alerta";
+      status.classList.add("status-yellow");
+      status.innerText = "🟡 Operación positiva, margen insuficiente";
     }
   }
 
-  setText("breakCompra", money(compraKg));
-  setText("breakMerma", money(costoMerma));
-  setText("breakOperacion", money(costoOperacion));
-  setText("breakImpuestos", money(impuestosCredito));
-  setText("breakFinanciacion", money(costoFinanciacion));
-  setText("breakUtilidad", money(utilidadObjetivoCredito));
+  const compraActual = Math.max(0,getNumber("priceCompraKg"));
+  setText("scenarioLow", money(Math.ceil(buscarPrecioMinimo(Math.max(0,compraActual-100),0))));
+  setText("scenarioMid", money(Math.ceil(precioMinimo)));
+  setText("scenarioHigh", money(Math.ceil(buscarPrecioMinimo(compraActual+100,0))));
 
-  const totalBreak = precioMinCredito || precioMinContado || 1;
-  setBar("barCompra", compraKg, totalBreak);
-  setBar("barMerma", costoMerma, totalBreak);
-  setBar("barOperacion", costoOperacion, totalBreak);
-  setBar("barImpuestos", impuestosCredito, totalBreak);
-  setBar("barFinanciacion", costoFinanciacion, totalBreak);
-  setBar("barUtilidad", utilidadObjetivoCredito, totalBreak);
-
-  const minForCompra = (valorCompra) => {
-    const compraValida = Math.max(0, valorCompra);
-    const compraAjustada = merma < 1 ? compraValida / (1 - merma) : 0;
-    const base = compraAjustada + costoOperacion;
-    return denominadorContado > 0 ? base / denominadorContado : 0;
-  };
-
-  setText("scenarioLow", money(Math.ceil(minForCompra(compraKg - 100))));
-  setText("scenarioMid", money(Math.ceil(precioMinContado)));
-  setText("scenarioHigh", money(Math.ceil(minForCompra(compraKg + 100))));
+  // El precio de crédito queda disponible para futuros reportes sin mezclarlo con contado.
+  window.ppPrecioMinimoCredito = precioMinimoCredito;
+  return r;
 }
 
 function guardarPricingScenario(){
-  calcularPricing();
-
-  const compraKg = Number(document.getElementById("priceCompraKg").value || 0);
-  const contado = document.getElementById("minContado").innerText;
-  const credito = document.getElementById("minCredito").innerText;
-  const margen = document.getElementById("realMargin").innerText;
-
+  const r = calcularPricing();
   pricingScenarios.push({
-    fecha:new Date().toLocaleDateString(),
-    compraKg,
-    contado,
-    credito,
-    margen
+    fecha:new Date().toLocaleString("es-CO"),
+    proveedor:document.getElementById("priceProveedor").value || "—",
+    cliente:document.getElementById("priceCliente").value || "—",
+    compraKg:r.compraKg,
+    ventaKg:r.precioVentaKg,
+    reclamacion:r.descuentoExtra,
+    utilidad:r.utilidadEconomica,
+    margen:r.margenReal * 100,
+    motivo:document.getElementById("priceMotivoReclamo").value,
+    responsable:document.getElementById("priceResponsable").value
   });
-
-  localStorage.setItem("pp_pricing_scenarios", JSON.stringify(pricingScenarios));
+  localStorage.setItem("pp_pricing_scenarios",JSON.stringify(pricingScenarios));
   renderPricingScenarios();
-  alert("Escenario de pricing guardado.");
+  alert("Escenario de rentabilidad guardado.");
 }
 
 function renderPricingScenarios(){
-  if(!document.getElementById("tablaPricing")) return;
-
-  tablaPricing.innerHTML = pricingScenarios.map(s=>`
+  const tabla = document.getElementById("tablaPricing");
+  if(!tabla) return;
+  tabla.innerHTML = pricingScenarios.slice().reverse().map(s=>`
     <tr>
-      <td>${s.fecha}</td>
+      <td>${s.fecha || "—"}</td>
+      <td>${s.proveedor || "—"} → ${s.cliente || "—"}</td>
       <td>${money(s.compraKg)}</td>
-      <td>${s.contado}</td>
-      <td>${s.credito}</td>
-      <td>${s.margen}</td>
+      <td>${money(s.ventaKg)}</td>
+      <td>${money(s.reclamacion)}</td>
+      <td>${money(s.utilidad)}</td>
+      <td>${Number(s.margen || 0).toFixed(1)}%</td>
     </tr>
-  `).join("") || `<tr><td colspan="5">Sin escenarios guardados.</td></tr>`;
+  `).join("") || `<tr><td colspan="7">Sin escenarios guardados.</td></tr>`;
 }
 
-["priceCompraKg","priceMargen","priceMerma","priceFleteKg","priceEmpaqueKg","priceManoObraKg","priceOperacionKg","priceAsofrucol","priceRetencionAgricola","priceGmf","priceFinanciero","priceVentaReal","priceKilos"].forEach(id=>{
-  const el = document.getElementById(id);
-  if(el){
-    el.addEventListener("input", calcularPricing);
-  }
+[
+  "priceKilosDespachados","priceCompraKg","priceRetProveedor","priceFleteTotal",
+  "priceManipulacionTotal","priceOtrosCostos","priceVentaKg","priceKilosAceptados",
+  "priceDescuentoExtra","priceAsofrucol","priceRetCliente","priceGmf",
+  "priceFinanciero","priceMargen"
+].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener("input",calcularPricing);
 });
 
 const savedUser = localStorage.getItem("pp_user");
