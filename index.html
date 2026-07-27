@@ -280,7 +280,7 @@ VENTA MAYORISTA
     </div>
     <p class="reveal">
       Configura una solicitud de compra para retail, industria, food service o distribución.
-      El precio mostrado es una referencia comercial y la disponibilidad se confirma antes del despacho.
+      El precio publicado respeta la política comercial de Pariendo Piñas: ninguna venta se cotiza por debajo de $2.180 por kilogramo. La disponibilidad se confirma antes del despacho.
     </p>
   </div>
 
@@ -319,7 +319,7 @@ VENTA MAYORISTA
         <div class="wholesale-field">
           <label for="wholesaleKg">Cantidad requerida (kg)</label>
           <input id="wholesaleKg" type="number" min="6000" step="100" value="6000">
-          <div class="wholesale-help">Pedido mínimo: 6.000 kg.</div>
+          <div class="wholesale-help">Pedido mínimo: 6.000 kg. Precio mínimo de política comercial: $2.180/kg.</div>
         </div>
 
         <div class="wholesale-field">
@@ -338,8 +338,17 @@ VENTA MAYORISTA
             <option value="contado">Contado</option>
             <option value="credito">Crédito — sujeto a aprobación</option>
           </select>
+        
         </div>
 
+        <div class="wholesale-field full">
+          <label for="commercialCode">Código comercial</label>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <input id="commercialCode" type="text" placeholder="Ingrese su código de cliente" style="flex:1">
+            <button type="button" class="btn" id="applyCommercialCode">Aplicar</button>
+          </div>
+          <div class="wholesale-help">Solo disponible para clientes previamente registrados en Pariendo Piñas.</div>
+          <div id="commercialCodeStatus" style="margin-top:10px;color:#c7a04c;font-size:12px;"></div>
         <div class="wholesale-field full">
           <label for="wholesaleNotes">Especificaciones u observaciones</label>
           <textarea id="wholesaleNotes" placeholder="Calibre, grado de maduración, frecuencia, empaque o requerimientos especiales."></textarea>
@@ -360,28 +369,28 @@ VENTA MAYORISTA
 
         <div class="wholesale-lines">
           <div class="wholesale-line"><span>Cantidad</span><strong id="wholesaleKgSummary">6.000 kg</strong></div>
-          <div class="wholesale-line"><span>Precio de referencia</span><strong id="wholesalePriceSummary">$1.890/kg</strong></div>
+          <div class="wholesale-line"><span>Precio mayorista vigente</span><strong id="wholesalePriceSummary">$2.180/kg</strong></div>
           <div class="wholesale-line"><span>Condición</span><strong id="wholesalePaymentSummary">Contado</strong></div>
           <div class="wholesale-line"><span>Entrega</span><strong id="wholesaleCitySummary">Por definir</strong></div>
         </div>
 
         <div class="wholesale-total">
           <span>Total estimado</span>
-          <strong id="wholesaleTotal">$11.340.000</strong>
+          <strong id="wholesaleTotal">$13.080.000</strong>
         </div>
 
         <div class="wholesale-badges">
           <span>Origen Colombia</span>
           <span>Trazabilidad</span>
           <span>Volumen mayorista</span>
+          <span>Precio mínimo $2.180/kg</span>
         </div>
       </div>
 
       <div>
         <button class="btn wholesale-submit" id="wholesaleSubmit" type="button">Solicitar cotización ◆</button>
         <p class="wholesale-disclaimer">
-          Esta solicitud no constituye una venta definitiva. Precio, disponibilidad, calidad, logística,
-          retenciones y condiciones de pago se confirman por el equipo comercial.
+          Esta solicitud no constituye una venta definitiva. El precio nunca será inferior a $2.180/kg. Disponibilidad, calidad, logística, retenciones y condiciones de pago se confirman por el equipo comercial.
         </p>
       </div>
     </aside>
@@ -449,8 +458,9 @@ const nav=document.getElementById('nav');const menuToggle=document.getElementByI
 
 const wholesaleConfig={
   minimumKg:6000,
-  contadoPrice:1890,
-  creditoPrice:1910,
+  commercialFloor:2180,
+  contadoPrice:2180,
+  creditoPrice:2220,
   whatsappNumber:""
 };
 
@@ -473,9 +483,16 @@ function updateWholesale(){
     wholesaleError.textContent="";
   }
 
-  const price=wholesalePayment.value==="credito"
+  const configuredPrice=wholesalePayment.value==="credito"
     ? wholesaleConfig.creditoPrice
     : wholesaleConfig.contadoPrice;
+
+  // Política comercial obligatoria:
+  // ninguna cotización puede quedar por debajo de $2.180/kg.
+  const price=Math.max(
+    wholesaleConfig.commercialFloor,
+    Number(configuredPrice||0)
+  );
 
   document.getElementById("wholesaleKgSummary").textContent=
     Math.max(0,kg).toLocaleString("es-CO")+" kg";
@@ -525,7 +542,7 @@ document.getElementById("wholesaleSubmit").addEventListener("click",()=>{
     "Correo: "+(email||"No informado"),
     "Uso: "+use,
     "Cantidad: "+result.kg.toLocaleString("es-CO")+" kg",
-    "Precio de referencia: "+formatCop(result.price)+"/kg",
+    "Precio mayorista: "+formatCop(result.price)+"/kg",
     "Total estimado: "+formatCop(result.total),
     "Condición: "+condition,
     "Ciudad de entrega: "+city,
@@ -546,6 +563,50 @@ document.getElementById("wholesaleSubmit").addEventListener("click",()=>{
   }
 });
 
+updateWholesale();
+
+
+// ===== Códigos comerciales =====
+const COMMERCIAL_CODES={
+  "PP-DRYCOL-2026":{
+    customer:"Drycol S.A.S.",
+    authorizedPrice:2080,
+    expires:"2026-12-31"
+  }
+};
+
+let negotiatedPrice=null;
+
+document.getElementById("applyCommercialCode").addEventListener("click",()=>{
+ const code=document.getElementById("commercialCode").value.trim().toUpperCase();
+ const status=document.getElementById("commercialCodeStatus");
+ if(!COMMERCIAL_CODES[code]){
+    negotiatedPrice=null;
+    status.style.color="#f2a2a2";
+    status.textContent="Código inválido o vencido.";
+    updateWholesale();
+    return;
+ }
+ const data=COMMERCIAL_CODES[code];
+ negotiatedPrice=data.authorizedPrice;
+ status.style.color="#c7a04c";
+ status.innerHTML="✓ Cliente: <strong>"+data.customer+"</strong><br>Precio autorizado: <strong>"+formatCop(data.authorizedPrice)+"/kg</strong>";
+ updateWholesale();
+});
+
+// parche updateWholesale para respetar precio autorizado
+const _oldUpdate=updateWholesale;
+updateWholesale=function(){
+ const result=_oldUpdate();
+ if(negotiatedPrice!==null){
+    const kg=Number(document.getElementById("wholesaleKg").value||0);
+    const total=kg*negotiatedPrice;
+    document.getElementById("wholesalePriceSummary").textContent=formatCop(negotiatedPrice)+"/kg";
+    document.getElementById("wholesaleTotal").textContent=formatCop(total);
+    return {...result,price:negotiatedPrice,total:total};
+ }
+ return result;
+};
 updateWholesale();
 
 </script>
