@@ -3,946 +3,137 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Pariendo Piñas — Tropical Luxury From Colombia</title>
-
+<meta name="description" content="Pariendo Piñas: premium produce, export programs and high-end tropical lifestyle from Colombia." />
 <link rel="icon" type="image/png" href="./images/favicon.png" />
 <link rel="apple-touch-icon" href="./images/favicon.png" />
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-
-/* =========================
-RESET
-========================= */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-:root{
-  --black:#061510;
-  --deep:#071d16;
-  --gold:#c7a04c;
-  --gold-soft:#e3c57f;
-  --cream:#f4ead6;
-  --paper:#f8f2e7;
-  --text:#e8dcc5;
-  --muted:#ab9f89;
-  --line:rgba(199,160,76,.22);
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--black);
-  color:var(--text);
-  font-family:'Inter',sans-serif;
-  overflow-x:hidden;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-/* =========================
-NAVBAR
-========================= */
-
-.nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:999;
-
-  padding:28px 5vw;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(6,21,16,.92),
-      rgba(6,21,16,.45),
-      transparent
-    );
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-.brand-symbol{
-  font-family:'Cormorant Garamond',serif;
-  font-size:38px;
-  color:var(--gold);
-  line-height:1;
-}
-
-.brand-text{
-  color:var(--gold-soft);
-  letter-spacing:7px;
-  text-transform:uppercase;
-  font-size:12px;
-}
-
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:34px;
-
-  color:#fff;
-  font-size:11px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-}
-
-.nav-links a{
-  opacity:.82;
-  transition:.3s;
-}
-
-.nav-links a:hover{
-  opacity:1;
-  color:var(--gold-soft);
-}
-
-.investors-btn{
-  padding:14px 22px;
-  border:1px solid var(--line);
-  background:rgba(199,160,76,.08);
-  color:var(--gold-soft)!important;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-  position:relative;
-  min-height:100vh;
-
-  display:flex;
-  align-items:center;
-
-  padding:140px 7vw 90px;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(6,21,16,.97) 0%,
-      rgba(6,21,16,.88) 32%,
-      rgba(6,21,16,.40) 62%,
-      rgba(6,21,16,.12) 100%
-    ),
-    url("./images/login-luxury.png");
-
-  background-size:cover;
-  background-position:center center;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:auto 0 0 0;
-  height:200px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      var(--black)
-    );
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:620px;
-}
-
-.hero-kicker{
-  color:var(--gold-soft);
-  letter-spacing:7px;
-  text-transform:uppercase;
-  font-size:12px;
-
-  margin-bottom:28px;
-}
-
-.hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:110px;
-  line-height:.88;
-  font-weight:400;
-
-  color:#fff;
-
-  margin-bottom:26px;
-}
-
-.hero-line{
-  width:64px;
-  height:1px;
-  background:var(--gold);
-
-  margin-bottom:28px;
-}
-
-.hero p{
-  max-width:500px;
-
-  color:rgba(255,255,255,.76);
-
-  line-height:1.9;
-  font-size:17px;
-}
-
-.hero-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  min-height:54px;
-
-  padding:0 30px;
-
-  margin-top:38px;
-
-  border:1px solid var(--line);
-
-  color:var(--gold-soft);
-
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font-size:11px;
-  font-weight:700;
-
-  transition:.3s;
-}
-
-.hero-btn:hover{
-  background:var(--gold);
-  color:var(--black);
-}
-
-/* =========================
-STATEMENT
-========================= */
-
-.statement{
-  background:var(--paper);
-  color:#16231c;
-
-  padding:90px 10vw;
-
-  text-align:center;
-}
-
-.statement-symbol{
-  font-family:'Cormorant Garamond',serif;
-  font-size:42px;
-  color:var(--gold);
-
-  margin-bottom:18px;
-}
-
-.statement h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:46px;
-  font-weight:400;
-
-  letter-spacing:6px;
-  text-transform:uppercase;
-
-  margin-bottom:24px;
-}
-
-.statement p{
-  max-width:760px;
-  margin:auto;
-
-  color:#6b6559;
-
-  line-height:1.9;
-  font-size:16px;
-}
-
-/* =========================
-PRODUCT GRID
-========================= */
-
-.products{
-  background:var(--black);
-
-  padding:100px 5vw;
-
-  display:grid;
-  grid-template-columns:.9fr 3fr;
-  gap:26px;
-}
-
-.products-left{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.products-left small{
-  color:var(--gold-soft);
-  letter-spacing:6px;
-  text-transform:uppercase;
-  font-size:11px;
-}
-
-.products-left h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:56px;
-  line-height:1;
-
-  font-weight:400;
-
-  color:#fff;
-
-  margin:22px 0;
-}
-
-.products-left p{
-  max-width:320px;
-
-  color:rgba(255,255,255,.66);
-
-  line-height:1.8;
-  font-size:15px;
-}
-
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-
-.card{
-  position:relative;
-  min-height:500px;
-
-  overflow:hidden;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-
-  padding:30px;
-
-  background-size:cover;
-  background-position:center;
-
-  border:1px solid rgba(199,160,76,.18);
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.02),
-      rgba(6,21,16,.92)
-    );
-
-  z-index:1;
-}
-
-.card > *{
-  position:relative;
-  z-index:2;
-}
-
-.card small{
-  color:var(--gold-soft);
-  letter-spacing:4px;
-  font-size:11px;
-
-  margin-bottom:14px;
-}
-
-.card h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:42px;
-  line-height:1;
-  font-weight:400;
-
-  color:#fff;
-
-  margin-bottom:14px;
-}
-
-.card p{
-  color:rgba(255,255,255,.76);
-
-  line-height:1.7;
-  font-size:13px;
-}
-
-.card a{
-  margin-top:18px;
-
-  color:var(--gold-soft);
-
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font-size:10px;
-}
-
-.produce{
-  background-image:url("./images/drop-produce.png");
-}
-
-.gourmet{
-  background-image:url("./images/drop-jam.png");
-}
-
-.lifestyle{
-  background-image:url("./images/drop-beachwear.png");
-}
-
-.objects{
-  background-image:url("./images/drop-objects.png");
-}
-
-/* =========================
-PRIVATE
-========================= */
-
-.private{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-
-.private-image{
-  min-height:520px;
-
-  background:
-    linear-gradient(
-      to right,
-      rgba(6,21,16,.12),
-      rgba(6,21,16,.45)
-    ),
-    url("./images/drop-objects.png");
-
-  background-size:cover;
-  background-position:center;
-}
-
-.private-copy{
-  background:var(--deep);
-
-  padding:90px 7vw;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.private-copy small{
-  color:var(--gold-soft);
-
-  letter-spacing:6px;
-  text-transform:uppercase;
-  font-size:11px;
-}
-
-.private-copy h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:58px;
-  line-height:1;
-
-  font-weight:400;
-
-  color:#fff;
-
-  margin:24px 0;
-}
-
-.private-copy p{
-  max-width:480px;
-
-  color:rgba(255,255,255,.70);
-
-  line-height:1.9;
-  font-size:15px;
-}
-
-.private-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  width:max-content;
-
-  min-height:54px;
-
-  padding:0 28px;
-
-  margin-top:36px;
-
-  border:1px solid var(--line);
-
-  color:var(--gold-soft);
-
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font-size:11px;
-  font-weight:700;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-.footer{
-  background:#04100c;
-
-  padding:70px 5vw 30px;
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:40px;
-
-  margin-bottom:40px;
-}
-
-.footer-brand h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:44px;
-  font-weight:400;
-
-  color:var(--gold-soft);
-
-  margin-bottom:12px;
-}
-
-.footer-brand p{
-  color:rgba(255,255,255,.55);
-
-  line-height:1.8;
-  max-width:320px;
-}
-
-.footer-col small{
-  display:block;
-
-  color:var(--gold-soft);
-
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font-size:10px;
-
-  margin-bottom:18px;
-}
-
-.footer-col a{
-  display:block;
-
-  color:rgba(255,255,255,.62);
-
-  margin-bottom:12px;
-
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.copy{
-  border-top:1px solid rgba(255,255,255,.05);
-
-  padding-top:24px;
-
-  text-align:center;
-
-  color:rgba(255,255,255,.34);
-
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:1050px){
-
-  .nav{
-    padding:22px;
-    background:rgba(6,21,16,.94);
-  }
-
-  .nav-links a:not(.investors-btn){
-    display:none;
-  }
-
-.hero{
-    min-height:88svh;
-
-    align-items:flex-end;
-
-    padding:116px 24px 54px;
-
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(6,21,16,.06) 0%,
-        rgba(6,21,16,.64) 48%,
-        rgba(6,21,16,.96) 100%
-      ),
-      url("./images/login-luxury.png");
-
-    background-size:cover;
-    background-position:58% center;
-  }
-
-  .hero::after{
-    height:90px;
-  }
-
-  .hero h1{
-    font-size:55px;
-  }
-
-  .hero-kicker{
-    font-size:10px;
-    letter-spacing:4px;
-    margin-bottom:18px;
-  }
-
-  .hero p{
-    font-size:14px;
-    line-height:1.65;
-    max-width:350px;
-  }
-
-  .hero-btn{
-    margin-top:24px;
-    min-height:48px;
-    padding:0 20px;
-    letter-spacing:2px;
-  }
-
-  .products{
-    grid-template-columns:1fr;
-    padding:70px 24px;
-  }
-
-  .products-grid{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    min-height:420px;
-  }
-
-  .statement{
-    padding:70px 24px;
-  }
-
-  .statement h2{
-    font-size:32px;
-    letter-spacing:3px;
-  }
-
-  .private{
-    grid-template-columns:1fr;
-  }
-
-  .private-image{
-    min-height:320px;
-  }
-
-  .private-copy{
-    padding:70px 24px;
-  }
-
-  .private-copy h2{
-    font-size:42px;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#061510;--deep:#071d16;--green:#0d2a20;--gold:#c7a04c;--gold-soft:#e3c57f;--cream:#f4ead6;--paper:#f8f2e7;--white:#fff;--text:#e8dcc5;--muted:#ab9f89;--ink:#14231c;--line:rgba(199,160,76,.22);--shadow:0 24px 60px rgba(0,0,0,.28)}
+html{scroll-behavior:smooth} body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden} body.menu-open{overflow:hidden}
+a{text-decoration:none;color:inherit} button{font:inherit} img{width:100%;max-width:100%;display:block} ::selection{background:var(--gold);color:var(--black)}
+.section-label{display:inline-flex;align-items:center;gap:12px;color:var(--gold-soft);letter-spacing:5px;text-transform:uppercase;font-size:10px;font-weight:600}.section-label::before{content:"";width:34px;height:1px;background:var(--gold)}
+.eyebrow{color:var(--gold-soft);letter-spacing:6px;text-transform:uppercase;font-size:10px;font-weight:600}
+.btn{min-height:54px;padding:0 28px;display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--line);background:transparent;color:var(--gold-soft);letter-spacing:3px;text-transform:uppercase;font-size:10px;font-weight:700;transition:.3s ease;cursor:pointer}.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black)}.btn-light{border-color:rgba(255,255,255,.28);color:#fff}.btn-light:hover{background:#fff;border-color:#fff;color:var(--black)}.btn-dark{border-color:rgba(20,35,28,.22);color:var(--ink)}.btn-dark:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nav{position:fixed;inset:0 0 auto 0;z-index:999;min-height:94px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;transition:.35s ease;background:linear-gradient(to bottom,rgba(6,21,16,.92),rgba(6,21,16,.55),transparent)}.nav.scrolled{min-height:74px;background:rgba(6,21,16,.95);backdrop-filter:blur(18px);border-bottom:1px solid rgba(199,160,76,.12)}
+.brand{display:flex;align-items:center;gap:15px;position:relative;z-index:1001}.brand-symbol{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold);line-height:1}.brand-text{color:var(--gold-soft);letter-spacing:6px;text-transform:uppercase;font-size:11px}
+.nav-links{display:flex;align-items:center;gap:31px;color:#fff;font-size:10px;letter-spacing:3px;text-transform:uppercase}.nav-links a{opacity:.82;transition:.25s ease}.nav-links a:hover{opacity:1;color:var(--gold-soft)}.nav-private{padding:13px 20px;border:1px solid var(--line);background:rgba(199,160,76,.07);color:var(--gold-soft)!important}
+.menu-toggle{display:none;position:relative;z-index:1001;width:44px;height:44px;border:1px solid var(--line);background:rgba(6,21,16,.72);cursor:pointer}.menu-toggle span{position:absolute;left:11px;width:20px;height:1px;background:var(--gold-soft);transition:.3s ease}.menu-toggle span:nth-child(1){top:15px}.menu-toggle span:nth-child(2){top:21px}.menu-toggle span:nth-child(3){top:27px}.menu-open .menu-toggle span:nth-child(1){top:21px;transform:rotate(45deg)}.menu-open .menu-toggle span:nth-child(2){opacity:0}.menu-open .menu-toggle span:nth-child(3){top:21px;transform:rotate(-45deg)}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:145px 7vw 90px;isolation:isolate;background:linear-gradient(90deg,rgba(6,21,16,.98) 0%,rgba(6,21,16,.90) 29%,rgba(6,21,16,.46) 58%,rgba(6,21,16,.10) 100%),url("./images/login-luxury.png");background-size:cover;background-position:center center}.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 80% 35%,rgba(227,197,127,.11),transparent 35%),linear-gradient(to top,rgba(6,21,16,.76),transparent 34%)}.hero::after{content:"";position:absolute;inset:auto 0 0;height:150px;z-index:-1;background:linear-gradient(to bottom,transparent,var(--black))}.hero-content{max-width:700px}.hero-kicker{margin-bottom:26px;color:var(--gold-soft);letter-spacing:6px;text-transform:uppercase;font-size:11px;font-weight:600}.hero h1{max-width:750px;color:#fff;font-family:'Cormorant Garamond',serif;font-size:clamp(70px,8.2vw,126px);line-height:.82;font-weight:400;letter-spacing:-2px}.hero h1 span{display:block;color:var(--gold-soft);font-size:.54em;letter-spacing:10px;text-transform:uppercase;margin-top:22px}.hero-copy{max-width:600px;margin-top:30px;color:rgba(255,255,255,.74);font-size:16px;line-height:1.85}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}.hero-note{margin-top:32px;display:flex;flex-wrap:wrap;gap:18px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:3px;font-size:9px}.hero-note span{display:flex;align-items:center;gap:9px}.hero-note span::before{content:"◆";color:var(--gold);font-size:7px}.scroll-cue{position:absolute;right:4.2vw;bottom:54px;display:flex;align-items:center;gap:15px;color:rgba(255,255,255,.45);letter-spacing:4px;text-transform:uppercase;font-size:9px;writing-mode:vertical-rl}.scroll-cue::after{content:"";width:1px;height:70px;background:linear-gradient(to bottom,var(--gold),transparent)}
+.manifesto{padding:110px 8vw;background:var(--paper);color:var(--ink);text-align:center}.manifesto-mark{margin-bottom:22px;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:46px}.manifesto h2{max-width:980px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5vw,72px);line-height:1.08;font-weight:400}.manifesto p{max-width:720px;margin:30px auto 0;color:#6c665b;font-size:15px;line-height:1.9}
+.produce-section{min-height:820px;display:grid;grid-template-columns:1.25fr .75fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.produce-visual{position:relative;min-height:720px;overflow:hidden;background:linear-gradient(to top,rgba(6,21,16,.82),rgba(6,21,16,.06) 56%),url("./images/drop-produce.png");background-size:cover;background-position:center}.produce-visual::after{content:"PREMIUM PRODUCE";position:absolute;left:5vw;bottom:48px;color:#fff;font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,88px);line-height:.9;font-weight:400;max-width:600px}.produce-copy{background:var(--deep);padding:100px 6vw;display:flex;flex-direction:column;justify-content:center}.produce-copy h2{margin:24px 0 26px;color:#fff;font-family:'Cormorant Garamond',serif;font-size:clamp(52px,5.5vw,82px);line-height:.92;font-weight:400}.produce-copy p{color:rgba(255,255,255,.67);line-height:1.9;font-size:15px;max-width:510px}.produce-specs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:38px 0;border-top:1px solid var(--line);border-left:1px solid var(--line)}.produce-spec{min-height:94px;padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.produce-spec strong{display:block;color:#fff;font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:500;margin-bottom:5px}.produce-spec span{color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-size:9px}
+.export{padding:110px 6vw;background:var(--black)}.export-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:58px}.export-head h2{margin-top:22px;color:#fff;font-family:'Cormorant Garamond',serif;font-size:clamp(54px,6vw,88px);line-height:.9;font-weight:400}.export-head p{max-width:560px;color:rgba(255,255,255,.62);line-height:1.9;font-size:15px}.export-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.export-card{min-height:260px;padding:34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(199,160,76,.04),transparent)}.export-card .num{color:var(--gold);letter-spacing:3px;font-size:10px}.export-card h3{margin:50px 0 12px;color:#fff;font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:400}.export-card p{color:rgba(255,255,255,.5);line-height:1.7;font-size:13px}.trust-bar{margin-top:36px;display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line)}.trust-item{min-height:86px;padding:20px;display:flex;align-items:center;justify-content:center;text-align:center;border-right:1px solid var(--line);color:var(--gold-soft);letter-spacing:2px;text-transform:uppercase;font-size:9px}.trust-item:last-child{border-right:0}
+.gourmet-section{display:grid;grid-template-columns:.8fr 1.2fr;background:var(--paper);color:var(--ink)}.gourmet-copy{padding:100px 7vw;display:flex;flex-direction:column;justify-content:center}.gourmet-copy h2{margin:24px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(52px,5.5vw,80px);line-height:.9;font-weight:400}.gourmet-copy p{max-width:470px;color:#6a6459;line-height:1.9;font-size:15px}.gourmet-visual{min-height:680px;position:relative;background:linear-gradient(to top,rgba(6,21,16,.7),transparent 50%),url("./images/drop-jam.png");background-size:cover;background-position:center}.gourmet-visual-text{position:absolute;left:52px;right:52px;bottom:44px;display:flex;justify-content:space-between;align-items:end;gap:20px;color:#fff}.gourmet-visual-text strong{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400}.gourmet-visual-text span{color:var(--gold-soft);letter-spacing:3px;text-transform:uppercase;font-size:9px}
+.lifestyle-section{position:relative;min-height:900px;display:flex;align-items:flex-end;padding:110px 7vw;isolation:isolate;background:linear-gradient(to top,rgba(6,21,16,.98) 0%,rgba(6,21,16,.70) 40%,rgba(6,21,16,.10) 78%),url("./images/drop-beachwear.png");background-size:cover;background-position:center}.lifestyle-section::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(6,21,16,.78),transparent 60%)}.lifestyle-copy{max-width:760px}.lifestyle-copy h2{margin:24px 0;color:#fff;font-family:'Cormorant Garamond',serif;font-size:clamp(70px,8vw,122px);line-height:.82;font-weight:400}.lifestyle-copy h2 span{display:block;color:var(--gold-soft);font-size:.45em;letter-spacing:8px;text-transform:uppercase;margin-top:24px}.lifestyle-copy p{max-width:580px;color:rgba(255,255,255,.73);line-height:1.85;font-size:15px}.lifestyle-categories{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 38px}.lifestyle-categories span{padding:11px 16px;border:1px solid rgba(255,255,255,.2);color:#fff;letter-spacing:3px;text-transform:uppercase;font-size:9px;background:rgba(6,21,16,.28);backdrop-filter:blur(6px)}
+.world-grid{display:grid;grid-template-columns:1fr 1fr;background:var(--deep)}.world-image{min-height:650px;background:linear-gradient(to right,rgba(6,21,16,.06),rgba(6,21,16,.44)),url("./images/drop-objects.png");background-size:cover;background-position:center}.world-copy{padding:100px 7vw;display:flex;flex-direction:column;justify-content:center}.world-copy h2{margin:22px 0;color:#fff;font-family:'Cormorant Garamond',serif;font-size:clamp(54px,5.5vw,82px);line-height:.92;font-weight:400}.world-copy p{max-width:500px;color:rgba(255,255,255,.64);line-height:1.9;font-size:15px}.world-quote{margin-top:42px;padding-top:26px;border-top:1px solid var(--line);color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-size:27px;font-style:italic;line-height:1.35}
+.private{padding:100px 7vw;background:var(--paper);color:var(--ink)}.private-shell{max-width:1200px;margin:auto;padding:75px;display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center;border:1px solid rgba(20,35,28,.16);background:#fffaf0;box-shadow:var(--shadow)}.private h2{margin:20px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(48px,5vw,72px);line-height:.96;font-weight:400}.private p{max-width:650px;color:#6c665b;line-height:1.9;font-size:15px}.private-action{display:flex;justify-content:flex-end}
+.footer{background:#04100c;padding:78px 6vw 30px}.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:55px}.footer-brand h3{color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:400;margin-bottom:16px}.footer-brand p{max-width:350px;color:rgba(255,255,255,.5);line-height:1.8;font-size:13px}.footer-location{margin-top:24px;color:var(--gold-soft);letter-spacing:3px;text-transform:uppercase;font-size:9px;line-height:2}.footer-col small{display:block;margin-bottom:20px;color:var(--gold-soft);letter-spacing:4px;text-transform:uppercase;font-size:9px}.footer-col a{display:block;margin-bottom:13px;color:rgba(255,255,255,.58);font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:.25s ease}.footer-col a:hover{color:#fff}.copy{border-top:1px solid rgba(255,255,255,.06);padding-top:25px;display:flex;justify-content:space-between;gap:20px;color:rgba(255,255,255,.32);font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:1100px){.nav{min-height:76px;padding:0 22px;background:rgba(6,21,16,.94)}.menu-toggle{display:block}.nav-links{position:fixed;inset:0;padding:120px 28px 40px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:24px;background:rgba(6,21,16,.98);transform:translateX(100%);transition:.35s ease;font-size:13px}.menu-open .nav-links{transform:none}.nav-private{margin-top:12px}.hero{min-height:92svh;align-items:flex-end;padding:118px 24px 62px;background:linear-gradient(to bottom,rgba(6,21,16,.05) 0%,rgba(6,21,16,.43) 43%,rgba(6,21,16,.96) 100%),url("./images/login-luxury.png");background-size:cover;background-position:60% center}.hero h1{font-size:58px;line-height:.9}.hero h1 span{letter-spacing:5px;margin-top:16px}.hero-copy{font-size:14px;line-height:1.65;max-width:390px}.hero-note,.scroll-cue{display:none}.manifesto{padding:78px 24px}.produce-section,.gourmet-section,.world-grid{grid-template-columns:1fr}.produce-visual,.gourmet-visual,.world-image{min-height:500px}.produce-copy,.gourmet-copy,.world-copy{padding:76px 24px}.export{padding:78px 24px}.export-head{grid-template-columns:1fr;gap:28px}.export-grid{grid-template-columns:1fr 1fr}.trust-bar{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line)}.trust-item:last-child{border-bottom:0}.lifestyle-section{min-height:720px;padding:78px 24px;background-position:62% center}.lifestyle-copy h2{font-size:64px}.private{padding:70px 20px}.private-shell{padding:48px 28px;grid-template-columns:1fr}.private-action{justify-content:flex-start}.footer{padding:64px 24px 28px}.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.brand-text{letter-spacing:3px;font-size:9px}.hero-actions{flex-direction:column;align-items:stretch}.btn{width:100%}.manifesto h2{font-size:40px}.produce-visual,.gourmet-visual,.world-image{min-height:390px}.produce-visual::after{left:24px;bottom:28px;font-size:52px}.produce-specs{grid-template-columns:1fr}.export-grid{grid-template-columns:1fr}.export-card{min-height:210px}.export-card h3{margin-top:35px}.gourmet-visual-text{left:24px;right:24px;bottom:26px;align-items:flex-start;flex-direction:column}.lifestyle-copy h2{font-size:52px}.footer-top{grid-template-columns:1fr}.copy{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
-
 <body>
-
-<header class="nav">
-
-  <a href="#" class="brand">
-    <div class="brand-symbol">PP</div>
-
-    <div class="brand-text">
-      Pariendo Piñas
-    </div>
-  </a>
-
-  <nav class="nav-links">
-    <a href="#produce">Produce</a>
-    <a href="#lifestyle">Lifestyle</a>
-    <a href="#objects">Objects</a>
-    <a href="#world">Our World</a>
-
-    <a class="investors-btn" href="login.html">
-      Investors ◆
-    </a>
+<header class="nav" id="nav">
+  <a href="#home" class="brand" aria-label="Pariendo Piñas"><div class="brand-symbol">PP</div><div class="brand-text">Pariendo Piñas</div></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav-links" id="navLinks">
+    <a href="#produce">Produce</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Our World</a><a class="nav-private" href="login.html">Private Office ◆</a>
   </nav>
-
 </header>
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <div class="hero-kicker">
-      Tropical Luxury From Colombia
+<main>
+<section class="hero" id="home">
+  <div class="hero-content reveal">
+    <div class="hero-kicker">From the finest pineapples of Colombia</div>
+    <h1>Pariendo<br>Piñas<span>Tropical Luxury</span></h1>
+    <p class="hero-copy">Fruta premium, programas de exportación y una línea high-end inspirada en la energía, el color y la sofisticación del trópico colombiano.</p>
+    <div class="hero-actions"><a class="btn" href="#produce">Explore Produce ◆</a><a class="btn btn-light" href="#lifestyle">Discover Lifestyle</a></div>
+    <div class="hero-note"><span>Premium Produce</span><span>Worldwide Export</span><span>High-End Lifestyle</span></div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+<section class="manifesto">
+  <div class="manifesto-mark reveal">PP</div>
+  <h2 class="reveal">La mejor fruta tropical del mundo merece una marca extraordinaria.</h2>
+  <p class="reveal">Nacimos en Colombia para transformar el origen en cultura: seleccionar mejor, presentar mejor y llevar el trópico al mundo con una mirada contemporánea, sofisticada y profundamente nuestra.</p>
+</section>
+<section class="produce-section" id="produce">
+  <div class="produce-visual reveal"></div>
+  <div class="produce-copy">
+    <div class="section-label reveal">01 — Produce</div>
+    <h2 class="reveal">Pineapple<br>at its finest.</h2>
+    <p class="reveal">Piña premium seleccionada para compradores que valoran dulzura, consistencia, trazabilidad y una presentación impecable. Soluciones para food service, retail, industria y programas de volumen.</p>
+    <div class="produce-specs reveal">
+      <div class="produce-spec"><strong>Sweet Gold</strong><span>Premium selection</span></div>
+      <div class="produce-spec"><strong>Fresh</strong><span>From Colombia</span></div>
+      <div class="produce-spec"><strong>Retail</strong><span>Curated presentation</span></div>
+      <div class="produce-spec"><strong>Food Service</strong><span>Reliable supply</span></div>
     </div>
-
-    <h1>
-      Luxury<br>
-      Tropical<br>
-      House.
-    </h1>
-
-    <div class="hero-line"></div>
-
-    <p>
-      Más que piñas.
-      Somos produce, lifestyle,
-      objetos y experiencias creadas
-      para una vida más cálida.
-    </p>
-
-    <a class="hero-btn" href="#products">
-      Explora nuestro mundo ◆
-    </a>
-
+    <a class="btn" href="mailto:hello@papinas.com?subject=Produce%20Inquiry">Request Produce Information ◆</a>
   </div>
-
 </section>
-
-<section class="statement" id="world">
-
-  <div class="statement-symbol">PP</div>
-
-  <h2>
-    A Tropical House Built Slowly.
-  </h2>
-
-  <p>
-    Nacimos en Colombia para llevar lo mejor del trópico al mundo.
-    Calidad, diseño y cultura en cada detalle.
-  </p>
-
-</section>
-
-<section class="products" id="products">
-
-  <div class="products-left">
-
-    <small>First Drops</small>
-
-    <h2>
-      Objetos para<br>
-      una vida más cálida.
-    </h2>
-
-    <p>
-      Una primera colección de produce,
-      gourmet, lifestyle y objetos tropicales
-      diseñados como una marca global.
-    </p>
-
+<section class="export" id="export">
+  <div class="export-head">
+    <div><div class="section-label reveal">02 — Export</div><h2 class="reveal">Colombia<br>to the world.</h2></div>
+    <p class="reveal">Construimos relaciones comerciales de largo plazo con compradores, distribuidores y operadores que buscan producto tropical colombiano con identidad de marca, consistencia y capacidad de crecimiento.</p>
   </div>
-
-  <div class="products-grid">
-
-    <article class="card produce" id="produce">
-
-      <small>01</small>
-
-      <h3>Produce</h3>
-
-      <p>
-        Piñas premium seleccionadas con obsesión.
-      </p>
-
-      <a href="#">
-        Ver más ◆
-      </a>
-
-    </article>
-
-    <article class="card gourmet">
-
-      <small>02</small>
-
-      <h3>Gourmet</h3>
-
-      <p>
-        Mermeladas tropicales hechas en pequeños lotes.
-      </p>
-
-      <a href="#">
-        Ver más ◆
-      </a>
-
-    </article>
-
-    <article class="card lifestyle" id="lifestyle">
-
-      <small>03</small>
-
-      <h3>Lifestyle</h3>
-
-      <p>
-        Beachwear y piezas creadas para el sol.
-      </p>
-
-      <a href="#">
-        Ver más ◆
-      </a>
-
-    </article>
-
-    <article class="card objects" id="objects">
-
-      <small>04</small>
-
-      <h3>Objects</h3>
-
-      <p>
-        Objetos que convierten lo cotidiano en ritual.
-      </p>
-
-      <a href="#">
-        Ver más ◆
-      </a>
-
-    </article>
-
+  <div class="export-grid">
+    <article class="export-card reveal"><div class="num">01</div><h3>Retail</h3><p>Programas de suministro para tiendas, mercados especializados y cadenas que buscan una fruta con mayor valor percibido.</p></article>
+    <article class="export-card reveal"><div class="num">02</div><h3>Food Service</h3><p>Soluciones para hoteles, restaurantes, cocinas profesionales y operadores de hospitalidad.</p></article>
+    <article class="export-card reveal"><div class="num">03</div><h3>Industrial</h3><p>Producto para transformación, ingredientes, derivados y desarrollos de valor agregado.</p></article>
+    <article class="export-card reveal"><div class="num">04</div><h3>Container Programs</h3><p>Programas de volumen diseñados según mercado, frecuencia, especificación y requerimientos logísticos.</p></article>
   </div>
-
+  <div class="trust-bar reveal"><div class="trust-item">Traceability</div><div class="trust-item">Export Quality</div><div class="trust-item">Cold Chain Planning</div><div class="trust-item">Colombian Origin</div><div class="trust-item">Commercial Programs</div></div>
 </section>
-
-<section class="private">
-
-  <div class="private-image"></div>
-
-  <div class="private-copy">
-
-    <small>
-      Private Brand Command
-    </small>
-
-    <h2>
-      Para operadores,<br>
-      socios e inversionistas.
-    </h2>
-
-    <p>
-      Accede al sistema privado de la marca:
-      operaciones, compras, drops, ventas,
-      expansión y estrategia global.
-    </p>
-
-    <a class="private-btn" href="login.html">
-      Acceso privado ◆
-    </a>
-
+<section class="gourmet-section" id="gourmet">
+  <div class="gourmet-copy">
+    <div class="section-label reveal">03 — Gourmet</div>
+    <h2 class="reveal">Born from<br>the fruit.</h2>
+    <p class="reveal">Mermeladas, salsas y pequeños lotes que conservan la intensidad del trópico y convierten la piña en una experiencia de mesa.</p>
+    <div style="margin-top:34px" class="reveal"><a class="btn btn-dark" href="mailto:hello@papinas.com?subject=Gourmet%20Inquiry">Discover Gourmet ◆</a></div>
   </div>
-
+  <div class="gourmet-visual reveal"><div class="gourmet-visual-text"><strong>Small batches.<br>Big tropical character.</strong><span>Pariendo Piñas Gourmet</span></div></div>
 </section>
-
+<section class="lifestyle-section" id="lifestyle">
+  <div class="lifestyle-copy reveal">
+    <div class="eyebrow">04 — High-End Lifestyle</div>
+    <h2>Wear the<br>tropics.<span>Pariendo Piñas Lifestyle</span></h2>
+    <p>Piezas high-end para quienes llevan el trópico como una actitud: diseño, movimiento, sofisticación y una energía imposible de ignorar.</p>
+    <div class="lifestyle-categories"><span>Golf</span><span>Beach</span><span>Travel</span><span>Cycling</span><span>Resort</span></div>
+    <a class="btn btn-light" href="#private">Explore the Collection ◆</a>
+  </div>
+</section>
+<section class="world-grid" id="world">
+  <div class="world-image reveal"></div>
+  <div class="world-copy">
+    <div class="section-label reveal">05 — Our World</div>
+    <h2 class="reveal">Objects,<br>culture & ritual.</h2>
+    <p class="reveal">Pariendo Piñas no termina en la fruta ni en la ropa. Es un universo de objetos, experiencias y colaboraciones que convierten lo cotidiano en algo más cálido, más libre y más memorable.</p>
+    <div class="world-quote reveal">“The pineapple is the origin. The lifestyle is the culture.”</div>
+  </div>
+</section>
+<section class="private" id="private">
+  <div class="private-shell reveal">
+    <div><div class="section-label">Private Office</div><h2>Para compradores,<br>socios e inversionistas.</h2><p>Accede al sistema privado de la marca para conocer operaciones, compras, ventas, pricing, drops, expansión y estrategia comercial.</p></div>
+    <div class="private-action"><a class="btn btn-dark" href="login.html">Acceso privado ◆</a></div>
+  </div>
+</section>
+</main>
 <footer class="footer">
-
-  <div class="footer-grid">
-
-    <div class="footer-brand">
-
-      <h3>
-        Pariendo Piñas
-      </h3>
-
-      <p>
-        Tropical luxury from Colombia.
-        Produce, objects, lifestyle and culture.
-      </p>
-
-    </div>
-
-    <div class="footer-col">
-
-      <small>Navegación</small>
-
-      <a href="#produce">Produce</a>
-      <a href="#lifestyle">Lifestyle</a>
-      <a href="#objects">Objects</a>
-
-    </div>
-
-    <div class="footer-col">
-
-      <small>Legal</small>
-
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms</a>
-
-    </div>
-
-    <div class="footer-col">
-
-      <small>Connect</small>
-
-      <a href="#">Instagram</a>
-      <a href="#">WhatsApp</a>
-      <a href="#">Email</a>
-
-    </div>
-
+  <div class="footer-top">
+    <div class="footer-brand"><h3>Pariendo Piñas</h3><p>Premium produce, worldwide export and high-end tropical lifestyle from Colombia.</p><div class="footer-location">Bogotá · Colombia<br>Worldwide Export</div></div>
+    <div class="footer-col"><small>Business</small><a href="#produce">Produce</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
+    <div class="footer-col"><small>House</small><a href="#lifestyle">Lifestyle</a><a href="#world">Objects</a><a href="#world">Our World</a></div>
+    <div class="footer-col"><small>Connect</small><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:hello@papinas.com">Email</a><a href="login.html">Private Office</a></div>
   </div>
-
-  <div class="copy">
-    © 2026 PARIENDO PIÑAS — ALL RIGHTS RESERVED
-  </div>
-
+  <div class="copy"><span>© 2026 Pariendo Piñas — All Rights Reserved</span><span>Tropical Luxury From Colombia</span></div>
 </footer>
-
+<script>
+const nav=document.getElementById('nav');const menuToggle=document.getElementById('menuToggle');const navLinks=document.getElementById('navLinks');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});menuToggle.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menuToggle.setAttribute('aria-expanded',String(open))});navLinks.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{document.body.classList.remove('menu-open');menuToggle.setAttribute('aria-expanded','false')})});const revealItems=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.12});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('visible'))}
+</script>
 </body>
 </html>
