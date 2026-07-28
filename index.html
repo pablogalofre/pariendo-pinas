@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pariendo Piñas — Tropical Luxury From Colombia</title>
-<meta content="Pariendo Piñas: premium produce, export programs and high-end tropical lifestyle from Colombia." name="description"/>
-<link href="/images/favicon.png" rel="icon" type="image/png"/>
-<link href="/images/favicon.png" rel="apple-touch-icon"/>
-<link as="image" href="/images/login-luxury.png" rel="preload"/>
-<link as="image" href="/images/drop-produce.png" rel="preload"/>
-<link as="image" href="/images/drop-jam.png" rel="preload"/>
-<link as="image" href="/images/drop-beachwear.png" rel="preload"/>
-<link as="image" href="/images/drop-objects.png" rel="preload"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<meta name="description" content="Pariendo Piñas: premium produce, export programs and high-end tropical lifestyle from Colombia." />
+<link rel="icon" type="image/png" href="/images/favicon.png" />
+<link rel="apple-touch-icon" href="/images/favicon.png" />
+<link rel="preload" as="image" href="/images/login-luxury.png">
+<link rel="preload" as="image" href="/images/drop-produce.png">
+<link rel="preload" as="image" href="/images/drop-jam.png">
+<link rel="preload" as="image" href="/images/drop-beachwear.png">
+<link rel="preload" as="image" href="/images/drop-objects.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--black:#061510;--deep:#071d16;--green:#0d2a20;--gold:#c7a04c;--gold-soft:#e3c57f;--cream:#f4ead6;--paper:#f8f2e7;--white:#fff;--text:#e8dcc5;--muted:#ab9f89;--ink:#14231c;--line:rgba(199,160,76,.22);--shadow:0 24px 60px rgba(0,0,0,.28)}
@@ -412,493 +411,376 @@ REGISTRO DE CLIENTES
   .client-registration-form,.client-registration-info{padding:26px 20px}
 }
 
-
-/* =========================
-PAGO AUTORIZADO POR CLIENTE
-========================= */
-.client-payment{
-  display:none;
-  margin:22px 0 0;
-  padding:20px;
-  border:1px solid rgba(199,160,76,.32);
-  background:rgba(199,160,76,.07);
-}
-.client-payment.visible{display:block}
-.client-payment-title{
-  margin-bottom:8px;
-  color:var(--gold-soft);
-  letter-spacing:3px;
-  text-transform:uppercase;
-  font-size:9px;
-  font-weight:700;
-}
-.client-payment-copy{
-  margin-bottom:16px;
-  color:rgba(255,255,255,.58);
-  font-size:11px;
-  line-height:1.6;
-}
-.client-payment-methods{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-bottom:14px;
-}
-.client-payment-option{
-  min-height:54px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:13px 14px;
-  border:1px solid rgba(199,160,76,.24);
-  color:#fff;
-  cursor:pointer;
-}
-.client-payment-option input{accent-color:var(--gold)}
-.client-payment-option.disabled{
-  opacity:.35;
-  pointer-events:none;
-}
-.client-payment-note{
-  margin-top:12px;
-  color:rgba(255,255,255,.42);
-  font-size:10px;
-  line-height:1.6;
-}
-@media(max-width:680px){
-  .client-payment-methods{grid-template-columns:1fr}
-}
-
-
-/* =========================
-UNIVERSO 100% PIÑA
-========================= */
-.pineapple-lines{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-  margin:28px 0 30px;
-}
-.pineapple-line-card{
-  padding:22px;
-  border:1px solid rgba(199,160,76,.28);
-  background:rgba(255,255,255,.025);
-}
-.pineapple-line-card small{
-  display:block;
-  margin-bottom:9px;
-  color:var(--gold-soft);
-  font-size:8px;
-  font-weight:700;
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
-.pineapple-line-card strong{
-  display:block;
-  margin-bottom:8px;
-  font-family:Georgia,serif;
-  font-size:22px;
-  font-weight:400;
-}
-.pineapple-line-card p{
-  margin:0;
-  color:rgba(255,255,255,.56);
-  font-size:11px;
-  line-height:1.65;
-}
-.pineapple-pillars{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:22px;
-}
-.pineapple-pillars span{
-  padding:9px 11px;
-  border:1px solid rgba(199,160,76,.25);
-  font-size:8px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
-.conditional-field{display:none}
-.conditional-field.visible{display:block}
-@media(max-width:760px){
-  .pineapple-lines{grid-template-columns:1fr}
-}
-
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
-
-.future-section{padding:100px 7vw;background:var(--deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.future-inner{max-width:1250px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}
-.future-section h2{margin-top:22px;color:#fff;font-family:'Cormorant Garamond',serif;font-size:clamp(54px,6vw,88px);line-height:.9;font-weight:400}
-.future-copy p{color:rgba(255,255,255,.64);font-size:15px;line-height:1.9}
-.future-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.future-tags span{padding:12px 14px;border:1px solid var(--line);color:var(--gold-soft);font-size:9px;letter-spacing:2px;text-transform:uppercase}
-@media(max-width:900px){.future-inner{grid-template-columns:1fr;gap:30px}.future-section{padding:78px 24px}}
 </style>
 </head>
 <body>
 <header class="nav" id="nav">
-<a aria-label="Pariendo Piñas" class="brand" href="#home"><div class="brand-symbol">PP</div><div class="brand-text">Pariendo Piñas</div></a>
-<button aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
-<nav class="nav-links" id="navLinks"><a href="#produce">Fruta fresca</a><a href="#lifestyle">Ropa</a><a href="#wholesale">Business</a><a href="#client-registration">Regístrate</a><a href="#future">Próximamente</a><a class="nav-private" href="login.html">Private Office ◆</a></nav>
+  <a href="#home" class="brand" aria-label="Pariendo Piñas"><div class="brand-symbol">PP</div><div class="brand-text">Pariendo Piñas</div></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav-links" id="navLinks">
+    <a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Our World</a><a class="nav-private" href="login.html">Private Office ◆</a>
+  </nav>
 </header>
 <main>
 <section class="hero" id="home">
-<div class="hero-content reveal">
-<div class="hero-kicker">Fresh pineapple · Pineapple clothing · Colombia</div>
-<h1>Pariendo<br/>Piñas<span>Tropical Luxury</span></h1>
-<p class="hero-copy">Pariendo Piñas nace con dos protagonistas: piña fresca de origen colombiano y una línea de ropa tropical con identidad propia. Lo demás llegará después.</p>
-<div class="hero-actions"><a class="btn" href="#produce">Comprar fruta fresca ◆</a><a class="btn btn-light" href="#lifestyle">Descubrir la ropa</a></div>
-<div class="hero-note"><span>Fresh Pineapple</span><span>Pineapple Clothing</span><span>From Colombia</span></div>
-</div>
-<div class="scroll-cue">Scroll</div>
+  <div class="hero-content reveal">
+    <div class="hero-kicker">From the finest pineapples of Colombia</div>
+    <h1>Pariendo<br>Piñas<span>Tropical Luxury</span></h1>
+    <p class="hero-copy">Fruta premium, programas de exportación y una línea high-end inspirada en la energía, el color y la sofisticación del trópico colombiano.</p>
+    <div class="hero-actions"><a class="btn" href="#wholesale">Comprar al por mayor ◆</a><a class="btn btn-light" href="#lifestyle">Discover Lifestyle</a></div>
+    <div class="hero-note"><span>Premium Produce</span><span>Worldwide Export</span><span>High-End Lifestyle</span></div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
 </section>
 <section class="manifesto">
-<div class="manifesto-mark reveal">PP</div>
-<h2 class="reveal">Primero la fruta. Después, una marca que la gente quiera vestir.</h2>
-<p class="reveal">Nuestro foco inicial es concreto: construir una operación sólida de piña fresca y, al mismo tiempo, desarrollar una colección de ropa capaz de convertir la piña en un símbolo contemporáneo de Colombia.</p>
+  <div class="manifesto-mark reveal">PP</div>
+  <h2 class="reveal">La mejor fruta tropical del mundo merece una marca extraordinaria.</h2>
+  <p class="reveal">Nacimos en Colombia para transformar el origen en cultura: seleccionar mejor, presentar mejor y llevar el trópico al mundo con una mirada contemporánea, sofisticada y profundamente nuestra.</p>
 </section>
 <section class="produce-section" id="produce">
-<div class="produce-visual reveal"></div>
-<div class="produce-copy">
-<div class="section-label reveal">01 — Fruta fresca</div>
-<h2 class="reveal">Fresh fruit.<br/>Two commercial paths.</h2>
-<p class="reveal">Trabajamos piña fresca colombiana con trazabilidad y clasificación por destino. La fruta para consumo fresco y la fruta para transformación siguen reglas comerciales distintas.</p>
-<div class="pineapple-lines reveal">
-<article class="pineapple-line-card">
-<small>Fresh Export</small>
-<strong>Consumo fresco</strong>
-<p>Piña seleccionada para retail, supermercados, hoteles, restaurantes, food service y programas de exportación. Precio sujeto a mercado, calibre, destino y logística.</p>
-</article>
-<article class="pineapple-line-card">
-<small>Fresh Industry</small>
-<strong>Transformación</strong>
-<p>Piña para jugos, pulpas, deshidratación, liofilización e ingredientes. Precio base actual desde $2.180/kg, sujeto a volumen, logística y negociación final.</p>
-</article>
-</div>
-<div class="produce-specs reveal">
-<div class="produce-spec"><strong>Sweet Gold</strong><span>Origen Colombia</span></div>
-<div class="produce-spec"><strong>Trazabilidad</strong><span>Por lote</span></div>
-<div class="produce-spec"><strong>Fresh Export</strong><span>Cotización personalizada</span></div>
-<div class="produce-spec"><strong>Fresh Industry</strong><span>Desde $2.180/kg</span></div>
-</div>
-<a class="btn" href="#wholesale">Configurar compra de fruta ◆</a>
-</div>
+  <div class="produce-visual reveal"></div>
+  <div class="produce-copy">
+    <div class="section-label reveal">01 — Produce</div>
+    <h2 class="reveal">Pineapple<br>at its finest.</h2>
+    <p class="reveal">Piña premium seleccionada para compradores que valoran dulzura, consistencia, trazabilidad y una presentación impecable. Soluciones para food service, retail, industria y programas de volumen.</p>
+    <div class="produce-specs reveal">
+      <div class="produce-spec"><strong>Sweet Gold</strong><span>Premium selection</span></div>
+      <div class="produce-spec"><strong>Fresh</strong><span>From Colombia</span></div>
+      <div class="produce-spec"><strong>Retail</strong><span>Curated presentation</span></div>
+      <div class="produce-spec"><strong>Food Service</strong><span>Reliable supply</span></div>
+    </div>
+    <a class="btn" href="#wholesale">Configurar pedido mayorista ◆</a>
+  </div>
 </section>
+
 <section class="wholesale" id="wholesale">
-<div class="wholesale-head">
-<div>
-<div class="section-label reveal">03 — Fresh Business</div>
-<h2 class="reveal">Compra de fruta<br/>desde 6.000 kg.</h2>
-</div>
-<p class="reveal">Fresh Export se cotiza según destino, calibre, empaque y logística. Fresh Industry parte actualmente de $2.180 por kilogramo. La negociación final podrá ajustarse más adelante con el motor de rentabilidad.</p>
-</div>
-<div class="wholesale-shell reveal">
-<div class="wholesale-form">
-<h3>Configura tu pedido</h3>
-<div class="wholesale-grid">
-<div class="wholesale-field">
-<label for="wholesaleProductLine">Línea de piña</label>
-<select id="wholesaleProductLine">
-<option value="fresh-export">Fresh Export — consumo fresco</option>
-<option value="fresh-industry">Fresh Industry — transformación</option>
-</select>
-</div>
-<div class="wholesale-field conditional-field" id="industryApplicationField">
-<label for="industryApplication">Aplicación industrial</label>
-<select id="industryApplication">
-<option value="">Seleccione una aplicación</option>
-<option>Jugos y bebidas</option>
-<option>Pulpas y concentrados</option>
-<option>Mermeladas y conservas</option>
-<option>Deshidratación</option>
-<option>Liofilización</option>
-<option>Ingredientes alimentarios</option>
-<option>Otro proceso</option>
-</select>
-</div>
-<div class="wholesale-field">
-<label for="wholesaleName">Nombre o empresa</label>
-<input id="wholesaleName" placeholder="Nombre de su empresa" type="text"/>
-</div>
-<div class="wholesale-field">
-<label for="wholesalePhone">WhatsApp</label>
-<input id="wholesalePhone" placeholder="Teléfono de contacto" type="tel"/>
-</div>
-<div class="wholesale-field">
-<label for="wholesaleEmail">Correo</label>
-<input id="wholesaleEmail" placeholder="correo@empresa.com" type="email"/>
-</div>
-<div class="wholesale-field">
-<label for="wholesaleUse">Canal o destino</label>
-<select id="wholesaleUse">
-<option>Retail</option>
-<option>Supermercados</option>
-<option>Food service</option>
-<option>Distribución mayorista</option>
-<option>Exportación</option>
-<option>Industria alimentaria</option>
-<option>Otro</option>
-</select>
-</div>
-<div class="wholesale-field">
-<label for="wholesaleKg">Cantidad requerida (kg)</label>
-<input id="wholesaleKg" min="6000" step="100" type="number" value="6000"/>
-<div class="wholesale-help">Pedido mínimo: 6.000 kg. Fresh Industry parte de $2.180/kg. Fresh Export se cotiza de forma personalizada.</div>
-</div>
-<div class="wholesale-field">
-<label for="wholesaleCity">Ciudad de entrega</label>
-<input id="wholesaleCity" placeholder="Ciudad de entrega" type="text"/>
-</div>
-<div class="wholesale-field">
-<label for="wholesaleDate">Fecha deseada</label>
-<input id="wholesaleDate" type="date"/>
-</div>
-<div class="wholesale-field">
-<label for="wholesalePayment">Condición de compra</label>
-<select id="wholesalePayment">
-<option value="contado">Contado</option>
-<option value="credito">Crédito — sujeto a aprobación</option>
-</select>
-</div>
-<div class="wholesale-field full">
-<label for="commercialCode">Código comercial (opcional)</label>
-<div style="display:flex;gap:10px;flex-wrap:wrap">
-<input id="commercialCode" placeholder="Código comercial" style="flex:1" type="text"/>
-<button class="btn" id="applyCommercialCode" type="button">Validar código</button>
-</div>
-<div class="wholesale-help">Si ya es cliente de Pariendo Piñas, ingrese su código comercial para aplicar su precio autorizado.</div>
-<div aria-live="polite" class="commercial-code-status" id="commercialCodeStatus"></div>
-</div>
-<div class="wholesale-field full">
-<label for="wholesaleNotes">Especificaciones u observaciones</label>
-<textarea id="wholesaleNotes" placeholder="Calibre, grado de maduración, frecuencia, empaque o requerimientos especiales."></textarea>
-</div>
-</div>
-<div aria-live="polite" class="wholesale-error" id="wholesaleError"></div>
-</div>
-<aside class="wholesale-summary">
-<div>
-<div aria-label="Piña Golden fresca de Colombia" class="wholesale-visual"></div>
-<h3>Resumen estimado</h3>
-<div class="wholesale-product">
-<small>Producto</small>
-<strong id="wholesaleProductSummary">Fresh Export — Piña Golden</strong>
-</div>
-<div class="wholesale-lines">
-<div class="wholesale-line"><span>Cantidad</span><strong id="wholesaleKgSummary">6.000 kg</strong></div>
-<div class="wholesale-line"><span>Precio</span><strong id="wholesalePriceSummary">Según línea</strong></div>
-<div class="wholesale-line"><span>Condición</span><strong id="wholesalePaymentSummary">Contado</strong></div>
-<div class="wholesale-line"><span>Entrega</span><strong id="wholesaleCitySummary">Por definir</strong></div>
-</div>
-<div class="wholesale-total">
-<span id="wholesaleTotalLabel">Total estimado</span>
-<strong id="wholesaleTotal">$13.080.000</strong>
-</div>
-<div class="wholesale-badges"><span>Origen Colombia</span><span>Trazabilidad</span><span>Volumen mayorista</span><span>Fresh Industry $2.180/kg</span></div>
-</div>
-<div>
-<div class="client-payment" id="clientPayment">
-<div class="client-payment-title">Pago habilitado para este cliente</div>
-<div class="client-payment-copy" id="clientPaymentCopy">
-            Valide su código comercial para consultar los medios de pago autorizados.
+  <div class="wholesale-head">
+    <div>
+      <div class="section-label reveal">Venta mayorista</div>
+      <h2 class="reveal">Piña fresca<br>desde 6.000 kg.</h2>
+    </div>
+    <p class="reveal">
+      Configura una solicitud de compra para retail, industria, food service o distribución.
+      El precio publicado respeta la política comercial de Pariendo Piñas: ninguna venta se cotiza por debajo de $2.180 por kilogramo. La disponibilidad se confirma antes del despacho.
+    </p>
+  </div>
+
+  <div class="wholesale-shell reveal">
+    <div class="wholesale-form">
+      <h3>Configura tu pedido</h3>
+
+      <div class="wholesale-grid">
+        <div class="wholesale-field">
+          <label for="wholesaleName">Nombre o empresa</label>
+          <input id="wholesaleName" type="text" placeholder="Nombre de su empresa">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesalePhone">WhatsApp</label>
+          <input id="wholesalePhone" type="tel" placeholder="Teléfono de contacto">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleEmail">Correo</label>
+          <input id="wholesaleEmail" type="email" placeholder="correo@empresa.com">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleUse">Destino comercial</label>
+          <select id="wholesaleUse">
+            <option>Retail</option>
+            <option>Industria</option>
+            <option>Food service</option>
+            <option>Distribución mayorista</option>
+            <option>Exportación</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleKg">Cantidad requerida (kg)</label>
+          <input id="wholesaleKg" type="number" min="6000" step="100" value="6000">
+          <div class="wholesale-help">Pedido mínimo: 6.000 kg. Precio mínimo de política comercial: $2.180/kg.</div>
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleCity">Ciudad de entrega</label>
+          <input id="wholesaleCity" type="text" placeholder="Ciudad de entrega">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesaleDate">Fecha deseada</label>
+          <input id="wholesaleDate" type="date">
+        </div>
+
+        <div class="wholesale-field">
+          <label for="wholesalePayment">Condición de compra</label>
+          <select id="wholesalePayment">
+            <option value="contado">Contado</option>
+            <option value="credito">Crédito — sujeto a aprobación</option>
+          </select>
+        
+        </div>
+
+        <div class="wholesale-field full">
+          <label for="commercialCode">Código comercial (opcional)</label>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <input id="commercialCode" type="text" placeholder="Código comercial" style="flex:1">
+            <button type="button" class="btn" id="applyCommercialCode">Validar código</button>
           </div>
-<div class="client-payment-methods">
-<label class="client-payment-option" id="paymentOptionPse">
-<input name="clientPaymentMethod" type="radio" value="pse"/>
-<span>PSE</span>
-</label>
-<label class="client-payment-option" id="paymentOptionCard">
-<input name="clientPaymentMethod" type="radio" value="card"/>
-<span>Tarjeta débito o crédito</span>
-</label>
-</div>
-<button class="btn wholesale-submit" id="clientPayNow" type="button">Continuar al pago ◆</button>
-<div class="client-payment-note">
-            Los medios de pago dependen de la negociación registrada para cada cliente.
-            El cobro definitivo debe procesarse mediante una pasarela de pagos autorizada.
-          </div>
-</div>
-<button class="btn wholesale-submit" id="wholesaleSubmit" type="button">Solicitar cotización ◆</button>
-<p class="wholesale-disclaimer">Esta solicitud no constituye una venta definitiva. Fresh Industry usa actualmente un precio base de $2.180/kg; Fresh Export requiere cotización. Disponibilidad, calidad, logística, retenciones y condiciones de pago se confirman por el equipo comercial.</p>
-</div>
-</aside>
-</div>
+          <div class="wholesale-help">Si ya es cliente de Pariendo Piñas, ingrese su código comercial para aplicar su precio autorizado.</div>
+          <div id="commercialCodeStatus" class="commercial-code-status" aria-live="polite"></div>
+        </div>
+
+        <div class="wholesale-field full">
+          <label for="wholesaleNotes">Especificaciones u observaciones</label>
+          <textarea id="wholesaleNotes" placeholder="Calibre, grado de maduración, frecuencia, empaque o requerimientos especiales."></textarea>
+        </div>
+      </div>
+
+      <div id="wholesaleError" class="wholesale-error" aria-live="polite"></div>
+    </div>
+
+    <aside class="wholesale-summary">
+      <div>
+        <div class="wholesale-visual" aria-label="Piña Golden fresca de Colombia"></div>
+        <h3>Resumen estimado</h3>
+
+        <div class="wholesale-product">
+          <small>Producto</small>
+          <strong>Piña Golden fresca</strong>
+        </div>
+
+        <div class="wholesale-lines">
+          <div class="wholesale-line"><span>Cantidad</span><strong id="wholesaleKgSummary">6.000 kg</strong></div>
+          <div class="wholesale-line"><span>Precio mayorista vigente</span><strong id="wholesalePriceSummary">$2.180/kg</strong></div>
+          <div class="wholesale-line"><span>Condición</span><strong id="wholesalePaymentSummary">Contado</strong></div>
+          <div class="wholesale-line"><span>Entrega</span><strong id="wholesaleCitySummary">Por definir</strong></div>
+        </div>
+
+        <div class="wholesale-total">
+          <span>Total estimado</span>
+          <strong id="wholesaleTotal">$13.080.000</strong>
+        </div>
+
+        <div class="wholesale-badges">
+          <span>Origen Colombia</span>
+          <span>Trazabilidad</span>
+          <span>Volumen mayorista</span>
+          <span>Precio mínimo $2.180/kg</span>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn wholesale-submit" id="wholesaleSubmit" type="button">Solicitar cotización ◆</button>
+        <p class="wholesale-disclaimer">
+          Esta solicitud no constituye una venta definitiva. El precio nunca será inferior a $2.180/kg. Disponibilidad, calidad, logística, retenciones y condiciones de pago se confirman por el equipo comercial.
+        </p>
+      </div>
+    </aside>
+  </div>
 </section>
+
+
 <section class="client-registration" id="client-registration">
-<div class="client-registration-head">
-<div>
-<div class="section-label reveal">Clientes de fruta fresca</div>
-<h2 class="reveal">Regístrate<br/>como comprador.</h2>
-</div>
-<p class="reveal">Solicita vinculación comercial para comprar fruta fresca, recibir seguimiento y acceder a condiciones personalizadas cuando exista una negociación aprobada.</p>
-</div>
-<div class="client-registration-shell reveal">
-<div class="client-registration-form">
-<h3>Solicitud de registro</h3>
-<div class="client-grid">
-<div class="client-field">
-<label for="clientCompany">Razón social o empresa</label>
-<input id="clientCompany" placeholder="Nombre legal de la empresa" type="text"/>
-</div>
-<div class="client-field">
-<label for="clientNit">NIT o identificación tributaria</label>
-<input id="clientNit" placeholder="Número de identificación" type="text"/>
-</div>
-<div class="client-field">
-<label for="clientContact">Persona de contacto</label>
-<input id="clientContact" placeholder="Nombre completo" type="text"/>
-</div>
-<div class="client-field">
-<label for="clientRole">Cargo</label>
-<input id="clientRole" placeholder="Cargo en la empresa" type="text"/>
-</div>
-<div class="client-field">
-<label for="clientPhone">WhatsApp</label>
-<input id="clientPhone" placeholder="Teléfono de contacto" type="tel"/>
-</div>
-<div class="client-field">
-<label for="clientEmail">Correo corporativo</label>
-<input id="clientEmail" placeholder="correo@empresa.com" type="email"/>
-</div>
-<div class="client-field">
-<label for="clientCity">Ciudad</label>
-<input id="clientCity" placeholder="Ciudad principal" type="text"/>
-</div>
-<div class="client-field">
-<label for="clientProductLine">Línea de interés</label>
-<select id="clientProductLine"><option value="">Seleccione una línea</option><option>Fresh Export</option><option>Fresh Industry</option><option>Ropa / colaboración comercial</option></select>
-</div>
-<div class="client-field">
-<label for="clientBusinessType">Tipo de comprador</label>
-<select id="clientBusinessType">
-<option value="">Seleccione una opción</option>
-<option>Retail</option>
-<option>Industria</option>
-<option>Food service</option>
-<option>Distribución mayorista</option>
-<option>Exportación</option>
-<option>Otro</option>
-</select>
-</div>
-<div class="client-field">
-<label for="clientMonthlyKg">Volumen mensual estimado</label>
-<select id="clientMonthlyKg">
-<option value="">Seleccione un rango</option>
-<option>6.000 a 12.000 kg</option>
-<option>12.001 a 25.000 kg</option>
-<option>25.001 a 50.000 kg</option>
-<option>Más de 50.000 kg</option>
-</select>
-</div>
-<div class="client-field">
-<label for="clientPaymentInterest">Condición de interés</label>
-<select id="clientPaymentInterest">
-<option>Contado</option>
-<option>Crédito — sujeto a estudio</option>
-</select>
-</div>
-<div class="client-field full">
-<label for="clientNotes">Información adicional</label>
-<textarea id="clientNotes" placeholder="Cuéntenos sobre su operación, frecuencia de compra, destinos o requerimientos."></textarea>
-</div>
-<div class="client-field full">
-<label class="client-check">
-<input id="clientConsent" type="checkbox"/>
-<span>Autorizo a Pariendo Piñas a contactarme y a validar la información comercial suministrada.</span>
-</label>
-</div>
-<div class="client-field full">
-<button class="btn btn-dark" id="clientRegistrationSubmit" type="button">Enviar solicitud de registro ◆</button>
-<div aria-live="polite" class="client-registration-status" id="clientRegistrationStatus"></div>
-</div>
-</div>
-</div>
-<aside class="client-registration-info">
-<div>
-<div class="eyebrow">Pariendo Piñas Business</div>
-<h3>Beneficios para clientes registrados</h3>
-<p>La aprobación del registro no genera automáticamente crédito ni descuentos. Cada condición comercial es autorizada individualmente.</p>
-<div class="client-benefits">
-<div class="client-benefit">
-<strong>Código comercial</strong>
-<span>Acceso a un precio autorizado cuando exista una negociación vigente.</span>
-</div>
-<div class="client-benefit">
-<strong>Atención prioritaria</strong>
-<span>Seguimiento comercial para programas recurrentes y compras de volumen.</span>
-</div>
-<div class="client-benefit">
-<strong>Condiciones personalizadas</strong>
-<span>Evaluación de frecuencia, logística, calidad, empaque y forma de pago.</span>
-</div>
-</div>
-</div>
-<a class="btn" href="#wholesale">Ya tengo código comercial ◆</a>
-</aside>
-</div>
+  <div class="client-registration-head">
+    <div>
+      <div class="section-label reveal">Clientes mayoristas</div>
+      <h2 class="reveal">Regístrate<br>como cliente.</h2>
+    </div>
+    <p class="reveal">
+      Crea una solicitud de vinculación comercial para acceder a precios autorizados,
+      historial de compras y condiciones especiales sujetas a aprobación.
+    </p>
+  </div>
+
+  <div class="client-registration-shell reveal">
+    <div class="client-registration-form">
+      <h3>Solicitud de registro</h3>
+
+      <div class="client-grid">
+        <div class="client-field">
+          <label for="clientCompany">Razón social o empresa</label>
+          <input id="clientCompany" type="text" placeholder="Nombre legal de la empresa">
+        </div>
+
+        <div class="client-field">
+          <label for="clientNit">NIT o identificación tributaria</label>
+          <input id="clientNit" type="text" placeholder="Número de identificación">
+        </div>
+
+        <div class="client-field">
+          <label for="clientContact">Persona de contacto</label>
+          <input id="clientContact" type="text" placeholder="Nombre completo">
+        </div>
+
+        <div class="client-field">
+          <label for="clientRole">Cargo</label>
+          <input id="clientRole" type="text" placeholder="Cargo en la empresa">
+        </div>
+
+        <div class="client-field">
+          <label for="clientPhone">WhatsApp</label>
+          <input id="clientPhone" type="tel" placeholder="Teléfono de contacto">
+        </div>
+
+        <div class="client-field">
+          <label for="clientEmail">Correo corporativo</label>
+          <input id="clientEmail" type="email" placeholder="correo@empresa.com">
+        </div>
+
+        <div class="client-field">
+          <label for="clientCity">Ciudad</label>
+          <input id="clientCity" type="text" placeholder="Ciudad principal">
+        </div>
+
+        <div class="client-field">
+          <label for="clientBusinessType">Tipo de comprador</label>
+          <select id="clientBusinessType">
+            <option value="">Seleccione una opción</option>
+            <option>Retail</option>
+            <option>Industria</option>
+            <option>Food service</option>
+            <option>Distribución mayorista</option>
+            <option>Exportación</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="client-field">
+          <label for="clientMonthlyKg">Volumen mensual estimado</label>
+          <select id="clientMonthlyKg">
+            <option value="">Seleccione un rango</option>
+            <option>6.000 a 12.000 kg</option>
+            <option>12.001 a 25.000 kg</option>
+            <option>25.001 a 50.000 kg</option>
+            <option>Más de 50.000 kg</option>
+          </select>
+        </div>
+
+        <div class="client-field">
+          <label for="clientPaymentInterest">Condición de interés</label>
+          <select id="clientPaymentInterest">
+            <option>Contado</option>
+            <option>Crédito — sujeto a estudio</option>
+          </select>
+        </div>
+
+        <div class="client-field full">
+          <label for="clientNotes">Información adicional</label>
+          <textarea id="clientNotes" placeholder="Cuéntenos sobre su operación, frecuencia de compra, destinos o requerimientos."></textarea>
+        </div>
+
+        <div class="client-field full">
+          <label class="client-check">
+            <input id="clientConsent" type="checkbox">
+            <span>Autorizo a Pariendo Piñas a contactarme y a validar la información comercial suministrada.</span>
+          </label>
+        </div>
+
+        <div class="client-field full">
+          <button class="btn btn-dark" id="clientRegistrationSubmit" type="button">Enviar solicitud de registro ◆</button>
+          <div id="clientRegistrationStatus" class="client-registration-status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="client-registration-info">
+      <div>
+        <div class="eyebrow">Pariendo Piñas Business</div>
+        <h3>Beneficios para clientes registrados</h3>
+        <p>La aprobación del registro no genera automáticamente crédito ni descuentos. Cada condición comercial es autorizada individualmente.</p>
+
+        <div class="client-benefits">
+          <div class="client-benefit">
+            <strong>Código comercial</strong>
+            <span>Acceso a un precio autorizado cuando exista una negociación vigente.</span>
+          </div>
+          <div class="client-benefit">
+            <strong>Atención prioritaria</strong>
+            <span>Seguimiento comercial para programas recurrentes y compras de volumen.</span>
+          </div>
+          <div class="client-benefit">
+            <strong>Condiciones personalizadas</strong>
+            <span>Evaluación de frecuencia, logística, calidad, empaque y forma de pago.</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="btn" href="#wholesale">Ya tengo código comercial ◆</a>
+    </aside>
+  </div>
 </section>
 
-
+<section class="export" id="export">
+  <div class="export-head">
+    <div><div class="section-label reveal">02 — Export</div><h2 class="reveal">Colombia<br>to the world.</h2></div>
+    <p class="reveal">Construimos relaciones comerciales de largo plazo con compradores, distribuidores y operadores que buscan producto tropical colombiano con identidad de marca, consistencia y capacidad de crecimiento.</p>
+  </div>
+  <div class="export-grid">
+    <article class="export-card reveal"><div class="num">01</div><h3>Retail</h3><p>Programas de suministro para tiendas, mercados especializados y cadenas que buscan una fruta con mayor valor percibido.</p></article>
+    <article class="export-card reveal"><div class="num">02</div><h3>Food Service</h3><p>Soluciones para hoteles, restaurantes, cocinas profesionales y operadores de hospitalidad.</p></article>
+    <article class="export-card reveal"><div class="num">03</div><h3>Industrial</h3><p>Producto para transformación, ingredientes, derivados y desarrollos de valor agregado.</p></article>
+    <article class="export-card reveal"><div class="num">04</div><h3>Container Programs</h3><p>Programas de volumen diseñados según mercado, frecuencia, especificación y requerimientos logísticos.</p></article>
+  </div>
+  <div class="trust-bar reveal"><div class="trust-item">Traceability</div><div class="trust-item">Export Quality</div><div class="trust-item">Cold Chain Planning</div><div class="trust-item">Colombian Origin</div><div class="trust-item">Commercial Programs</div></div>
+</section>
+<section class="gourmet-section" id="gourmet">
+  <div class="gourmet-copy">
+    <div class="section-label reveal">03 — Gourmet</div>
+    <h2 class="reveal">Born from<br>the fruit.</h2>
+    <p class="reveal">Mermeladas, salsas y pequeños lotes que conservan la intensidad del trópico y convierten la piña en una experiencia de mesa.</p>
+    <div style="margin-top:34px" class="reveal"><a class="btn btn-dark" href="mailto:hello@papinas.com?subject=Gourmet%20Inquiry">Discover Gourmet ◆</a></div>
+  </div>
+  <div class="gourmet-visual reveal"><div class="gourmet-visual-text"><strong>Small batches.<br>Big tropical character.</strong><span>Pariendo Piñas Gourmet</span></div></div>
+</section>
 <section class="lifestyle-section" id="lifestyle">
-<div class="lifestyle-copy reveal">
-<div class="eyebrow">02 — Pariendo Piñas Clothing</div>
-<h2>Wear the<br/>pineapple.<span>La línea más visible de la marca</span></h2>
-<p>Ropa y accesorios inspirados en la piña colombiana: su corona, geometría, color y energía tropical convertidos en piezas con carácter. Esta línea es una prioridad real de Pariendo Piñas, no una extensión secundaria.</p>
-<div class="lifestyle-categories"><span>Pineapple Golf</span><span>Pineapple Beach</span><span>Pineapple Travel</span><span>Pineapple Cycling</span><span>Pineapple Resort</span><span>Pineapple Essentials</span></div>
-<a class="btn btn-light" href="mailto:hello@papinas.com?subject=Pariendo%20Piñas%20Clothing">Conocer la colección ◆</a>
-</div>
+  <div class="lifestyle-copy reveal">
+    <div class="eyebrow">04 — High-End Lifestyle</div>
+    <h2>Wear the<br>tropics.<span>Pariendo Piñas Lifestyle</span></h2>
+    <p>Piezas high-end para quienes llevan el trópico como una actitud: diseño, movimiento, sofisticación y una energía imposible de ignorar.</p>
+    <div class="lifestyle-categories"><span>Golf</span><span>Beach</span><span>Travel</span><span>Cycling</span><span>Resort</span></div>
+    <a class="btn btn-light" href="#private">Explore the Collection ◆</a>
+  </div>
 </section>
-
-<section class="future-section" id="future">
-<div class="future-inner reveal">
-<div>
-<div class="section-label">Próximamente</div>
-<h2>Lo demás<br/>vendrá después.</h2>
-</div>
-<div class="future-copy">
-<p>Gourmet, objetos y experiencias hacen parte de la visión futura de Pariendo Piñas, pero todavía no son líneas activas. Por ahora, la marca concentra su energía en fruta fresca y ropa.</p>
-<div class="future-tags">
-<span>Gourmet — futuro</span>
-<span>Objects — futuro</span>
-<span>Experiences — futuro</span>
-</div>
-</div>
-</div>
-</section><section class="private" id="private">
-<div class="private-shell reveal">
-<div><div class="section-label">Private Office</div><h2>Para compradores,<br/>socios e inversionistas.</h2><p>Accede al sistema privado de la marca para conocer operaciones, compras, ventas, pricing, drops, expansión y estrategia comercial.</p></div>
-<div class="private-action"><a class="btn btn-dark" href="login.html">Acceso privado ◆</a></div>
-</div>
+<section class="world-grid" id="world">
+  <div class="world-image reveal"></div>
+  <div class="world-copy">
+    <div class="section-label reveal">05 — Our World</div>
+    <h2 class="reveal">Objects,<br>culture & ritual.</h2>
+    <p class="reveal">Pariendo Piñas no termina en la fruta ni en la ropa. Es un universo de objetos, experiencias y colaboraciones que convierten lo cotidiano en algo más cálido, más libre y más memorable.</p>
+    <div class="world-quote reveal">“The pineapple is the origin. The lifestyle is the culture.”</div>
+  </div>
+</section>
+<section class="private" id="private">
+  <div class="private-shell reveal">
+    <div><div class="section-label">Private Office</div><h2>Para compradores,<br>socios e inversionistas.</h2><p>Accede al sistema privado de la marca para conocer operaciones, compras, ventas, pricing, drops, expansión y estrategia comercial.</p></div>
+    <div class="private-action"><a class="btn btn-dark" href="login.html">Acceso privado ◆</a></div>
+  </div>
 </section>
 </main>
 <footer class="footer">
-<div class="footer-top">
-<div class="footer-brand"><h3>Pariendo Piñas</h3><p>Fresh pineapple and pineapple clothing from Colombia. The rest of the universe is still to come.</p><div class="footer-location">Bogotá · Colombia<br/>Worldwide Export</div></div>
-<div class="footer-col"><small>Business</small><a href="#produce">Fruta fresca</a><a href="#wholesale">Comprar fruta</a><a href="#client-registration">Regístrate</a></div>
-<div class="footer-col"><small>Brand</small><a href="#lifestyle">Ropa</a><a href="#future">Próximamente</a></div>
-<div class="footer-col"><small>Connect</small><a href="https://www.instagram.com/" rel="noopener" target="_blank">Instagram</a><a href="https://wa.me/" rel="noopener" target="_blank">WhatsApp</a><a href="mailto:hello@papinas.com">Email</a><a href="login.html">Private Office</a></div>
-</div>
-<div class="copy"><span>© 2026 Pariendo Piñas — All Rights Reserved</span><span>Tropical Luxury From Colombia</span></div>
+  <div class="footer-top">
+    <div class="footer-brand"><h3>Pariendo Piñas</h3><p>Premium produce, worldwide export and high-end tropical lifestyle from Colombia.</p><div class="footer-location">Bogotá · Colombia<br>Worldwide Export</div></div>
+    <div class="footer-col"><small>Business</small><a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
+    <div class="footer-col"><small>House</small><a href="#lifestyle">Lifestyle</a><a href="#world">Objects</a><a href="#world">Our World</a></div>
+    <div class="footer-col"><small>Connect</small><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:hello@papinas.com">Email</a><a href="login.html">Private Office</a></div>
+  </div>
+  <div class="copy"><span>© 2026 Pariendo Piñas — All Rights Reserved</span><span>Tropical Luxury From Colombia</span></div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const supabase = window.supabase.createClient(
-  "https://blokoiazecaeowvhhema.supabase.co",
-  "sb_publishable_HwXee3DSH5iHf1cMgGXaQQ_hIN2S34Z"
-);
 const nav=document.getElementById('nav');const menuToggle=document.getElementById('menuToggle');const navLinks=document.getElementById('navLinks');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});menuToggle.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menuToggle.setAttribute('aria-expanded',String(open))});navLinks.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{document.body.classList.remove('menu-open');menuToggle.setAttribute('aria-expanded','false')})});const revealItems=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.12});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('visible'))}
 
 const wholesaleConfig={
   minimumKg:6000,
-  industryPublicPrice:2180,
+  commercialFloor:2180,
+  contadoPrice:2180,
+  creditoPrice:2220,
   whatsappNumber:""
 };
 
 const wholesaleKg=document.getElementById("wholesaleKg");
-const wholesaleProductLine=document.getElementById("wholesaleProductLine");
-const industryApplication=document.getElementById("industryApplication");
-const industryApplicationField=document.getElementById("industryApplicationField");
 const wholesalePayment=document.getElementById("wholesalePayment");
 const wholesaleCity=document.getElementById("wholesaleCity");
 const wholesaleError=document.getElementById("wholesaleError");
@@ -907,163 +789,119 @@ function formatCop(value){
   return "$"+Math.round(Number(value||0)).toLocaleString("es-CO");
 }
 
-function getProductLineData(){
-  const isIndustry=wholesaleProductLine.value==="fresh-industry";
-  return {
-    value:wholesaleProductLine.value,
-    label:isIndustry
-      ?"Fresh Industry — Piña para transformación"
-      :"Fresh Export — Piña Golden seleccionada",
-    shortLabel:isIndustry?"Fresh Industry":"Fresh Export",
-    isIndustry
-  };
-}
-
-function updateProductLineUI(){
-  const product=getProductLineData();
-  industryApplicationField.classList.toggle("visible",product.isIndustry);
-  document.getElementById("wholesaleProductSummary").textContent=product.label;
-  if(!product.isIndustry) industryApplication.value="";
-}
-
 function updateWholesale(){
-  updateProductLineUI();
-
-  const product=getProductLineData();
-  const kg=Number(wholesaleKg.value||0);
+  let kg=Number(wholesaleKg.value||0);
   const isValid=kg>=wholesaleConfig.minimumKg;
 
-  wholesaleError.textContent=isValid
-    ?""
-    :"La compra mínima mayorista es de 6.000 kg.";
+  if(!isValid){
+    wholesaleError.textContent="La compra mínima mayorista es de 6.000 kg.";
+  }else{
+    wholesaleError.textContent="";
+  }
+
+  const configuredPrice=wholesalePayment.value==="credito"
+    ? wholesaleConfig.creditoPrice
+    : wholesaleConfig.contadoPrice;
+
+  // Política comercial obligatoria:
+  // ninguna cotización puede quedar por debajo de $2.180/kg.
+  const price=Math.max(
+    wholesaleConfig.commercialFloor,
+    Number(configuredPrice||0)
+  );
 
   document.getElementById("wholesaleKgSummary").textContent=
     Math.max(0,kg).toLocaleString("es-CO")+" kg";
-
+  document.getElementById("wholesalePriceSummary").textContent=
+    formatCop(price)+"/kg";
   document.getElementById("wholesalePaymentSummary").textContent=
-    wholesalePayment.value==="credito"
-      ?"Crédito sujeto a aprobación"
-      :"Contado";
-
+    wholesalePayment.value==="credito"?"Crédito":"Contado";
   document.getElementById("wholesaleCitySummary").textContent=
     wholesaleCity.value.trim()||"Por definir";
+  document.getElementById("wholesaleTotal").textContent=
+    formatCop(Math.max(0,kg)*price);
 
-  let price=null;
-  let total=null;
-
-  if(product.isIndustry){
-    price=negotiatedPrice!==null
-      ? negotiatedPrice
-      : wholesaleConfig.industryPublicPrice;
-    total=Math.max(0,kg)*price;
-
-    document.getElementById("wholesalePriceSummary").textContent=
-      (negotiatedPrice!==null?"Precio contractual ":"Desde ")+
-      formatCop(price)+"/kg";
-
-    document.getElementById("wholesaleTotalLabel").textContent=
-      negotiatedPrice!==null
-        ?"Total contractual estimado"
-        :"Total base estimado";
-
-    document.getElementById("wholesaleTotal").textContent=formatCop(total);
-  }else{
-    document.getElementById("wholesalePriceSummary").textContent=
-      "Cotización personalizada";
-    document.getElementById("wholesaleTotalLabel").textContent=
-      "Estado de la cotización";
-    document.getElementById("wholesaleTotal").textContent=
-      "Pendiente de validación";
-  }
-
-  if(negotiatedClientData&&clientPayment.classList.contains("visible")){
-    configureClientPayment(negotiatedClientData);
-  }
-
-  return {
-    kg,
-    price,
-    total,
-    isValid,
-    hasPrice:price!==null,
-    commercialCustomer:negotiatedCustomer
-  };
+  return {kg,price,isValid,total:Math.max(0,kg)*price};
 }
 
-[wholesaleKg,wholesaleProductLine,industryApplication,wholesalePayment,wholesaleCity].forEach(el=>{
+[wholesaleKg,wholesalePayment,wholesaleCity].forEach(el=>{
   el.addEventListener("input",updateWholesale);
   el.addEventListener("change",updateWholesale);
 });
 
+document.getElementById("wholesaleSubmit").addEventListener("click",()=>{
+  const result=updateWholesale();
+  const name=document.getElementById("wholesaleName").value.trim();
+  const phone=document.getElementById("wholesalePhone").value.trim();
+  const email=document.getElementById("wholesaleEmail").value.trim();
+  const city=wholesaleCity.value.trim();
+  const date=document.getElementById("wholesaleDate").value;
+  const use=document.getElementById("wholesaleUse").value;
+  const notes=document.getElementById("wholesaleNotes").value.trim();
+  const condition=wholesalePayment.value==="credito"?"Crédito sujeto a aprobación":"Contado";
+
+  if(!result.isValid){
+    wholesaleKg.focus();
+    return;
+  }
+
+  if(!name||!phone||!city){
+    wholesaleError.textContent="Completa nombre o empresa, WhatsApp y ciudad de entrega.";
+    return;
+  }
+
+  const message=[
+    "SOLICITUD MAYORISTA — PARIENDO PIÑAS",
+    "",
+    "Cliente: "+name,
+    "WhatsApp: "+phone,
+    "Correo: "+(email||"No informado"),
+    "Uso: "+use,
+    "Cantidad: "+result.kg.toLocaleString("es-CO")+" kg",
+    "Precio mayorista: "+formatCop(result.price)+"/kg",
+    "Total estimado: "+formatCop(result.total),
+    "Condición: "+condition,
+    "Ciudad de entrega: "+city,
+    "Fecha deseada: "+(date||"Por definir"),
+    "Observaciones: "+(notes||"Sin observaciones")
+  ].join("\n");
+
+  if(wholesaleConfig.whatsappNumber){
+    window.open(
+      "https://wa.me/"+wholesaleConfig.whatsappNumber+"?text="+encodeURIComponent(message),
+      "_blank",
+      "noopener"
+    );
+  }else{
+    window.location.href=
+      "mailto:hello@papinas.com?subject="+encodeURIComponent("Solicitud mayorista de piña")+
+      "&body="+encodeURIComponent(message);
+  }
+});
+
+updateWholesale();
+
+
 // ===== Códigos comerciales =====
-// Demostración local. En producción debe consultarse desde ERP/Supabase.
+// Demostración local. En producción, estos datos deben consultarse desde el ERP/Supabase.
 const COMMERCIAL_CODES={
   "PP-DRYCOL-2026":{
     customer:"Drycol S.A.S.",
-    authorizedPrice:2180,
-    expires:"2027-07-31",
-    active:true,
-    authorizedProductLines:["fresh-industry"],
-    allowedPaymentMethods:["pse","card"],
-    paymentLinks:{pse:"",card:""}
+    authorizedPrice:2080,
+    expires:"2026-12-31",
+    active:true
   }
 };
 
 let negotiatedPrice=null;
 let negotiatedCustomer=null;
-let negotiatedClientData=null;
 
 const commercialCodeInput=document.getElementById("commercialCode");
 const commercialCodeStatus=document.getElementById("commercialCodeStatus");
-const clientPayment=document.getElementById("clientPayment");
-const clientPaymentCopy=document.getElementById("clientPaymentCopy");
-const paymentOptionPse=document.getElementById("paymentOptionPse");
-const paymentOptionCard=document.getElementById("paymentOptionCard");
-const clientPayNow=document.getElementById("clientPayNow");
-
-function hideClientPayment(){
-  clientPayment.classList.remove("visible");
-  clientPaymentCopy.textContent="";
-  document.querySelectorAll('input[name="clientPaymentMethod"]').forEach(input=>{
-    input.checked=false;
-  });
-}
-
-function configureClientPayment(data){
-  const allowed=Array.isArray(data.allowedPaymentMethods)
-    ? data.allowedPaymentMethods : [];
-
-  const pseEnabled=allowed.includes("pse");
-  const cardEnabled=allowed.includes("card");
-
-  paymentOptionPse.classList.toggle("disabled",!pseEnabled);
-  paymentOptionCard.classList.toggle("disabled",!cardEnabled);
-  paymentOptionPse.querySelector("input").disabled=!pseEnabled;
-  paymentOptionCard.querySelector("input").disabled=!cardEnabled;
-
-  if(!pseEnabled&&!cardEnabled){
-    hideClientPayment();
-    return;
-  }
-
-  const labels=[];
-  if(pseEnabled) labels.push("PSE");
-  if(cardEnabled) labels.push("tarjeta");
-
-  clientPaymentCopy.textContent=
-    "Cliente: "+data.customer+
-    ". Medios autorizados: "+labels.join(" y ")+
-    ". Total estimado: "+
-    document.getElementById("wholesaleTotal").textContent+".";
-
-  clientPayment.classList.add("visible");
-}
 
 function resetCommercialCode(message){
   negotiatedPrice=null;
   negotiatedCustomer=null;
-  negotiatedClientData=null;
-  hideClientPayment();
   commercialCodeStatus.className="commercial-code-status visible error";
   commercialCodeStatus.textContent=message;
   updateWholesale();
@@ -1093,161 +931,54 @@ document.getElementById("applyCommercialCode").addEventListener("click",()=>{
 
   negotiatedPrice=Number(data.authorizedPrice);
   negotiatedCustomer=data.customer;
-  negotiatedClientData=data;
-
-  if(data.authorizedProductLines.length===1){
-    wholesaleProductLine.value=data.authorizedProductLines[0];
-  }
-
-  updateWholesale();
 
   commercialCodeStatus.className="commercial-code-status visible";
   commercialCodeStatus.innerHTML=
     "✓ Cliente verificado<br>"+
     "<strong>"+data.customer+"</strong><br>"+
-    "Línea autorizada: <strong>Fresh Industry</strong><br>"+
-    "Precio contractual: <strong>"+formatCop(data.authorizedPrice)+"/kg</strong><br>"+
+    "Precio autorizado: <strong>"+formatCop(data.authorizedPrice)+"/kg</strong><br>"+
     "Vigente hasta: <strong>"+expiry.toLocaleDateString("es-CO")+"</strong>";
 
-  configureClientPayment(data);
+  updateWholesale();
 });
 
 commercialCodeInput.addEventListener("input",()=>{
   if(negotiatedPrice!==null){
     negotiatedPrice=null;
     negotiatedCustomer=null;
-    negotiatedClientData=null;
-    hideClientPayment();
     commercialCodeStatus.className="commercial-code-status";
     commercialCodeStatus.textContent="";
     updateWholesale();
   }
 });
 
-document.getElementById("wholesaleSubmit").addEventListener("click",()=>{
-  const result=updateWholesale();
-  const name=document.getElementById("wholesaleName").value.trim();
-  const phone=document.getElementById("wholesalePhone").value.trim();
-  const email=document.getElementById("wholesaleEmail").value.trim();
-  const city=wholesaleCity.value.trim();
-  const date=document.getElementById("wholesaleDate").value;
-  const use=document.getElementById("wholesaleUse").value;
-  const product=getProductLineData();
-  const application=industryApplication.value;
-  const notes=document.getElementById("wholesaleNotes").value.trim();
-  const condition=wholesalePayment.value==="credito"
-    ?"Crédito sujeto a aprobación":"Contado";
+// Extiende el cálculo público para aplicar el precio autorizado del cliente.
+const baseUpdateWholesale=updateWholesale;
+updateWholesale=function(){
+  const result=baseUpdateWholesale();
 
-  if(!result.isValid){
-    wholesaleKg.focus();
-    return;
+  if(negotiatedPrice!==null){
+    const kg=Number(wholesaleKg.value||0);
+    const total=Math.max(0,kg)*negotiatedPrice;
+
+    document.getElementById("wholesalePriceSummary").textContent=
+      formatCop(negotiatedPrice)+"/kg";
+    document.getElementById("wholesaleTotal").textContent=
+      formatCop(total);
+
+    return {
+      ...result,
+      price:negotiatedPrice,
+      total,
+      commercialCustomer:negotiatedCustomer
+    };
   }
 
-  if(!name||!phone||!city){
-    wholesaleError.textContent=
-      "Completa nombre o empresa, WhatsApp y ciudad de entrega.";
-    return;
-  }
-
-  if(product.isIndustry&&!application){
-    wholesaleError.textContent=
-      "Selecciona la aplicación prevista para la piña de industria.";
-    industryApplication.focus();
-    return;
-  }
-
-  const pricingLines=result.hasPrice
-    ? [
-        "Precio base/contractual: "+formatCop(result.price)+"/kg",
-        "Total estimado: "+formatCop(result.total)
-      ]
-    : [
-        "Precio: Pendiente de cotización según destino y especificaciones"
-      ];
-
-  const message=[
-    "SOLICITUD MAYORISTA — PARIENDO PIÑAS",
-    "",
-    "Cliente: "+name,
-    "WhatsApp: "+phone,
-    "Correo: "+(email||"No informado"),
-    "Línea: "+product.shortLabel,
-    "Aplicación industrial: "+(product.isIndustry?application:"No aplica"),
-    "Canal o destino: "+use,
-    "Cantidad: "+result.kg.toLocaleString("es-CO")+" kg",
-    ...pricingLines,
-    "Condición: "+condition,
-    "Ciudad de entrega: "+city,
-    "Fecha deseada: "+(date||"Por definir"),
-    "Observaciones: "+(notes||"Sin observaciones")
-  ].join("\n");
-
-  if(wholesaleConfig.whatsappNumber){
-    window.open(
-      "https://wa.me/"+wholesaleConfig.whatsappNumber+
-      "?text="+encodeURIComponent(message),
-      "_blank",
-      "noopener"
-    );
-  }else{
-    window.location.href=
-      "mailto:hello@papinas.com?subject="+
-      encodeURIComponent("Solicitud mayorista — "+product.shortLabel)+
-      "&body="+encodeURIComponent(message);
-  }
-});
-
-clientPayNow.addEventListener("click",()=>{
-  if(!negotiatedClientData){
-    commercialCodeStatus.className="commercial-code-status visible error";
-    commercialCodeStatus.textContent="Valide primero un código comercial.";
-    return;
-  }
-
-  const selected=document.querySelector(
-    'input[name="clientPaymentMethod"]:checked'
-  );
-
-  if(!selected){
-    clientPaymentCopy.textContent="Seleccione PSE o tarjeta para continuar.";
-    return;
-  }
-
-  const method=selected.value;
-  const paymentUrl=
-    negotiatedClientData.paymentLinks&&
-    negotiatedClientData.paymentLinks[method]
-      ? negotiatedClientData.paymentLinks[method] : "";
-
-  if(paymentUrl){
-    window.open(paymentUrl,"_blank","noopener");
-    return;
-  }
-
-  const result=updateWholesale();
-  const subject=
-    "Solicitud de enlace de pago — "+negotiatedClientData.customer;
-  const body=[
-    "SOLICITUD DE PAGO — PARIENDO PIÑAS",
-    "",
-    "Cliente: "+negotiatedClientData.customer,
-    "Línea: Fresh Industry",
-    "Cantidad: "+result.kg.toLocaleString("es-CO")+" kg",
-    "Precio contractual: "+formatCop(result.price)+"/kg",
-    "Total estimado: "+formatCop(result.total),
-    "",
-    "El enlace de la pasarela de pagos todavía no está configurado."
-  ].join("\n");
-
-  window.location.href=
-    "mailto:hello@papinas.com?subject="+encodeURIComponent(subject)+
-    "&body="+encodeURIComponent(body);
-});
-
-updateWholesale();
+  return result;
+};
 
 // ===== Registro de clientes =====
-document.getElementById("clientRegistrationSubmit").addEventListener("click", async ()=>{
+document.getElementById("clientRegistrationSubmit").addEventListener("click",()=>{
   const company=document.getElementById("clientCompany").value.trim();
   const nit=document.getElementById("clientNit").value.trim();
   const contact=document.getElementById("clientContact").value.trim();
@@ -1255,7 +986,6 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click", as
   const phone=document.getElementById("clientPhone").value.trim();
   const email=document.getElementById("clientEmail").value.trim();
   const city=document.getElementById("clientCity").value.trim();
-  const productLine=document.getElementById("clientProductLine").value;
   const businessType=document.getElementById("clientBusinessType").value;
   const monthlyKg=document.getElementById("clientMonthlyKg").value;
   const paymentInterest=document.getElementById("clientPaymentInterest").value;
@@ -1263,7 +993,7 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click", as
   const consent=document.getElementById("clientConsent").checked;
   const status=document.getElementById("clientRegistrationStatus");
 
-  if(!company||!nit||!contact||!phone||!email||!city||!productLine||!businessType||!monthlyKg){
+  if(!company||!nit||!contact||!phone||!email||!city||!businessType||!monthlyKg){
     status.textContent="Complete los campos obligatorios de empresa, contacto y perfil comercial.";
     return;
   }
@@ -1283,50 +1013,22 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click", as
     "WhatsApp: "+phone,
     "Correo: "+email,
     "Ciudad: "+city,
-    "Línea de interés: "+productLine,
     "Tipo de comprador: "+businessType,
     "Volumen mensual estimado: "+monthlyKg,
     "Condición de interés: "+paymentInterest,
     "Información adicional: "+(notes||"Sin información adicional")
   ].join("\n");
-const monthlyKgValues = {
-  "6.000 a 12.000 kg": 6000,
-  "12.001 a 25.000 kg": 12001,
-  "25.001 a 50.000 kg": 25001,
-  "Más de 50.000 kg": 50001
-};
 
-const monthlyKgNumber = monthlyKgValues[monthlyKg];
- status.textContent = "Enviando solicitud...";
+  status.textContent="Preparando su solicitud de registro…";
 
-const { error } = await supabase
-    .from("client_applications")
-    .insert([{
-        company,
-        nit,
-        contact,
-        role,
-        phone,
-        email,
-        city,
-        product_line: productLine,
-        business_type: businessType,
-        monthly_kg: monthlyKgNumber,
-        payment_interest: paymentInterest,
-        notes
-    }]);
-
-if (error) {
-    console.error(error);
-    status.textContent = "Error al enviar la solicitud.";
-} else {
-    status.textContent = "¡Solicitud enviada correctamente!";
-}
+  window.location.href=
+    "mailto:hello@papinas.com?subject="+
+    encodeURIComponent("Solicitud de registro como cliente — "+company)+
+    "&body="+encodeURIComponent(message);
 });
-hideClientPayment();
-updateProductLineUI();
+
 updateWholesale();
 
 </script>
 </body>
-</html
+</html>
