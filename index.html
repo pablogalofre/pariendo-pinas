@@ -1289,7 +1289,14 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click", as
     "Condición de interés: "+paymentInterest,
     "Información adicional: "+(notes||"Sin información adicional")
   ].join("\n");
+const monthlyKgValues = {
+  "6.000 a 12.000 kg": 6000,
+  "12.001 a 25.000 kg": 12001,
+  "25.001 a 50.000 kg": 25001,
+  "Más de 50.000 kg": 50001
+};
 
+const monthlyKgNumber = monthlyKgValues[monthlyKg];
  status.textContent = "Enviando solicitud...";
 
 const { error } = await supabase
@@ -1304,7 +1311,7 @@ const { error } = await supabase
         city,
         product_line: productLine,
         business_type: businessType,
-        monthly_kg: Number(monthlyKg),
+        monthly_kg: monthlyKgNumber,
         payment_interest: paymentInterest,
         notes
     }]);
