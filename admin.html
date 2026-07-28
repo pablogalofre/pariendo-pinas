@@ -1649,7 +1649,15 @@ PRICING INTELLIGENCE V4
 
 </main>
 </div>
+const SUPABASE_URL = "https://blokoiazecaeowvhhema.supabase.co";
 
+const SUPABASE_KEY =
+"TU_PUBLIC_KEY";
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 <script>
 const users = {
   pablo:{pass:"pariendo2026", name:"Pablo Galofre"},

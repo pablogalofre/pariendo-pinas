@@ -881,7 +881,12 @@ UNIVERSO 100% PIÑA
 </div>
 <div class="copy"><span>© 2026 Pariendo Piñas — All Rights Reserved</span><span>Tropical Luxury From Colombia</span></div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+const supabase = window.supabase.createClient(
+  "https://blokoiazecaeowvhhema.supabase.co",
+  "sb_publishable_HwXee3DSH5iHf1cMgGXaQQ_hIN2S34Z"
+);
 const nav=document.getElementById('nav');const menuToggle=document.getElementById('menuToggle');const navLinks=document.getElementById('navLinks');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});menuToggle.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menuToggle.setAttribute('aria-expanded',String(open))});navLinks.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{document.body.classList.remove('menu-open');menuToggle.setAttribute('aria-expanded','false')})});const revealItems=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.12});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('visible'))}
 
 const wholesaleConfig={
@@ -1242,7 +1247,7 @@ clientPayNow.addEventListener("click",()=>{
 updateWholesale();
 
 // ===== Registro de clientes =====
-document.getElementById("clientRegistrationSubmit").addEventListener("click",()=>{
+document.getElementById("clientRegistrationSubmit").addEventListener("click", async ()=>{
   const company=document.getElementById("clientCompany").value.trim();
   const nit=document.getElementById("clientNit").value.trim();
   const contact=document.getElementById("clientContact").value.trim();
@@ -1285,18 +1290,36 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click",()=
     "Información adicional: "+(notes||"Sin información adicional")
   ].join("\n");
 
-  status.textContent="Preparando su solicitud de registro…";
+ status.textContent = "Enviando solicitud...";
 
-  window.location.href=
-    "mailto:hello@papinas.com?subject="+
-    encodeURIComponent("Solicitud de registro como cliente — "+company)+
-    "&body="+encodeURIComponent(message);
+const { error } = await supabase
+    .from("client_applications")
+    .insert([{
+        company,
+        nit,
+        contact,
+        role,
+        phone,
+        email,
+        city,
+        product_line: productLine,
+        business_type: businessType,
+        monthly_kg: Number(monthlyKg),
+        payment_interest: paymentInterest,
+        notes
+    }]);
+
+if (error) {
+    console.error(error);
+    status.textContent = "Error al enviar la solicitud.";
+} else {
+    status.textContent = "¡Solicitud enviada correctamente!";
+}
 });
-
 hideClientPayment();
 updateProductLineUI();
 updateWholesale();
 
 </script>
 </body>
-</html>
+</html
