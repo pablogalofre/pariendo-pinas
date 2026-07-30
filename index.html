@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pariendo Piñas — Tropical Luxury From Colombia</title>
-<meta name="description" content="Pariendo Piñas: premium produce, export programs and high-end tropical lifestyle from Colombia." />
+<title>Pariendo Piñas — Piña premium y lujo tropical desde Colombia</title>
+<meta name="description" content="Pariendo Piñas: piña premium colombiana, venta mayorista, programas de exportación y un universo de lujo tropical." />
+<link rel="canonical" href="https://pepinas.com/">
+<link rel="alternate" hreflang="es" href="https://pepinas.com/">
+<link rel="alternate" hreflang="en" href="https://pepinas.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://pepinas.com/">
 <link rel="icon" type="image/png" href="/images/favicon.png" />
 <link rel="apple-touch-icon" href="/images/favicon.png" />
 <link rel="preload" as="image" href="/images/login-luxury.png">
@@ -411,6 +415,13 @@ REGISTRO DE CLIENTES
   .client-registration-form,.client-registration-info{padding:26px 20px}
 }
 
+
+.lang-switch{display:flex;align-items:center;gap:8px;padding:0 4px;color:var(--gold-soft);font-size:10px;letter-spacing:2px}
+.lang-switch a{opacity:.65}
+.lang-switch a:hover,.lang-switch a.active{opacity:1;color:#fff}
+.lang-switch span{opacity:.35}
+@media(max-width:1100px){.lang-switch{margin-top:4px}}
+
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -419,19 +430,31 @@ REGISTRO DE CLIENTES
   <a href="#home" class="brand" aria-label="Pariendo Piñas"><div class="brand-symbol">PP</div><div class="brand-text">Pariendo Piñas</div></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
   <nav class="nav-links" id="navLinks">
-    <a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a><a href="#lifestyle">Lifestyle</a><a href="#world">Our World</a><a class="nav-private" href="login.html">Private Office ◆</a>
+    <a href="#produce">Producto</a>
+    <a href="#wholesale">Mayoristas</a>
+    <a href="#client-registration">Regístrate</a>
+    <a href="#export">Exportación</a>
+    <a href="#gourmet">Gourmet</a>
+    <a href="#lifestyle">Estilo de vida</a>
+    <a href="#world">Nuestro mundo</a>
+    <div class="lang-switch" aria-label="Selector de idioma">
+      <a class="active" href="/" lang="es" aria-current="page">ES</a>
+      <span>|</span>
+      <a href="/en/" lang="en">EN</a>
+    </div>
+    <a class="nav-private" href="/login.html">Oficina privada ◆</a>
   </nav>
 </header>
 <main>
 <section class="hero" id="home">
   <div class="hero-content reveal">
-    <div class="hero-kicker">From the finest pineapples of Colombia</div>
-    <h1>Pariendo<br>Piñas<span>Tropical Luxury</span></h1>
+    <div class="hero-kicker">De las mejores piñas de Colombia</div>
+    <h1>Pariendo<br>Piñas<span>Lujo tropical</span></h1>
     <p class="hero-copy">Fruta premium, programas de exportación y una línea high-end inspirada en la energía, el color y la sofisticación del trópico colombiano.</p>
-    <div class="hero-actions"><a class="btn" href="#wholesale">Comprar al por mayor ◆</a><a class="btn btn-light" href="#lifestyle">Discover Lifestyle</a></div>
-    <div class="hero-note"><span>Premium Produce</span><span>Worldwide Export</span><span>High-End Lifestyle</span></div>
+    <div class="hero-actions"><a class="btn" href="#wholesale">Comprar al por mayor ◆</a><a class="btn btn-light" href="#lifestyle">Descubrir estilo de vida</a></div>
+    <div class="hero-note"><span>Producto premium</span><span>Exportación mundial</span><span>Estilo de vida premium</span></div>
   </div>
-  <div class="scroll-cue">Scroll</div>
+  <div class="scroll-cue">Desliza</div>
 </section>
 <section class="manifesto">
   <div class="manifesto-mark reveal">PP</div>
@@ -441,14 +464,14 @@ REGISTRO DE CLIENTES
 <section class="produce-section" id="produce">
   <div class="produce-visual reveal"></div>
   <div class="produce-copy">
-    <div class="section-label reveal">01 — Produce</div>
-    <h2 class="reveal">Pineapple<br>at its finest.</h2>
+    <div class="section-label reveal">01 — Producto</div>
+    <h2 class="reveal">Piña<br>en su máxima expresión.</h2>
     <p class="reveal">Piña premium seleccionada para compradores que valoran dulzura, consistencia, trazabilidad y una presentación impecable. Soluciones para food service, retail, industria y programas de volumen.</p>
     <div class="produce-specs reveal">
-      <div class="produce-spec"><strong>Sweet Gold</strong><span>Premium selection</span></div>
-      <div class="produce-spec"><strong>Fresh</strong><span>From Colombia</span></div>
-      <div class="produce-spec"><strong>Retail</strong><span>Curated presentation</span></div>
-      <div class="produce-spec"><strong>Food Service</strong><span>Reliable supply</span></div>
+      <div class="produce-spec"><strong>Dulzura dorada</strong><span>Selección premium</span></div>
+      <div class="produce-spec"><strong>Fresca</strong><span>Desde Colombia</span></div>
+      <div class="produce-spec"><strong>Comercio minorista</strong><span>Presentación cuidada</span></div>
+      <div class="produce-spec"><strong>Gastronomía</strong><span>Suministro confiable</span></div>
     </div>
     <a class="btn" href="#wholesale">Configurar pedido mayorista ◆</a>
   </div>
@@ -489,7 +512,7 @@ REGISTRO DE CLIENTES
         <div class="wholesale-field">
           <label for="wholesaleUse">Destino comercial</label>
           <select id="wholesaleUse">
-            <option>Retail</option>
+            <option>Comercio minorista</option>
             <option>Industria</option>
             <option>Food service</option>
             <option>Distribución mayorista</option>
@@ -639,7 +662,7 @@ REGISTRO DE CLIENTES
           <label for="clientBusinessType">Tipo de comprador</label>
           <select id="clientBusinessType">
             <option value="">Seleccione una opción</option>
-            <option>Retail</option>
+            <option>Comercio minorista</option>
             <option>Industria</option>
             <option>Food service</option>
             <option>Distribución mayorista</option>
@@ -715,61 +738,67 @@ REGISTRO DE CLIENTES
 
 <section class="export" id="export">
   <div class="export-head">
-    <div><div class="section-label reveal">02 — Export</div><h2 class="reveal">Colombia<br>to the world.</h2></div>
+    <div><div class="section-label reveal">02 — Exportación</div><h2 class="reveal">Colombia<br>para el mundo.</h2></div>
     <p class="reveal">Construimos relaciones comerciales de largo plazo con compradores, distribuidores y operadores que buscan producto tropical colombiano con identidad de marca, consistencia y capacidad de crecimiento.</p>
   </div>
   <div class="export-grid">
-    <article class="export-card reveal"><div class="num">01</div><h3>Retail</h3><p>Programas de suministro para tiendas, mercados especializados y cadenas que buscan una fruta con mayor valor percibido.</p></article>
-    <article class="export-card reveal"><div class="num">02</div><h3>Food Service</h3><p>Soluciones para hoteles, restaurantes, cocinas profesionales y operadores de hospitalidad.</p></article>
+    <article class="export-card reveal"><div class="num">01</div><h3>Comercio minorista</h3><p>Programas de suministro para tiendas, mercados especializados y cadenas que buscan una fruta con mayor valor percibido.</p></article>
+    <article class="export-card reveal"><div class="num">02</div><h3>Gastronomía</h3><p>Soluciones para hoteles, restaurantes, cocinas profesionales y operadores de hospitalidad.</p></article>
     <article class="export-card reveal"><div class="num">03</div><h3>Industrial</h3><p>Producto para transformación, ingredientes, derivados y desarrollos de valor agregado.</p></article>
-    <article class="export-card reveal"><div class="num">04</div><h3>Container Programs</h3><p>Programas de volumen diseñados según mercado, frecuencia, especificación y requerimientos logísticos.</p></article>
+    <article class="export-card reveal"><div class="num">04</div><h3>Programas de contenedores</h3><p>Programas de volumen diseñados según mercado, frecuencia, especificación y requerimientos logísticos.</p></article>
   </div>
-  <div class="trust-bar reveal"><div class="trust-item">Traceability</div><div class="trust-item">Export Quality</div><div class="trust-item">Cold Chain Planning</div><div class="trust-item">Colombian Origin</div><div class="trust-item">Commercial Programs</div></div>
+  <div class="trust-bar reveal"><div class="trust-item">Trazabilidad</div><div class="trust-item">Calidad de exportación</div><div class="trust-item">Planeación de cadena de frío</div><div class="trust-item">Origen colombiano</div><div class="trust-item">Programas comerciales</div></div>
 </section>
 <section class="gourmet-section" id="gourmet">
   <div class="gourmet-copy">
     <div class="section-label reveal">03 — Gourmet</div>
-    <h2 class="reveal">Born from<br>the fruit.</h2>
+    <h2 class="reveal">Nacido<br>de la fruta.</h2>
     <p class="reveal">Mermeladas, salsas y pequeños lotes que conservan la intensidad del trópico y convierten la piña en una experiencia de mesa.</p>
-    <div style="margin-top:34px" class="reveal"><a class="btn btn-dark" href="mailto:hello@papinas.com?subject=Gourmet%20Inquiry">Discover Gourmet ◆</a></div>
+    <div style="margin-top:34px" class="reveal"><a class="btn btn-dark" href="mailto:hello@papinas.com?subject=Gourmet%20Inquiry">Descubrir Gourmet ◆</a></div>
   </div>
-  <div class="gourmet-visual reveal"><div class="gourmet-visual-text"><strong>Small batches.<br>Big tropical character.</strong><span>Pariendo Piñas Gourmet</span></div></div>
+  <div class="gourmet-visual reveal"><div class="gourmet-visual-text"><strong>Pequeños lotes.<br>Gran carácter tropical.</strong><span>Pariendo Piñas Gourmet</span></div></div>
 </section>
 <section class="lifestyle-section" id="lifestyle">
   <div class="lifestyle-copy reveal">
-    <div class="eyebrow">04 — High-End Lifestyle</div>
-    <h2>Wear the<br>tropics.<span>Pariendo Piñas Lifestyle</span></h2>
+    <div class="eyebrow">04 — Estilo de vida premium</div>
+    <h2>Viste el<br>trópico.<span>Pariendo Piñas Estilo de Vida</span></h2>
     <p>Piezas high-end para quienes llevan el trópico como una actitud: diseño, movimiento, sofisticación y una energía imposible de ignorar.</p>
-    <div class="lifestyle-categories"><span>Golf</span><span>Beach</span><span>Travel</span><span>Cycling</span><span>Resort</span></div>
-    <a class="btn btn-light" href="#private">Explore the Collection ◆</a>
+    <div class="lifestyle-categories"><span>Golf</span><span>Playa</span><span>Viajes</span><span>Ciclismo</span><span>Resort</span></div>
+    <a class="btn btn-light" href="#private">Explorar la colección ◆</a>
   </div>
 </section>
 <section class="world-grid" id="world">
   <div class="world-image reveal"></div>
   <div class="world-copy">
-    <div class="section-label reveal">05 — Our World</div>
-    <h2 class="reveal">Objects,<br>culture & ritual.</h2>
+    <div class="section-label reveal">05 — Nuestro mundo</div>
+    <h2 class="reveal">Objetos,<br>cultura y ritual.</h2>
     <p class="reveal">Pariendo Piñas no termina en la fruta ni en la ropa. Es un universo de objetos, experiencias y colaboraciones que convierten lo cotidiano en algo más cálido, más libre y más memorable.</p>
-    <div class="world-quote reveal">“The pineapple is the origin. The lifestyle is the culture.”</div>
+    <div class="world-quote reveal">“La piña es el origen. El estilo de vida es la cultura.”</div>
   </div>
 </section>
 <section class="private" id="private">
   <div class="private-shell reveal">
-    <div><div class="section-label">Private Office</div><h2>Para compradores,<br>socios e inversionistas.</h2><p>Accede al sistema privado de la marca para conocer operaciones, compras, ventas, pricing, drops, expansión y estrategia comercial.</p></div>
-    <div class="private-action"><a class="btn btn-dark" href="login.html">Acceso privado ◆</a></div>
+    <div><div class="section-label">Oficina privada</div><h2>Para compradores,<br>socios e inversionistas.</h2><p>Accede al sistema privado de la marca para conocer operaciones, compras, ventas, pricing, drops, expansión y estrategia comercial.</p></div>
+    <div class="private-action"><a class="btn btn-dark" href="/login.html">Acceso privado ◆</a></div>
   </div>
 </section>
 </main>
 <footer class="footer">
   <div class="footer-top">
-    <div class="footer-brand"><h3>Pariendo Piñas</h3><p>Premium produce, worldwide export and high-end tropical lifestyle from Colombia.</p><div class="footer-location">Bogotá · Colombia<br>Worldwide Export</div></div>
-    <div class="footer-col"><small>Business</small><a href="#produce">Produce</a><a href="#wholesale">Wholesale</a><a href="#client-registration">Regístrate</a><a href="#export">Export</a><a href="#gourmet">Gourmet</a></div>
-    <div class="footer-col"><small>House</small><a href="#lifestyle">Lifestyle</a><a href="#world">Objects</a><a href="#world">Our World</a></div>
-    <div class="footer-col"><small>Connect</small><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:hello@papinas.com">Email</a><a href="login.html">Private Office</a></div>
+    <div class="footer-brand"><h3>Pariendo Piñas</h3><p>Producto premium, exportación mundial y estilo de vida tropical desde Colombia.</p><div class="footer-location">Bogotá · Colombia<br>Exportación mundial</div></div>
+    <div class="footer-col"><small>Negocios</small><a href="#produce">Producto</a><a href="#wholesale">Mayoristas</a><a href="#client-registration">Regístrate</a><a href="#export">Exportación</a><a href="#gourmet">Gourmet</a></div>
+    <div class="footer-col"><small>Universo</small><a href="#lifestyle">Estilo de vida</a><a href="#world">Objetos</a><a href="#world">Nuestro mundo</a></div>
+    <div class="footer-col"><small>Contacto</small><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:hello@papinas.com">Correo</a><a href="/login.html">Oficina privada</a></div>
   </div>
-  <div class="copy"><span>© 2026 Pariendo Piñas — All Rights Reserved</span><span>Tropical Luxury From Colombia</span></div>
+  <div class="copy"><span>© 2026 Pariendo Piñas — Todos los derechos reservados</span><span>Lujo tropical Desde Colombia</span></div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+const supabase = window.supabase.createClient(
+  "https://blokoiazecaeowvhhema.supabase.co",
+  "sb_publishable_HwXee3DSH5iHf1cMgGXaQQ_hIN2S34Z"
+);
+
 const nav=document.getElementById('nav');const menuToggle=document.getElementById('menuToggle');const navLinks=document.getElementById('navLinks');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});menuToggle.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menuToggle.setAttribute('aria-expanded',String(open))});navLinks.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{document.body.classList.remove('menu-open');menuToggle.setAttribute('aria-expanded','false')})});const revealItems=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.12});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('visible'))}
 
 const wholesaleConfig={
@@ -977,8 +1006,8 @@ updateWholesale=function(){
   return result;
 };
 
-// ===== Registro de clientes =====
-document.getElementById("clientRegistrationSubmit").addEventListener("click",()=>{
+// ===== Registro de clientes conectado a Supabase =====
+document.getElementById("clientRegistrationSubmit").addEventListener("click", async ()=>{
   const company=document.getElementById("clientCompany").value.trim();
   const nit=document.getElementById("clientNit").value.trim();
   const contact=document.getElementById("clientContact").value.trim();
@@ -992,6 +1021,7 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click",()=
   const notes=document.getElementById("clientNotes").value.trim();
   const consent=document.getElementById("clientConsent").checked;
   const status=document.getElementById("clientRegistrationStatus");
+  const submitButton=document.getElementById("clientRegistrationSubmit");
 
   if(!company||!nit||!contact||!phone||!email||!city||!businessType||!monthlyKg){
     status.textContent="Complete los campos obligatorios de empresa, contacto y perfil comercial.";
@@ -1003,28 +1033,60 @@ document.getElementById("clientRegistrationSubmit").addEventListener("click",()=
     return;
   }
 
-  const message=[
-    "SOLICITUD DE REGISTRO — PARIENDO PIÑAS",
-    "",
-    "Empresa: "+company,
-    "NIT / identificación: "+nit,
-    "Contacto: "+contact,
-    "Cargo: "+(role||"No informado"),
-    "WhatsApp: "+phone,
-    "Correo: "+email,
-    "Ciudad: "+city,
-    "Tipo de comprador: "+businessType,
-    "Volumen mensual estimado: "+monthlyKg,
-    "Condición de interés: "+paymentInterest,
-    "Información adicional: "+(notes||"Sin información adicional")
-  ].join("\n");
+  const monthlyKgValues={
+    "6.000 a 12.000 kg":6000,
+    "12.001 a 25.000 kg":12001,
+    "25.001 a 50.000 kg":25001,
+    "Más de 50.000 kg":50001
+  };
 
-  status.textContent="Preparando su solicitud de registro…";
+  status.textContent="Enviando solicitud...";
+  submitButton.disabled=true;
 
-  window.location.href=
-    "mailto:hello@papinas.com?subject="+
-    encodeURIComponent("Solicitud de registro como cliente — "+company)+
-    "&body="+encodeURIComponent(message);
+  try{
+    const { error }=await supabase
+      .from("client_applications")
+      .insert([{
+        company,
+        nit,
+        contact,
+        role:role||null,
+        phone,
+        email,
+        city,
+        business_type:businessType,
+        monthly_kg:monthlyKgValues[monthlyKg]||null,
+        payment_interest:paymentInterest,
+        notes:notes||null
+      }]);
+
+    if(error) throw error;
+
+    status.textContent="¡Solicitud enviada correctamente!";
+
+    [
+      "clientCompany",
+      "clientNit",
+      "clientContact",
+      "clientRole",
+      "clientPhone",
+      "clientEmail",
+      "clientCity",
+      "clientNotes"
+    ].forEach(id=>{
+      document.getElementById(id).value="";
+    });
+
+    document.getElementById("clientBusinessType").value="";
+    document.getElementById("clientMonthlyKg").value="";
+    document.getElementById("clientPaymentInterest").selectedIndex=0;
+    document.getElementById("clientConsent").checked=false;
+  }catch(error){
+    console.error("Error al guardar la solicitud:",error);
+    status.textContent="No fue posible enviar la solicitud. Revise la conexión o la configuración de Supabase.";
+  }finally{
+    submitButton.disabled=false;
+  }
 });
 
 updateWholesale();
